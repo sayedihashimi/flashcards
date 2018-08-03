@@ -1,0 +1,109 @@
+﻿{
+  "Name": "Letters",
+  "Cards": [
+    {
+      "QuestionText": "A",
+      "AnswerText": "A"
+    },
+    {
+      "QuestionText": "B",
+      "AnswerText": "B"
+    },
+    {
+      "QuestionText": "C",
+      "AnswerText": "C"
+    },
+    {
+      "QuestionText": "D",
+      "AnswerText": "D"
+    },
+    {
+      "QuestionText": "E",
+      "AnswerText": "E"
+    },
+    {
+      "QuestionText": "F",
+      "AnswerText": "F"
+    },
+    {
+      "QuestionText": "G",
+      "AnswerText": "G"
+    },
+    {
+      "QuestionText": "H",
+      "AnswerText": "H"
+    },
+    {
+      "QuestionText": "I",
+      "AnswerText": "I"
+    },
+    {
+      "QuestionText": "J",
+      "AnswerText": "J"
+    },
+    {
+      "QuestionText": "K",
+      "AnswerText": "K"
+    },
+    {
+      "QuestionText": "L",
+      "AnswerText": "L"
+    },
+    {
+      "QuestionText": "M",
+      "AnswerText": "M"
+    },
+    {
+      "QuestionText": "N",
+      "AnswerText": "N"
+    },
+    {
+      "QuestionText": "O",
+      "AnswerText": "O"
+    },
+    {
+      "QuestionText": "P",
+      "AnswerText": "P"
+    },
+    {
+      "QuestionText": "Q",
+      "AnswerText": "Q"
+    },
+    {
+      "QuestionText": "R",
+      "AnswerText": "R"
+    },
+    {
+      "QuestionText": "S",
+      "AnswerText": "S"
+    },
+    {
+      "QuestionText": "T",
+      "AnswerText": "T"
+    },
+    {
+      "QuestionText": "U",
+      "AnswerText": "U"
+    },
+    {
+      "QuestionText": "V",
+      "AnswerText": "V"
+    },
+    {
+      "QuestionText": "W",
+      "AnswerText": "W"
+    },
+    {
+      "QuestionText": "X",
+      "AnswerText": "X"
+    },
+    {
+      "QuestionText": "Y",
+      "AnswerText": "Y"
+    },
+    {
+      "QuestionText": "Z",
+      "AnswerText": "Z"
+    }
+  ]
+}

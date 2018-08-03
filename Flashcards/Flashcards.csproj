@@ -8,4 +8,12 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\sets\" />
+    <Folder Include="wwwroot\sets\sayed\" />
+    <Folder Include="Views\ViewSet\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Controllers\ViewSetController.css" />
+  </ItemGroup>
 </Project>
