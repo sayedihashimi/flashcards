@@ -18,6 +18,7 @@ namespace Flashcards.Controllers {
 
         private IHostingEnvironment HostEnv { get; set; }
 
+        [Route("set/{setname}/{username}")]
         public IActionResult Index(string username, string setname) {
 
             string filepath = Path.Combine(HostEnv.WebRootPath, $"sets/{username}/{setname}.json");
@@ -27,6 +28,17 @@ namespace Flashcards.Controllers {
             }
 
             return View(set);
+        }
+
+        [Route("set/json/{setname}/{username}")]
+        public IActionResult Json(string username, string setname){
+            string filepath = Path.Combine(HostEnv.WebRootPath, $"sets/{username}/{setname}.json");
+            CardSet set = null;
+            if (System.IO.File.Exists(filepath)) {
+                set = CardSet.BuildFromJson(System.IO.File.ReadAllText(filepath));
+            }
+
+            return Json(set);
         }
     }
 }
