@@ -1,0 +1,231 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Server\\SayedHa.Flashcards.Wasm.Server.csproj": {}
+  },
+  "projects": {
+    "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Client\\SayedHa.Flashcards.Wasm.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Client\\SayedHa.Flashcards.Wasm.Client.csproj",
+        "projectName": "SayedHa.Flashcards.Wasm.Client",
+        "projectPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Client\\SayedHa.Flashcards.Wasm.Client.csproj",
+        "packagesPath": "C:\\Users\\sayedha\\.nuget\\packages\\",
+        "outputPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sayedha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\SayedHa.Flashcards.Wasm.Shared.csproj": {
+                "projectPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\SayedHa.Flashcards.Wasm.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200-preview.20566.9\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Server\\SayedHa.Flashcards.Wasm.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Server\\SayedHa.Flashcards.Wasm.Server.csproj",
+        "projectName": "SayedHa.Flashcards.Wasm.Server",
+        "projectPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Server\\SayedHa.Flashcards.Wasm.Server.csproj",
+        "packagesPath": "C:\\Users\\sayedha\\.nuget\\packages\\",
+        "outputPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sayedha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Client\\SayedHa.Flashcards.Wasm.Client.csproj": {
+                "projectPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Client\\SayedHa.Flashcards.Wasm.Client.csproj"
+              },
+              "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\SayedHa.Flashcards.Wasm.Shared.csproj": {
+                "projectPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\SayedHa.Flashcards.Wasm.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200-preview.20566.9\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\SayedHa.Flashcards.Wasm.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\SayedHa.Flashcards.Wasm.Shared.csproj",
+        "projectName": "SayedHa.Flashcards.Wasm.Shared",
+        "projectPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\SayedHa.Flashcards.Wasm.Shared.csproj",
+        "packagesPath": "C:\\Users\\sayedha\\.nuget\\packages\\",
+        "outputPath": "D:\\data\\mycode\\flashcards\\src\\SayedHa.Flashcards\\SayedHa.Flashcards.Wasm\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\sayedha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200-preview.20566.9\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
