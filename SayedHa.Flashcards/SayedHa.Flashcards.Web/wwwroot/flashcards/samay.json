@@ -1,0 +1,70 @@
+[
+  {
+    "Text": "Cat",
+    "ImageUrl": "flashcards/cat.jpg"
+  },
+  {
+    "Text": "Dog",
+    "ImageUrl": "flashcards/dot.jpg"
+  },
+  {
+    "Text": "circle",
+    "ImageUrl": "flashcards/circle.svg"
+  },
+  {
+    "Text": "crescent",
+    "ImageUrl": "flashcards/crescent.svg"
+  },
+  {
+    "Text": "equals",
+    "ImageUrl": "flashcards/equals.svg"
+  },
+  {
+    "Text": "heart",
+    "ImageUrl": "flashcards/heart.svg"
+  },
+  {
+    "Text": "hexagon",
+    "ImageUrl": "flashcards/hexagon.svg"
+  },
+  {
+    "Text": "octagon",
+    "ImageUrl": "flashcards/octagon.svg"
+  },
+  {
+    "Text": "pentagon",
+    "ImageUrl": "flashcards/pentagon.svg"
+  },
+  {
+    "Text": "plus",
+    "ImageUrl": "flashcards/plus.svg"
+  },
+  {
+    "Text": "rectangle",
+    "ImageUrl": "flashcards/rectangle.svg"
+  },
+  {
+    "Text": "square",
+    "ImageUrl": "flashcards/square.svg"
+  },
+  {
+    "Text": "triangle",
+    "ImageUrl": "flashcards/triangle.svg"
+  },
+  {
+    "Text": "triangle2",
+    "ImageUrl": "flashcards/triangle2.svg"
+  },
+  {
+    "Text": "Umbrella-159361",
+    "ImageUrl": "flashcards/Umbrella-159361.svg"
+  },
+  {
+    "Text": "White_Gray_Minuet_Cat",
+    "ImageUrl": "flashcards/White_Gray_Minuet_Cat.png"
+  },
+  {
+    "Text": "PQ_dog",
+    "ImageUrl": "flashcards/PQ_dog.jpg"
+  }
+]

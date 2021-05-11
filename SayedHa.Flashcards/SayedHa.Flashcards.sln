@@ -3,7 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31227.472
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayedHa.Flashcards.Web", "SayedHa.Flashcards.Web\SayedHa.Flashcards.Web.csproj", "{0D52799D-65F3-4DEB-8473-257230C620A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Web", "SayedHa.Flashcards.Web\SayedHa.Flashcards.Web.csproj", "{0D52799D-65F3-4DEB-8473-257230C620A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Shared", "SayedHa.Flashcards.Shared\SayedHa.Flashcards.Shared.csproj", "{45DD3857-A63A-4AF3-A3A3-2A2477F68E56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Related", "Related", "{3E14BC2F-27B0-4ABE-B958-E3731523A057}"
+	ProjectSection(SolutionItems) = preProject
+		..\media\readme.md = ..\media\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayedHa.Flashcards.Tests", "SayedHa.Flashcards.Tests\SayedHa.Flashcards.Tests.csproj", "{D3271C3B-7D35-46FD-B494-A53F3388F0B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +24,14 @@ Global
 		{0D52799D-65F3-4DEB-8473-257230C620A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D52799D-65F3-4DEB-8473-257230C620A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D52799D-65F3-4DEB-8473-257230C620A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45DD3857-A63A-4AF3-A3A3-2A2477F68E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45DD3857-A63A-4AF3-A3A3-2A2477F68E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45DD3857-A63A-4AF3-A3A3-2A2477F68E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45DD3857-A63A-4AF3-A3A3-2A2477F68E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3271C3B-7D35-46FD-B494-A53F3388F0B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3271C3B-7D35-46FD-B494-A53F3388F0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3271C3B-7D35-46FD-B494-A53F3388F0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3271C3B-7D35-46FD-B494-A53F3388F0B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
