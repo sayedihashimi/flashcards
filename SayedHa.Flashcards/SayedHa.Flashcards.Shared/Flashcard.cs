@@ -27,11 +27,5 @@ namespace SayedHa.Flashcards.Shared {
             !string.IsNullOrEmpty(filepath) ? 
                 GetFlashcardsFromJson(await File.ReadAllTextAsync(filepath)) : 
                 null;
-
-        public async Task<string> FooAsync(string filepath) {
-            var content = await File.ReadAllTextAsync(filepath);
-
-            throw new NotImplementedException();
-        }
     }
 }

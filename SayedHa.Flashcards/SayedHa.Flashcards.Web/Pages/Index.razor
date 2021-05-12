@@ -1,7 +1,35 @@
 ﻿@page "/"
+@using SayedHa.Flashcards.Shared
+@inject HttpClient Http
+@inject FlashcardWeb FlashcardWeb
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@*<FlashcardView Text = "circle" ImageUrl="flashcards/media/circle.svg" />
+<FlashcardView Text = "crescent" ImageUrl="flashcards/media/crescent.svg" />
+<FlashcardView Text = "equals" ImageUrl="flashcards/media/equals.svg" />*@
+
+@if(Flashcards != null) {
+    foreach(var f in Flashcards) {
+        <FlashcardView Text = "@f.Text" ImageUrl="@f.ImageUrl" />
+}
+}
+else {
+    <p class="loading">loading.</p>
+}
+
+@code{
+    List<Flashcard> Flashcards = null;
+
+    protected async Task<List<SayedHa.Flashcards.Shared.Flashcard>> GetFlashcards() => await FlashcardWeb.GetFlashcardsAsync("samay");
+
+    protected override async Task OnInitializedAsync() {
+        // forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        //var flashcardJson = await Http.GetStringAsync("flashcards/samay.json");
+
+        Flashcards = await FlashcardWeb.GetFlashcardsAsync("samay.json");
+        //return base.OnInitializedAsync();
+    }
+}

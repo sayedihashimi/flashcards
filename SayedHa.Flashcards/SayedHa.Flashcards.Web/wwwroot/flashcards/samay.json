@@ -1,70 +1,62 @@
 [
   {
-    "Text": "Cat",
-    "ImageUrl": "flashcards/cat.jpg"
-  },
-  {
-    "Text": "Dog",
-    "ImageUrl": "flashcards/dot.jpg"
-  },
-  {
     "Text": "circle",
-    "ImageUrl": "flashcards/circle.svg"
+    "ImageUrl": "flashcards/media/circle.svg"
   },
   {
     "Text": "crescent",
-    "ImageUrl": "flashcards/crescent.svg"
+    "ImageUrl": "flashcards/media/crescent.svg"
   },
   {
     "Text": "equals",
-    "ImageUrl": "flashcards/equals.svg"
+    "ImageUrl": "flashcards/media/equals.svg"
   },
   {
     "Text": "heart",
-    "ImageUrl": "flashcards/heart.svg"
+    "ImageUrl": "flashcards/media/heart.svg"
   },
   {
     "Text": "hexagon",
-    "ImageUrl": "flashcards/hexagon.svg"
+    "ImageUrl": "flashcards/media/hexagon.svg"
   },
   {
     "Text": "octagon",
-    "ImageUrl": "flashcards/octagon.svg"
+    "ImageUrl": "flashcards/media/octagon.svg"
   },
   {
     "Text": "pentagon",
-    "ImageUrl": "flashcards/pentagon.svg"
+    "ImageUrl": "flashcards/media/pentagon.svg"
   },
   {
     "Text": "plus",
-    "ImageUrl": "flashcards/plus.svg"
+    "ImageUrl": "flashcards/media/plus.svg"
   },
   {
     "Text": "rectangle",
-    "ImageUrl": "flashcards/rectangle.svg"
+    "ImageUrl": "flashcards/media/rectangle.svg"
   },
   {
     "Text": "square",
-    "ImageUrl": "flashcards/square.svg"
+    "ImageUrl": "flashcards/media/square.svg"
   },
   {
     "Text": "triangle",
-    "ImageUrl": "flashcards/triangle.svg"
+    "ImageUrl": "flashcards/media/triangle.svg"
   },
   {
     "Text": "triangle2",
-    "ImageUrl": "flashcards/triangle2.svg"
+    "ImageUrl": "flashcards/media/triangle2.svg"
   },
   {
     "Text": "Umbrella-159361",
-    "ImageUrl": "flashcards/Umbrella-159361.svg"
+    "ImageUrl": "flashcards/media/Umbrella-159361.svg"
   },
   {
     "Text": "White_Gray_Minuet_Cat",
-    "ImageUrl": "flashcards/White_Gray_Minuet_Cat.png"
+    "ImageUrl": "flashcards/media/White_Gray_Minuet_Cat.png"
   },
   {
     "Text": "PQ_dog",
-    "ImageUrl": "flashcards/PQ_dog.jpg"
+    "ImageUrl": "flashcards/media/PQ_dog.jpg"
   }
 ]

@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SayedHa.Flashcards.Shared;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -15,6 +17,9 @@ namespace SayedHa.Flashcards.Web {
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            // builder.Services.AddScoped(IHostEnvironment, builder.HostEnvironment);
+            builder.Services.AddScoped<FlashcardManager>();
+            builder.Services.AddScoped<FlashcardWeb>();
 
             await builder.Build().RunAsync();
         }
