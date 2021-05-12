@@ -3,33 +3,37 @@
 @inject HttpClient Http
 @inject FlashcardWeb FlashcardWeb
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-@*<FlashcardView Text = "circle" ImageUrl="flashcards/media/circle.svg" />
-<FlashcardView Text = "crescent" ImageUrl="flashcards/media/crescent.svg" />
-<FlashcardView Text = "equals" ImageUrl="flashcards/media/equals.svg" />*@
-
-@if(Flashcards != null) {
-    foreach(var f in Flashcards) {
-        <FlashcardView Text = "@f.Text" ImageUrl="@f.ImageUrl" />
+@if(currentFlashcard != null){
+    <FlashcardView Text="@currentFlashcard.Text" ImageUrl = "@currentFlashcard.ImageUrl" />
 }
+else{
+    <p class="loading"></p>
 }
-else {
-    <p class="loading">loading.</p>
+
+@if(FlashcardWeb == null){
+    <h1>flashcardweb null</h1>
 }
 
 @code{
     List<Flashcard> Flashcards = null;
+    int currentIndex = 0;
+    Flashcard currentFlashcard = null;
 
     protected async Task<List<SayedHa.Flashcards.Shared.Flashcard>> GetFlashcards() => await FlashcardWeb.GetFlashcardsAsync("samay");
 
     protected override async Task OnInitializedAsync() {
-        // forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-        //var flashcardJson = await Http.GetStringAsync("flashcards/samay.json");
+#if DEBUG
+    await Task.Delay(10000);
+#endif
 
-        Flashcards = await FlashcardWeb.GetFlashcardsAsync("samay.json");
-        //return base.OnInitializedAsync();
+        if(FlashcardWeb != null) {
+            Flashcards = await GetFlashcards();
+            if (Flashcards != null && Flashcards.Count > 0) {
+                currentFlashcard = Flashcards[currentIndex];
+            }
+            else {
+                Console.WriteLine("Flashcards null");
+            }    
+        }
     }
 }
