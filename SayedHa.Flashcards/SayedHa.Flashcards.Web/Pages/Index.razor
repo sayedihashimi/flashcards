@@ -4,7 +4,13 @@
 @inject FlashcardWeb FlashcardWeb
 
 @if(currentFlashcard != null){
+    <span class="previousCardButton">
+        <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MovePrevious" />
+    </span>
     <FlashcardView Text="@currentFlashcard.Text" ImageUrl = "@currentFlashcard.ImageUrl" />
+    <span class="nextCardButton">
+        <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MoveNext" />
+    </span>
 }
 else{
     <p class="loading"></p>
@@ -22,7 +28,7 @@ else{
     protected async Task<List<SayedHa.Flashcards.Shared.Flashcard>> GetFlashcards() => await FlashcardWeb.GetFlashcardsAsync("samay");
 
     protected override async Task OnInitializedAsync() {
-#if DEBUG
+#if DEBUGDDDDD
     await Task.Delay(10000);
 #endif
 
@@ -34,6 +40,32 @@ else{
             else {
                 Console.WriteLine("Flashcards null");
             }    
+        }
+    }
+
+    private void MoveNext()
+    {
+        if (Flashcards.Count > 0)
+        {
+            currentIndex = (currentIndex + 1) % Flashcards.Count;
+            currentFlashcard = Flashcards[currentIndex];
+        }
+        else{
+            Console.WriteLine("Flashcards is null or empty");
+        }
+    }
+    private void MovePrevious()
+    {
+        if (Flashcards.Count > 0)
+        {
+            currentIndex = (currentIndex - 1) % Flashcards.Count;
+            if(currentIndex < 0){
+                currentIndex = Flashcards.Count - 1;
+            }
+            currentFlashcard = Flashcards[currentIndex];
+        }
+        else{
+            Console.WriteLine("Flashcards is null or empty");
         }
     }
 }

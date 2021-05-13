@@ -30,15 +30,46 @@
 html, body {
     padding: 0;
     margin: 0;
+    height: 100%;
+    width: 100%
 }
 body {
-    background-color: var(--bgcolor);
-    width: 100%;
+    /* background-color: var(--bgcolor); */
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
     font-size: 4vw;
 }
-
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
 .loading::before{
     content: "loading....."
+}
+.navButton {
+    width: 5vw;
+    height: 5vw;
+}
+.nextCardButton .navButton {
+    /* content: url("/left-arrow.svg"); */
+    transform: rotate(180deg);
+}
+.flashcard {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.flashcard-text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 5vw;
+}
+.flashcard-image {
+    height: 50vw;
+    width: 100%;
+    object-fit: contain;
 }
