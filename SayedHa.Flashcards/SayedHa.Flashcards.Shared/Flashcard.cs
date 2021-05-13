@@ -10,6 +10,7 @@ namespace SayedHa.Flashcards.Shared {
     public class Flashcard {
         public string Text { get; set; }
         public string ImageUrl { get; set; }
+        public bool ShowText { get; set; } = true;
     }
 
     public class FlashcardManager {

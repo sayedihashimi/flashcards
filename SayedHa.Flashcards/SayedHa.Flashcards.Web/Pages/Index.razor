@@ -7,7 +7,7 @@
     <span class="previousCardButton">
         <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MovePrevious" />
     </span>
-    <FlashcardView Text="@currentFlashcard.Text" ImageUrl = "@currentFlashcard.ImageUrl" />
+    <FlashcardView Flashcard="@currentFlashcard" />
     <span class="nextCardButton">
         <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MoveNext" />
     </span>

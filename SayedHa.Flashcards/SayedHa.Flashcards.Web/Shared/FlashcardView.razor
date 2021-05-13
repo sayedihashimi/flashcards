@@ -1,12 +1,20 @@
 ﻿<section class="flashcard">
-	<img src="@ImageUrl" alt="@Text" class="flashcard-image" />
-	<h2 class="flashcard-text">@Text</h2>
+@if (Flashcard != null)
+{
+	<img src="@Flashcard.ImageUrl" alt="@Flashcard.Text" class="flashcard-image" />
+	@if (Flashcard.ShowText)
+	{
+	<h2 class="flashcard-text">@Flashcard.Text</h2>
+	}
+}
+else
+{
+	<span>error</span>
+}
 </section>
 
 
 @code {
 	[Parameter]
-    public string Text { get; set; }
-	[Parameter]
-    public string ImageUrl { get; set; }
+	public SayedHa.Flashcards.Shared.Flashcard Flashcard { get; set; }
 }
