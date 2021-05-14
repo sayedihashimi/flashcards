@@ -49,20 +49,29 @@ body {
 .loading::before{
     content: "loading....."
 }
+.flashcard-answer[hidden]{
+    visibility: hidden;
+}
+
 .navButton {
     width: 5vw;
     height: 5vw;
 }
 .nextCardButton .navButton {
-    /* content: url("/left-arrow.svg"); */
     transform: rotate(180deg);
 }
+.previousCardButton, .nextCardButton{
+    cursor: pointer;
+    /* add padding to make tap target larger for ease of use */
+    padding: 3vw;
+}
+
 .flashcard {
     height: 100%;
     width: 100%;
     object-fit: contain;
 }
-.flashcard-text{
+.flashcard-answer{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -72,4 +81,10 @@ body {
     height: 50vw;
     width: 100%;
     object-fit: contain;
+}
+
+.flashcard-questiontext{
+    width: 100%;
+    font-size: 15vw;
+    text-align: center;
 }

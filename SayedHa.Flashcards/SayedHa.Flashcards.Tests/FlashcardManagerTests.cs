@@ -12,15 +12,15 @@ namespace SayedHa.Flashcards.Tests {
         public void TestGetAsJson() {
             var flashcards = new List<Flashcard>() {
                 new Flashcard {
-                    Text="some text1",
+                    Answer="some text1",
                     ImageUrl = "https://demo.com/someimage1.png"
                 },
                 new Flashcard {
-                    Text="some text2",
+                    Answer="some text2",
                     ImageUrl = "https://demo.com/someimage2.png"
                 },
                 new Flashcard {
-                    Text="some text3",
+                    Answer="some text3",
                     ImageUrl = "https://demo.com/someimage3.png"
                 }
             };
@@ -47,7 +47,7 @@ namespace SayedHa.Flashcards.Tests {
             var result = await fm.GetFlashcardsFromJsonFileAsync(filepath);
             Assert.NotNull(result);
             Assert.True(result.Count == 10);
-            Assert.True(string.Equals("some text1", result[0].Text));
+            Assert.True(string.Equals("some text1", result[0].Answer));
         }
     }
 }

@@ -1,11 +1,16 @@
 ﻿<section class="flashcard">
 @if (Flashcard != null)
 {
-	<img src="@Flashcard.ImageUrl" alt="@Flashcard.Text" class="flashcard-image" />
-	@if (Flashcard.ShowText)
+	@if (!string.IsNullOrEmpty(Flashcard.ImageUrl))
 	{
-	<h2 class="flashcard-text">@Flashcard.Text</h2>
+		<img src="@Flashcard.ImageUrl" alt="@Flashcard.Answer" class="flashcard-image" 
+			@onclick="ShowAnswer" hasAnswer=@(!string.IsNullOrEmpty(Flashcard.Answer)) />		
 	}
+	@if(!string.IsNullOrEmpty(Flashcard.QuestionText)){
+		<div class="flashcard-questiontext" @onclick="ShowAnswer" 
+				hasAnswer=@(!string.IsNullOrEmpty(Flashcard.Answer))>@Flashcard.QuestionText</div>
+	}
+	<h2 class="flashcard-answer" hidden="@(!(Flashcard.ShowText || ShowText))">@Flashcard.Answer</h2>
 }
 else
 {
@@ -15,6 +20,23 @@ else
 
 
 @code {
+	private SayedHa.Flashcards.Shared.Flashcard _flashcard;
 	[Parameter]
-	public SayedHa.Flashcards.Shared.Flashcard Flashcard { get; set; }
+	public SayedHa.Flashcards.Shared.Flashcard Flashcard {
+		get
+		{
+			return _flashcard;
+		}
+		set
+		{
+			_flashcard = value;
+			ShowText = false;
+		}
+	}
+
+	public bool ShowText { get; set; }
+
+	private void ShowAnswer(){
+		ShowText = true;
+	}
 }
