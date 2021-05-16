@@ -28,7 +28,7 @@ else{
     protected async Task<List<SayedHa.Flashcards.Shared.Flashcard>> GetFlashcards() => await FlashcardWeb.GetFlashcardsAsync("samay");
 
     protected override async Task OnInitializedAsync() {
-#if DEBUGDDDDD
+#if DEBUG
     await Task.Delay(10000);
 #endif
 

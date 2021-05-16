@@ -14,6 +14,12 @@ namespace SayedHa.Flashcards.Shared {
         public string ImageUrl { get; set; }
         public bool ShowText { get; set; }
         public string Audio { get; set; }
+
+        [JsonIgnore()]
+        public string TempId
+        {
+            get => $"card-{QuestionText}";
+        }
     }
 
     public class FlashcardManager {

@@ -12,10 +12,6 @@
     "Audio": "flashcards/media/audio/bot.wav"
   },
   {
-    "QuestionText": "make",
-    "Audio": "flashcards/media/audio/make.wav"
-  },
-  {
     "QuestionText": "on",
     "Audio": "flashcards/media/audio/on.wav"
   },
@@ -48,16 +44,6 @@
     "Audio": "flashcards/media/audio/where.wav"
   },
   {
-    "Answer": "10",
-    "QuestionText": "5 + 5",
-    "ShowText": "false"
-  },
-  {
-    "Answer": "5",
-    "QuestionText": "2 + 3",
-    "ShowText": "false"
-  },
-  {
     "QuestionText": "hat"
   },
   {
@@ -67,7 +53,14 @@
     "QuestionText": "rat"
   },
   {
-    "QuestionText": "rat"
+    "Answer": "10",
+    "QuestionText": "5 + 5",
+    "ShowText": "false"
+  },
+  {
+    "Answer": "5",
+    "QuestionText": "2 + 3",
+    "ShowText": "false"
   },
   {
     "Answer": "circle",

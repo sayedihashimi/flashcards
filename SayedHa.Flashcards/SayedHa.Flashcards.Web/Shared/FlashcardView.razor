@@ -13,10 +13,8 @@
 				hasAnswer=@(!string.IsNullOrEmpty(Flashcard.Answer))>@Flashcard.QuestionText</div>
 	}
 	<h2 class="flashcard-answer" hidden="@(!(Flashcard.ShowText || ShowText))">@Flashcard.Answer</h2>
-	<span class="flashcard-speaker" hidden="@(!HasAudio())" @onclick="PlayTheAudio">
-		<audio id="@Flashcard.QuestionText" src="@Flashcard.Audio" />
-		
-		🗣
+	<span class="flashcard-speaker" hidden="@(!HasAudio())" @onclick="PlayCardAudio">
+		<audio id="audio-@Flashcard.TempId" src="@Flashcard.Audio" />🗣
 	</span>
 }
 else
@@ -51,9 +49,10 @@ else
 	private void ShowAnswer(){
 		ShowText = true;
 	}
-	private void PlayTheAudio()
+	private void PlayCardAudio()
 	{
 		Console.WriteLine("Inside FlashcardView.PlayAudio");
-		JsRuntime.InvokeAsync<string>("PlayAudio2", Flashcard.QuestionText);
+		// audio-@Flashcard.TempId
+		JsRuntime.InvokeAsync<string>("PlayAudio2", $"audio-{Flashcard.TempId}");
 	}
 }
