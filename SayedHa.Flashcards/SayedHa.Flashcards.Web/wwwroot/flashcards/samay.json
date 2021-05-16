@@ -1,5 +1,53 @@
 [
   {
+    "QuestionText": "jump",
+    "Audio": "flashcards/media/audio/jump.wav"
+  },
+  {
+    "QuestionText": "make",
+    "Audio": "flashcards/media/audio/make.wav"
+  },
+  {
+    "QuestionText": "bot",
+    "Audio": "flashcards/media/audio/bot.wav"
+  },
+  {
+    "QuestionText": "make",
+    "Audio": "flashcards/media/audio/make.wav"
+  },
+  {
+    "QuestionText": "on",
+    "Audio": "flashcards/media/audio/on.wav"
+  },
+  {
+    "QuestionText": "blue",
+    "Audio": "flashcards/media/audio/blue.wav"
+  },
+  {
+    "QuestionText": "here",
+    "Audio": "flashcards/media/audio/here.wav"
+  },
+  {
+    "QuestionText": "come",
+    "Audio": "flashcards/media/audio/come.wav"
+  },
+  {
+    "QuestionText": "for",
+    "Audio": "flashcards/media/audio/for.wav"
+  },
+  {
+    "QuestionText": "not",
+    "Audio": "flashcards/media/audio/not.wav"
+  },
+  {
+    "QuestionText": "help",
+    "Audio": "flashcards/media/audio/help.wav"
+  },
+  {
+    "QuestionText": "where",
+    "Audio": "flashcards/media/audio/where.wav"
+  },
+  {
     "Answer": "10",
     "QuestionText": "5 + 5",
     "ShowText": "false"
@@ -8,6 +56,18 @@
     "Answer": "5",
     "QuestionText": "2 + 3",
     "ShowText": "false"
+  },
+  {
+    "QuestionText": "hat"
+  },
+  {
+    "QuestionText": "cat"
+  },
+  {
+    "QuestionText": "rat"
+  },
+  {
+    "QuestionText": "rat"
   },
   {
     "Answer": "circle",

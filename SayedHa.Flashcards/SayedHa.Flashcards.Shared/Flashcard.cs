@@ -12,7 +12,8 @@ namespace SayedHa.Flashcards.Shared {
         // TODO: Change the name of this property and ShowText
         public string Answer { get; set; }
         public string ImageUrl { get; set; }
-        public bool ShowText { get; set; } = true;
+        public bool ShowText { get; set; }
+        public string Audio { get; set; }
     }
 
     public class FlashcardManager {

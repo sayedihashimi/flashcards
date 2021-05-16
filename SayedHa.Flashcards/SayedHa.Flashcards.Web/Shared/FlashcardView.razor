@@ -1,4 +1,6 @@
-﻿<section class="flashcard">
+﻿@inject IJSRuntime JsRuntime
+
+<section class="flashcard">
 @if (Flashcard != null)
 {
 	@if (!string.IsNullOrEmpty(Flashcard.ImageUrl))
@@ -11,6 +13,11 @@
 				hasAnswer=@(!string.IsNullOrEmpty(Flashcard.Answer))>@Flashcard.QuestionText</div>
 	}
 	<h2 class="flashcard-answer" hidden="@(!(Flashcard.ShowText || ShowText))">@Flashcard.Answer</h2>
+	<span class="flashcard-speaker" hidden="@(!HasAudio())" @onclick="PlayTheAudio">
+		<audio id="@Flashcard.QuestionText" src="@Flashcard.Audio" />
+		
+		🗣
+	</span>
 }
 else
 {
@@ -35,8 +42,18 @@ else
 	}
 
 	public bool ShowText { get; set; }
+	private bool HasAudio()
+	{
+		return Flashcard != null && !string.IsNullOrEmpty(Flashcard.Audio);
+	}
 
+	// Events that are called by this page
 	private void ShowAnswer(){
 		ShowText = true;
+	}
+	private void PlayTheAudio()
+	{
+		Console.WriteLine("Inside FlashcardView.PlayAudio");
+		JsRuntime.InvokeAsync<string>("PlayAudio2", Flashcard.QuestionText);
 	}
 }
