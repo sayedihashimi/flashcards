@@ -7,11 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Web", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Shared", "SayedHa.Flashcards.Shared\SayedHa.Flashcards.Shared.csproj", "{45DD3857-A63A-4AF3-A3A3-2A2477F68E56}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Related", "Related", "{3E14BC2F-27B0-4ABE-B958-E3731523A057}"
-	ProjectSection(SolutionItems) = preProject
-		..\media\readme.md = ..\media\readme.md
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Tests", "SayedHa.Flashcards.Tests\SayedHa.Flashcards.Tests.csproj", "{D3271C3B-7D35-46FD-B494-A53F3388F0B6}"
 EndProject
 Global
