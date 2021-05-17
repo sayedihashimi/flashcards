@@ -88,9 +88,13 @@ body {
     width: 100%;
     object-fit: contain;
 }
-
 .flashcard-questiontext{
     width: 100%;
     font-size: 15vw;
     text-align: center;
+}
+.flashcard-speaker{
+    width: 4vw;
+    padding: 4vw;
+    cursor: pointer;
 }
