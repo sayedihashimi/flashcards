@@ -35,7 +35,18 @@ namespace SayedHa.Flashcards.Shared {
         [JsonIgnore()]
         public string TempId
         {
-            get => $"card-{QuestionText}";
+            get {
+                var extratext = string.Empty;
+                extratext += !string.IsNullOrEmpty(QuestionText) ? 
+                                $"-{QuestionText}" : 
+                                string.Empty;
+                extratext += !string.IsNullOrEmpty(Answer) ? 
+                                $"-{Answer}" : 
+                                string.Empty;
+
+
+                return $"card-{extratext}";
+            }
         }
     }
 

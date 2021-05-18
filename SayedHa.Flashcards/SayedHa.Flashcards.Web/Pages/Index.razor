@@ -49,7 +49,8 @@ else{
 #endif
 
         if(FlashcardWeb != null) {
-            _flashcardList = new FlashcardList(await GetFlashcards());
+             _flashcardList = new FlashcardList(await GetFlashcards());
+            //_flashcardList = new AdditionFlashcardList(1, 9, 10);
             currentFlashcard = _flashcardList.GetCurrent();
         }
     }

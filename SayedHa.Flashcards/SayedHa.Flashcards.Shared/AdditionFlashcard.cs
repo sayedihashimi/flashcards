@@ -13,6 +13,8 @@ namespace SayedHa.Flashcards.Shared
             Num1 =  random.Next(minValue, maxValue);
             Num2 = random.Next(minValue, maxValue);
             QuestionText = $"{Num1} + {Num2}";
+            Answer = $"{Num1 + Num2}";
+            Audio = $"flashcards/media/audio/number-{Answer}.wav";
         }
 
         public int Num1 { get; private set; }
