@@ -37,51 +37,31 @@ else{
 }
 
 @code{
-    List<Flashcard> Flashcards = null;
-    int currentIndex = 0;
     Flashcard currentFlashcard = null;
 
     protected async Task<List<SayedHa.Flashcards.Shared.Flashcard>> GetFlashcards() => await FlashcardWeb.GetFlashcardsAsync("samay");
 
+    protected IFlashcardList _flashcardList;
     protected override async Task OnInitializedAsync() {
-#if DEBUG
+
+#if DEBUGDDD
     await Task.Delay(10000);
 #endif
 
         if(FlashcardWeb != null) {
-            Flashcards = await GetFlashcards();
-            if (Flashcards != null && Flashcards.Count > 0) {
-                currentFlashcard = Flashcards[currentIndex];
-            }
-            else {
-                Console.WriteLine("Flashcards null");
-            }    
+            _flashcardList = new FlashcardList(await GetFlashcards());
+            currentFlashcard = _flashcardList.GetCurrent();
         }
     }
 
     private void MoveNext()
     {
-        if (Flashcards.Count > 0)
-        {
-            currentIndex = (currentIndex + 1) % Flashcards.Count;
-            currentFlashcard = Flashcards[currentIndex];
-        }
-        else{
-            Console.WriteLine("Flashcards is null or empty");
-        }
+        _flashcardList.MoveNext();
+        currentFlashcard = _flashcardList.GetCurrent();
     }
     private void MovePrevious()
     {
-        if (Flashcards.Count > 0)
-        {
-            currentIndex = (currentIndex - 1) % Flashcards.Count;
-            if(currentIndex < 0){
-                currentIndex = Flashcards.Count - 1;
-            }
-            currentFlashcard = Flashcards[currentIndex];
-        }
-        else{
-            Console.WriteLine("Flashcards is null or empty");
-        }
+        _flashcardList.MovePrevious();
+        currentFlashcard = _flashcardList.GetCurrent();
     }
 }

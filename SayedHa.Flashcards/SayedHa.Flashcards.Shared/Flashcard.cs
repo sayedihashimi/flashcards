@@ -22,13 +22,16 @@ using System.Threading.Tasks;
 
 namespace SayedHa.Flashcards.Shared {
     public class Flashcard {
-        public string QuestionText { get; set; }
+        public virtual string QuestionText { get; set; }
         // TODO: Change the name of this property and ShowText
-        public string Answer { get; set; }
-        public string ImageUrl { get; set; }
-        public bool ShowText { get; set; }
-        public string Audio { get; set; }
-
+        public virtual string Answer { get; set; }
+        public virtual string ImageUrl { get; set; }
+        public virtual bool ShowText { get; set; }
+        public virtual string Audio { get; set; }
+        public virtual FlashcardType Type
+        {
+            get => FlashcardType.Standard;
+        }
         [JsonIgnore()]
         public string TempId
         {
