@@ -28,6 +28,9 @@ namespace SayedHa.Flashcards.Shared {
         public virtual string ImageUrl { get; set; }
         public virtual bool ShowText { get; set; }
         public virtual string Audio { get; set; }
+        // Audio and QuestionAudioParts are mutually exclusive and Audio gets priority
+        public virtual List<string> QuestionAudioParts { get; set; }
+        public virtual List<string> AnswerAudioParts { get; set; }
         public virtual FlashcardType Type
         {
             get => FlashcardType.Standard;

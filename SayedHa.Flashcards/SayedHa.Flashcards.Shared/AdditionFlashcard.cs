@@ -14,7 +14,14 @@ namespace SayedHa.Flashcards.Shared
             Num2 = random.Next(minValue, maxValue);
             QuestionText = $"{Num1} + {Num2}";
             Answer = $"{Num1 + Num2}";
-            Audio = $"flashcards/media/audio/number-{Answer}.wav";
+            AnswerAudioParts = new List<string>() {
+                $"flashcards/media/audio/number-{Answer}.wav"
+            };
+
+            QuestionAudioParts = new List<string>();
+            QuestionAudioParts.Add($"flashcards/media/audio/number-{Num1}.wav");
+            QuestionAudioParts.Add($"flashcards/media/audio/math-plus.wav");
+            QuestionAudioParts.Add($"flashcards/media/audio/number-{Num2}.wav");
         }
 
         public int Num1 { get; private set; }

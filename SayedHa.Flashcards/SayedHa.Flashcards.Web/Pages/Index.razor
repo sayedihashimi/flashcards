@@ -18,6 +18,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @using SayedHa.Flashcards.Shared
 @inject HttpClient Http
 @inject FlashcardWeb FlashcardWeb
+@inject IJSRuntime JsRuntime
 
 @if(currentFlashcard != null){
     <span class="previousCardButton">
@@ -27,6 +28,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     <span class="nextCardButton">
         <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MoveNext" />
     </span>
+    <div>
+        <a @onclick="ShowAddition">addition</a>
+    </div>
 }
 else{
     <p class="loading"></p>
@@ -44,7 +48,7 @@ else{
     protected IFlashcardList _flashcardList;
     protected override async Task OnInitializedAsync() {
 
-#if DEBUGDDD
+#if DEBUG
     await Task.Delay(10000);
 #endif
 
@@ -54,7 +58,6 @@ else{
             currentFlashcard = _flashcardList.GetCurrent();
         }
     }
-
     private void MoveNext()
     {
         _flashcardList.MoveNext();
@@ -63,6 +66,10 @@ else{
     private void MovePrevious()
     {
         _flashcardList.MovePrevious();
+        currentFlashcard = _flashcardList.GetCurrent();
+    }
+    private void ShowAddition() {
+        _flashcardList = new AdditionFlashcardList(1, 9, 10);
         currentFlashcard = _flashcardList.GetCurrent();
     }
 }

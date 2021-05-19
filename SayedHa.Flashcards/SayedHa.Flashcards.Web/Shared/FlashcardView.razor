@@ -29,9 +29,15 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 				hasAnswer=@(!string.IsNullOrEmpty(Flashcard.Answer))>@Flashcard.QuestionText</div>
 	}
 	<h2 class="flashcard-answer" hidden="@(!(Flashcard.ShowText || ShowText))">@Flashcard.Answer</h2>
-	<span class="flashcard-speaker" hidden="@(!HasAudio())" @onclick="PlayCardAudio">
-		<audio id="audio-@Flashcard.TempId" src="@Flashcard.Audio" />🗣
-	</span>
+	@if (HasAudio()) {
+		<span class="flashcard-speaker" @onclick="PlayCardAudio">
+			<audio id="audio-@Flashcard.TempId" src="@Flashcard.Audio" />🗣
+		</span>
+	} 
+	else if(HasQuestionTextAudioParts()) {
+		<span id="questionTextAudio" class="flashcard-speaker" @onclick="PlayQuestionTextAudio">🗣</span>
+	}
+
 }
 else
 {
@@ -56,11 +62,11 @@ else
 	}
 
 	public bool ShowText { get; set; }
-	private bool HasAudio()
-	{
-		return Flashcard != null && !string.IsNullOrEmpty(Flashcard.Audio);
-	}
 
+	private bool HasAudio() => Flashcard != null && !string.IsNullOrEmpty(Flashcard.Audio);
+	
+	private bool HasQuestionTextAudioParts() => Flashcard.QuestionAudioParts != null && Flashcard.QuestionAudioParts.Count > 0;
+	
 	// Events that are called by this page
 	private void ShowAnswer(){
 		ShowText = true;
@@ -69,6 +75,12 @@ else
 	{
 		Console.WriteLine("Inside FlashcardView.PlayAudio");
 		// audio-@Flashcard.TempId
-		JsRuntime.InvokeAsync<string>("PlayAudio2", $"audio-{Flashcard.TempId}");
+		JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-{Flashcard.TempId}");
+	}
+	private void PlayQuestionTextAudio() {
+		Console.WriteLine("inside FlashcardView.PlayQuestionTextAudio");
+		string[] urls = Flashcard.QuestionAudioParts.ToArray();
+		Console.WriteLine($"urls: {string.Join(";",urls)}");
+		JsRuntime.InvokeVoidAsync("PlayAudioSeries", Flashcard.QuestionAudioParts);
 	}
 }
