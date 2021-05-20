@@ -115,9 +115,12 @@ body {
     text-align: center;
 }
 .flashcard-speaker{
-    width: 6vw;
     padding: 2vw;
     cursor: pointer;
+    width: min-content;
+}
+.flashcard-speaker img{
+    width: 6vw;
 }
 #mainMenu{
     width: 4vw;
