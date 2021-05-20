@@ -62,7 +62,7 @@ body {
     /* background-color: var(--bgcolor); */
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
-    font-size: 4vw;
+    font-size: 6vw;
 }
 .main {
     width: 100%;
@@ -115,7 +115,21 @@ body {
     text-align: center;
 }
 .flashcard-speaker{
+    width: 6vw;
+    padding: 2vw;
+    cursor: pointer;
+}
+#mainMenu{
     width: 4vw;
-    padding: 4vw;
+    height: 100%;
+
+    font-size: 4vw;
+}
+#mainMenu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#mainMenu ul li{
     cursor: pointer;
 }
