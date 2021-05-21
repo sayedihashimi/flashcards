@@ -1,1 +1,61 @@
-<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="clip0"><rect x="0" y="0" width="1280" height="720"/></clipPath></defs><g clip-path="url(#clip0)"><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/><path d="M762.5 649.5C627.743 649.5 518.5 520.11 518.5 360.5 518.5 200.89 627.743 71.5001 762.5 71.5001 627.743 191.208 600.432 417.64 701.5 577.25 718.841 604.635 739.379 628.961 762.5 649.5Z" stroke="#2F528F" stroke-width="1.33333" stroke-miterlimit="8" fill="#4472C4" fill-rule="evenodd"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="246.42096"
+   height="579.33325"
+   overflow="hidden"
+   version="1.1"
+   id="svg12979"
+   sodipodi:docname="crescent.svg"
+   inkscape:version="1.2-dev (72973b3, 2021-05-17)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview12981"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.83203125"
+     inkscape:cx="121.38967"
+     inkscape:cy="289.05164"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12979" />
+  <defs
+     id="defs12973">
+    <clipPath
+       id="clip0">
+      <rect
+         x="0"
+         y="0"
+         width="1280"
+         height="720"
+         id="rect12970" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip0)"
+     id="g12977"
+     transform="translate(-517.83333,-70.833435)">
+    <path
+       d="m 762.5,649.5 c -134.757,0 -244,-129.39 -244,-289 0,-159.61 109.243,-288.9999 244,-288.9999 C 627.743,191.208 600.432,417.64 701.5,577.25 c 17.341,27.385 37.879,51.711 61,72.25 z"
+       stroke="#2f528f"
+       stroke-width="1.33333"
+       stroke-miterlimit="8"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path12975" />
+  </g>
+</svg>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="57.050781mm"
+   height="57.050781mm"
+   viewBox="0 0 57.050781 57.050781"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2-dev (72973b3, 2021-05-17)"
+   sodipodi:docname="drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="21.858917"
+     inkscape:cy="554.83075"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     height="296mm"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs2">
+    <rect
+       x="52.718567"
+       y="176.15717"
+       width="664.76825"
+       height="709.77191"
+       id="rect2475" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.5871633,-1.6872104)">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-18.711339,-44.907216)"
+       id="text2473"
+       style="font-style:normal;font-weight:normal;font-size:192px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2475);fill:#000000;fill-opacity:1;stroke:none"
+       inkscape:transform-center-x="32.999998"
+       inkscape:transform-center-y="-34.701031"><tspan
+         x="52.71875"
+         y="351.32367"
+         id="tspan11795">🔢</tspan></text>
+  </g>
+</svg>

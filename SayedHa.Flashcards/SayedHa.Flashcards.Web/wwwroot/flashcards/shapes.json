@@ -1,0 +1,62 @@
+[
+  {
+    "Answer": "rectangle",
+    "ImageUrl": "flashcards/media/rectangle.svg",
+    "Audio": "flashcards/media/audio/rectangle.wav"
+  },
+  {
+    "Answer": "square",
+    "ImageUrl": "flashcards/media/square.svg",
+    "Audio": "flashcards/media/audio/square.wav"
+  },
+  {
+    "Answer": "triangle",
+    "ImageUrl": "flashcards/media/triangle.svg",
+    "Audio": "flashcards/media/audio/triangle.wav"
+  },
+  {
+    "Answer": "circle",
+    "ImageUrl": "flashcards/media/circle.svg",
+    "Audio": "flashcards/media/audio/circle.wav"
+  },
+  {
+    "Answer": "crescent",
+    "ImageUrl": "flashcards/media/crescent.svg",
+    "Audio": "flashcards/media/audio/crescent.wav"
+  },
+  {
+    "Answer": "triangle",
+    "ImageUrl": "flashcards/media/triangle2.svg",
+    "Audio": "flashcards/media/audio/triangle.wav"
+  },
+  {
+    "Answer": "oval",
+    "ImageUrl": "flashcards/media/oval.svg",
+    "Audio": "flashcards/media/audio/oval.wav"
+  },
+  {
+    "Answer": "heart",
+    "ImageUrl": "flashcards/media/heart.svg",
+    "Audio": "flashcards/media/audio/heart.wav"
+  },
+  {
+    "Answer": "hexagon",
+    "ImageUrl": "flashcards/media/hexagon.svg",
+    "Audio": "flashcards/media/audio/hexagon.wav"
+  },
+  {
+    "Answer": "octagon",
+    "ImageUrl": "flashcards/media/octagon.svg",
+    "Audio": "flashcards/media/audio/octagon.wav"
+  },
+  {
+    "Answer": "pentagon",
+    "ImageUrl": "flashcards/media/pentagon.svg",
+    "Audio": "flashcards/media/audio/pentagon.wav"
+  },
+  {
+    "Answer": "plus",
+    "ImageUrl": "flashcards/media/plus.svg",
+    "Audio": "flashcards/media/audio/plus.wav"
+  }
+]

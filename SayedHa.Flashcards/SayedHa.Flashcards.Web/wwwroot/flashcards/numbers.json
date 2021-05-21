@@ -1,0 +1,42 @@
+[
+  {
+    "ImageUrl": "flashcards/media/number-1.svg",
+    "Audio": "flashcards/media/audio/number-1.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-2.svg",
+    "Audio": "flashcards/media/audio/number-2.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-3.svg",
+    "Audio": "flashcards/media/audio/number-3.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-4.svg",
+    "Audio": "flashcards/media/audio/number-4.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-5.svg",
+    "Audio": "flashcards/media/audio/number-5.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-6.svg",
+    "Audio": "flashcards/media/audio/number-6.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-7.svg",
+    "Audio": "flashcards/media/audio/number-7.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-8.svg",
+    "Audio": "flashcards/media/audio/number-8.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-9.svg",
+    "Audio": "flashcards/media/audio/number-9.wav"
+  },
+  {
+    "ImageUrl": "flashcards/media/number-10.svg",
+    "Audio": "flashcards/media/audio/number-10.wav"
+  }
+]

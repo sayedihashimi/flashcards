@@ -23,7 +23,10 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @if(currentFlashcard != null){
     <span id="mainMenu">
         <ul>
-            <li @onclick="ShowDefaultCards">🏠</li>
+            <li @onclick="ShowDefaultCards">🏠</li>            
+            <li @onclick="ShowLetters"><img src="media/letters.svg" alt="letters" /></li>
+            <li @onclick="ShowNumbers"><img src="media/numbers.svg" alt="numbers" /></li>
+            <li @onclick="ShowShapes"><img src="media/shapes-icon.svg" alt="shapes" /></li>
             <li @onclick="ShowAddition">➕</li>
         </ul>
     </span>
@@ -52,6 +55,21 @@ else{
     protected async Task<List<SayedHa.Flashcards.Shared.Flashcard>> GetFlashcards() => await FlashcardWeb.GetFlashcardsAsync("samay");
 
     protected IFlashcardList _flashcardList;
+    private IFlashcardList FlashcardList
+    {
+        get
+        {
+            return _flashcardList;
+        }
+        set
+        {
+            _flashcardList = value;
+            if (_flashcardList != null)
+            {
+                currentFlashcard = _flashcardList.GetCurrent();
+            }
+        }
+    }
     protected override async Task OnInitializedAsync() {
 
 #if DEBUGddddd
@@ -59,30 +77,44 @@ else{
 #endif
 
         if(FlashcardWeb != null) {
-             _flashcardList = new FlashcardList(await GetFlashcards());
+             FlashcardList = new FlashcardList(await GetFlashcards());
             //_flashcardList = new AdditionFlashcardList(1, 9, 10);
-            currentFlashcard = _flashcardList.GetCurrent();
+            //currentFlashcard = _flashcardList.GetCurrent();
         }
     }
     private void MoveNext()
     {
-        _flashcardList.MoveNext();
+        FlashcardList.MoveNext();
         currentFlashcard = _flashcardList.GetCurrent();
     }
     private void MovePrevious()
     {
-        _flashcardList.MovePrevious();
+        FlashcardList.MovePrevious();
         currentFlashcard = _flashcardList.GetCurrent();
     }
+    
     private void ShowAddition() {
-        _flashcardList = new AdditionFlashcardList(1, 9, 25);
-        currentFlashcard = _flashcardList.GetCurrent();
+        FlashcardList = new AdditionFlashcardList(1, 9, 25);
+        //currentFlashcard = _flashcardList.GetCurrent();
+    }
+    private async Task ShowShapes()
+    {
+        FlashcardList = new FlashcardList(await FlashcardWeb.GetFlashcardsAsync("shapes"));
+        //currentFlashcard = _flashcardList.GetCurrent();
+    }
+    private async Task ShowLetters()
+    {
+        FlashcardList = new FlashcardList(await FlashcardWeb.GetFlashcardsAsync("letters"));
+    }
+    private async Task ShowNumbers()
+    {
+        FlashcardList = new FlashcardList(await FlashcardWeb.GetFlashcardsAsync("numbers"));
     }
     private async Task ShowDefaultCards() {
         // probably should cache these cardLists, exception being pages
         // like the Addition page
         // should implement some general way to caches these files
-        _flashcardList = new FlashcardList(await GetFlashcards());
-        currentFlashcard = _flashcardList.GetCurrent();
+        FlashcardList = new FlashcardList(await GetFlashcards());
+        //currentFlashcard = _flashcardList.GetCurrent();
     }
 }

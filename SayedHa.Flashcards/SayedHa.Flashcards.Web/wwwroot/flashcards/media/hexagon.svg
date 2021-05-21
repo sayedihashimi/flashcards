@@ -1,1 +1,61 @@
-<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="clip0"><rect x="0" y="0" width="1280" height="720"/></clipPath></defs><g clip-path="url(#clip0)"><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/><path d="M354.5 360.5 485 99.5001 796 99.5001 926.5 360.5 796 621.5 485 621.5Z" stroke="#2F528F" stroke-width="1.33333" stroke-miterlimit="8" fill="#4472C4" fill-rule="evenodd"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="573.49072"
+   height="523.33325"
+   overflow="hidden"
+   version="1.1"
+   id="svg13045"
+   sodipodi:docname="hexagon.svg"
+   inkscape:version="1.2-dev (72973b3, 2021-05-17)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13047"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.83203125"
+     inkscape:cx="286.04695"
+     inkscape:cy="261.40845"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13045" />
+  <defs
+     id="defs13039">
+    <clipPath
+       id="clip0">
+      <rect
+         x="0"
+         y="0"
+         width="1280"
+         height="720"
+         id="rect13036" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip0)"
+     id="g13043"
+     transform="translate(-353.75465,-98.833435)">
+    <path
+       d="M 354.5,360.5 485,99.5001 H 796 L 926.5,360.5 796,621.5 H 485 Z"
+       stroke="#2f528f"
+       stroke-width="1.33333"
+       stroke-miterlimit="8"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path13041" />
+  </g>
+</svg>

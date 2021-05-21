@@ -106,7 +106,9 @@ body {
 }
 .flashcard-image {
     height: 50vh;
-    width: 100%;
+    width: 40vw;
+    align-self: center;
+    padding-top: 5vh;
     object-fit: contain;
 }
 .flashcard-questiontext{
@@ -123,10 +125,10 @@ body {
     width: 6vw;
 }
 #mainMenu{
-    width: 4vw;
+    width: min-content;
     height: 100%;
 
-    font-size: 4vw;
+    font-size: 6vw;
 }
 #mainMenu ul{
     list-style-type: none;
@@ -135,4 +137,10 @@ body {
 }
 #mainMenu ul li{
     cursor: pointer;
+    
 }
+    #mainMenu ul li img {
+        height: 100%;
+        width: 100%;
+        padding-left: 0.7vw;
+    }

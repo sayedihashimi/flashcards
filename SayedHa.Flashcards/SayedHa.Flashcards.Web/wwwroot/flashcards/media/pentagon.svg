@@ -1,1 +1,61 @@
-<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="clip0"><rect x="0" y="0" width="1280" height="720"/></clipPath></defs><g clip-path="url(#clip0)"><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/><path d="M294.501 296.761 640.5 90.5001 986.499 296.761 854.34 630.499 426.66 630.499Z" stroke="#2F528F" stroke-width="1.33333" stroke-miterlimit="8" fill="#4472C4" fill-rule="evenodd"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="693.65546"
+   height="541.44171"
+   overflow="hidden"
+   version="1.1"
+   id="svg21319"
+   sodipodi:docname="pentagon.svg"
+   inkscape:version="1.2-dev (72973b3, 2021-05-17)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview21321"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.390625"
+     inkscape:cx="346.60674"
+     inkscape:cy="270.02247"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg21319" />
+  <defs
+     id="defs21313">
+    <clipPath
+       id="clip0">
+      <rect
+         x="0"
+         y="0"
+         width="1280"
+         height="720"
+         id="rect21310" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip0)"
+     id="g21317"
+     transform="translate(-293.67226,-89.723965)">
+    <path
+       d="M 294.501,296.761 640.5,90.5001 986.499,296.761 854.34,630.499 H 426.66 Z"
+       stroke="#2f528f"
+       stroke-width="1.33333"
+       stroke-miterlimit="8"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path21315" />
+  </g>
+</svg>

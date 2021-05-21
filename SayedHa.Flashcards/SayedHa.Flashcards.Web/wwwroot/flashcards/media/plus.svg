@@ -1,1 +1,61 @@
-<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden"><defs><clipPath id="clip0"><rect x="0" y="0" width="1280" height="720"/></clipPath></defs><g clip-path="url(#clip0)"><rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/><path d="M400.188 293.703 573.703 293.703 573.703 151.789 707.297 151.789 707.297 293.703 880.812 293.703 880.812 427.297 707.297 427.297 707.297 569.211 573.703 569.211 573.703 427.297 400.188 427.297Z" stroke="#2F528F" stroke-width="1.33333" stroke-miterlimit="8" fill="#4472C4" fill-rule="evenodd"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="481.95734"
+   height="418.75534"
+   overflow="hidden"
+   version="1.1"
+   id="svg21533"
+   sodipodi:docname="plus.svg"
+   inkscape:version="1.2-dev (72973b3, 2021-05-17)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview21535"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.390625"
+     inkscape:cx="240.17978"
+     inkscape:cy="208.89888"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg21533" />
+  <defs
+     id="defs21527">
+    <clipPath
+       id="clip0">
+      <rect
+         x="0"
+         y="0"
+         width="1280"
+         height="720"
+         id="rect21524" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#clip0)"
+     id="g21531"
+     transform="translate(-399.52133,-151.12233)">
+    <path
+       d="M 400.188,293.703 H 573.703 V 151.789 H 707.297 V 293.703 H 880.812 V 427.297 H 707.297 V 569.211 H 573.703 V 427.297 H 400.188 Z"
+       stroke="#2f528f"
+       stroke-width="1.33333"
+       stroke-miterlimit="8"
+       fill="#4472c4"
+       fill-rule="evenodd"
+       id="path21529" />
+  </g>
+</svg>
