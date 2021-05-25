@@ -1,0 +1,37 @@
+﻿@if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
+    <section class="ntg">
+    @for(int i = 0; i < Ntg.NumberOfItems; i++) {
+        var currentItem = Ntg.Items[i];
+        
+        <span class="ntg-item" beenselected="@currentItem.HasBeenSelected" @onclick="() => Clicked(currentItem)">@currentItem.Value</span>
+    }
+    </section>
+}
+else {
+    <p class="loading">loading.....</p>
+}
+
+@code {
+    [Parameter]
+    public int NumItems { get; set; } = 25;
+    private NumberTableGame Ntg;
+    private int NextNumberToSelect = 1;
+
+    protected override void OnInitialized() {
+        if(NumItems <= 0) {
+            NumItems = 25;
+        }
+        Console.WriteLine("initalizing NumberTableGame");
+        Ntg = new NumberTableGame(NumItems);
+    }
+
+    protected void Clicked(NumberTableGameItem item) {
+        Console.WriteLine($"clicked {item.Value}");
+
+        if(item.Value == NextNumberToSelect) {
+            item.HasBeenSelected = true;
+            NextNumberToSelect++;
+        }
+    }
+
+}
