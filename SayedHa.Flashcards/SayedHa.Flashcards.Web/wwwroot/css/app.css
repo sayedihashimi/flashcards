@@ -145,35 +145,10 @@ body {
         padding-left: 0.7vw;
     }
 
-
-/*************************
-*   NumbersGame
-**************************/
-.ntg{
-    padding-left: 3vw;
-    padding-right: 3vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;    
-}
-.ntg-item {
-    width: min(18vw,18vh);
-    height: min(18vw,18vh);
-    line-height: min(18vw,18vh);
-    font-size: 5vw;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 50%;
-}
-    .ntg-item[beenselected]{
-        
-        visibility:hidden;
-    }
-
 /*************************
 *   timer
 **************************/
-.timer{
+.timer {
     font-size: 3vw;
     list-style-type: none;
     text-align: right;
