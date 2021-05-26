@@ -1,7 +1,10 @@
 ﻿@page "/numbers"
+@using System.Diagnostics
 
-<NumberTableGameView NumItems="25" />
+<NumberTableGameView NumItems="25" Stopwatch="stopwatch" />
 
-@code {
+<TimerView Stopwatch="stopwatch" />
 
+@code { 
+    private Stopwatch stopwatch = new Stopwatch();
 }

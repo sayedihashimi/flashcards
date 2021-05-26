@@ -169,3 +169,14 @@ body {
         
         visibility:hidden;
     }
+
+/*************************
+*   timer
+**************************/
+.timer{
+    font-size: 3vw;
+    list-style-type: none;
+    text-align: right;
+    width: 100%;
+    padding-right: 5vw;
+}

@@ -29,7 +29,6 @@ namespace SayedHa.Flashcards.Shared {
     }
 
     public class FlashcardList : IFlashcardList {
-        private IList<Flashcard> _flashcards;
         private int _currentIndex = 0;
 
         protected FlashcardList() { }

@@ -1,4 +1,5 @@
-﻿@if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
+﻿@using System.Diagnostics
+@if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
     <section class="ntg">
     @for(int i = 0; i < Ntg.NumberOfItems; i++) {
         var currentItem = Ntg.Items[i];
@@ -8,12 +9,14 @@
     </section>
 }
 else {
-    <p class="loading">loading.....</p>
+    <p class="loading" />
 }
 
 @code {
     [Parameter]
     public int NumItems { get; set; } = 25;
+    [Parameter]
+    public Stopwatch Stopwatch{ get; set; }
     private NumberTableGame Ntg;
     private int NextNumberToSelect = 1;
 
@@ -31,7 +34,21 @@ else {
         if(item.Value == NextNumberToSelect) {
             item.HasBeenSelected = true;
             NextNumberToSelect++;
+
+            if(Stopwatch != null) {
+                Stopwatch.Start();
+            }
+        }
+        bool allSelected = true;
+        // if all items have been selected, stop the Stopwatch
+        foreach(var i in Ntg.Items) {
+            if (!i.HasBeenSelected) {
+                allSelected = false;
+                break;
+            }
+        }
+        if (allSelected) {
+            Stopwatch.Stop();
         }
     }
-
 }
