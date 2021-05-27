@@ -28,12 +28,11 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     private Timer refreshTimer = new Timer(80);
     private int counter = 0;
     protected override void OnInitialized() {
-        refreshTimer.Elapsed += RefreshTimer;
+        refreshTimer.Elapsed += UpdatePage;
         refreshTimer.Enabled = true;
     }
 
-    public void RefreshTimer(Object source, System.Timers.ElapsedEventArgs e) {
-        Console.WriteLine("RefreshTimer");
+    public void UpdatePage(Object source, System.Timers.ElapsedEventArgs e) {
         InvokeAsync(StateHasChanged);
     }
 
