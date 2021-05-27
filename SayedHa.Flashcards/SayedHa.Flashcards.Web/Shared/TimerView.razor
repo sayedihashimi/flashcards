@@ -25,9 +25,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     // the stopwatch has to be managed (start/stop/etc.) by the parent
     [Parameter]
     public Stopwatch Stopwatch{ get; set; }
-    private Timer refreshTimer = new Timer(250);
+    private Timer refreshTimer = new Timer(80);
     private int counter = 0;
-    private readonly int maxCounter = 60;
     protected override void OnInitialized() {
         refreshTimer.Elapsed += RefreshTimer;
         refreshTimer.Enabled = true;

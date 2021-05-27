@@ -15,6 +15,7 @@ You should have received a copy of the GNU Affero General Public License
 along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 *@
 @using System.Diagnostics
+<section class="ntg-container" ntgfinished="@IsFinished">
 @if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
     if (!IsFinished) {
         <section class="ntg" ntgfinished="@IsFinished">
@@ -36,7 +37,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 else {
     <p class="loading" />
 }
-
+</section>
 @code {
     [Parameter]
     public int NumItems { get; set; } = 25;

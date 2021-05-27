@@ -17,10 +17,17 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @page "/numbers"
 @using System.Diagnostics
 
+<span id="mainMenu">
+    <ul>
+        <li>
+            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">🏠</NavLink>
+        </li>
+    </ul>
+</span>
 <NumberTableGameView NumItems="25" Stopwatch="stopwatch" />
 
 <TimerView Stopwatch="stopwatch" />
 
-@code { 
+@code {
     private Stopwatch stopwatch = new Stopwatch();
 }

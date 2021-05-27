@@ -10,27 +10,58 @@
 }
 
 .ntg-item {
-    width: min(18vw,18vh);
-    height: min(18vw,18vh);
-    line-height: min(18vw,18vh);
+    width: min(14vw,14vh);
+    height: min(14vw,14vh);
+    line-height: min(14vw,14vh);
     font-size: 5vw;
     text-align: center;
     border: 1px solid black;
     border-radius: 50%;
+    font-family: 'Cascadia Code', sans-serif;
+    font-weight: 900;
 }
 
     .ntg-item[beenselected] {
-        visibility: hidden;
+        /*visibility: hidden;*/
+        animation-name: myAnimation;
+        animation-duration: 100ms;
+        animation-fill-mode: forwards;
+    }
+.ntg-container[ntgfinished] {
+    background-color: black;
+    color: white;
+}
+/***************************************
+    Disapper animation
+****************************************/
+@keyframes myAnimation {
+    0% {
+        opacity: 1;
+        transform: rotateX(90deg);
+        transform: scale(0.75,0.75);
     }
 
+    50% {
+        opacity: 0.5;
+        transform: rotateX(0deg);
+        transform: scale(0.5,0.5);
+    }
 
+    100% {
+        display: none;
+        opacity: 0;
+        transform: rotateX(90deg);
+        transform: scale(0.25,0.25);
+    }
+}
 
-
-
-
+/***************************************
+    Fireworks animation
+****************************************/
 /* css fireworks: https://codepen.io/yshlin/pen/ylDEk*/
 .pyro > .before, .pyro > .after {
     position: absolute;
+    top:0;
     width: 5px;
     height: 5px;
     border-radius: 50%;

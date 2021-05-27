@@ -127,8 +127,10 @@ body {
 #mainMenu{
     width: min-content;
     height: 100%;
-
-    font-size: 6vw;
+    font-size: 5vw;
+}
+#mainMenu a {
+    text-decoration: none;
 }
 #mainMenu ul{
     list-style-type: none;
