@@ -14,28 +14,40 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 *@
-@inject NavigationManager uriHelper;
+@inject NavigationManager uriHelper
+@inject IJSRuntime JsRuntime
 @page "/numbers"
 @using System.Diagnostics
-
+<audio id="audio-restart-game">
+    <source src="media/xp-restart.mp3">
+</audio>
 <span id="mainMenu">
     <ul>
         <li>
-            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">🏠</NavLink>
+            <span @onclick="GoHome">🏠</span>
         </li>
         <li>
            <img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" />
         </li>
     </ul>
 </span>
-<NumberTableGameView NumItems="25" Stopwatch="stopwatch" />
+<NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />
 
 <TimerView Stopwatch="stopwatch" />
 
 @code {
     private Stopwatch stopwatch = new Stopwatch();
+    private NumberTableGameView numberGameView;
 
     private void RefershPage() {
-        uriHelper.NavigateTo("/numbers", forceLoad: true);
+        // uriHelper.NavigateTo("/numbers", forceLoad: true);
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
+        numberGameView.Reset();
+
+    }
+
+    private void GoHome() {
+        
+        uriHelper.NavigateTo("/", forceLoad: true);
     }
 }
