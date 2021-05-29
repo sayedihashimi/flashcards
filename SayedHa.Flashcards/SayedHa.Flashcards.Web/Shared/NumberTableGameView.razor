@@ -14,8 +14,15 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 *@
+@inject IJSRuntime JsRuntime
 @using System.Diagnostics
 <section class="ntg-container" ntgfinished="@IsFinished">
+<audio id="audio-beep">
+    <source src="media/tone-beep.wav">
+</audio>
+<audio id="crow-cheering">
+    <source src="media/crowd-cheering.wav">
+</audio>
 @if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
     if (!IsFinished) {
         <section class="ntg" ntgfinished="@IsFinished">
@@ -54,10 +61,12 @@ else {
         Ntg = new NumberTableGame(NumItems);
     }
 
+    bool hasWon = false;
     protected void Clicked(NumberTableGameItem item) {
         Console.WriteLine($"clicked {item.Value}");
 
         if(item.Value == NextNumberToSelect) {
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-beep");
             item.HasBeenSelected = true;
             NextNumberToSelect++;
 
@@ -74,6 +83,10 @@ else {
             }
         }
         if (allSelected) {
+            if (!hasWon) {
+                JsRuntime.InvokeAsync<string>("PlayAudio", $"crow-cheering");
+            }
+            hasWon = true;
             Stopwatch.Stop();
         }
     }
