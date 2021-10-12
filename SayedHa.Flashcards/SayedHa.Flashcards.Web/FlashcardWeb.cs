@@ -12,7 +12,6 @@
 //
 // You should have received a copy of the GNU Affero General Public License
 // along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
-using Microsoft.Extensions.Hosting;
 using SayedHa.Flashcards.Shared;
 using System;
 using System.Collections.Generic;

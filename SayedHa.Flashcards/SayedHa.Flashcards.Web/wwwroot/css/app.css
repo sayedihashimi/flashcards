@@ -47,6 +47,7 @@ html, body {
     margin: 0;
     height: 100%;
     width: 100%
+    background-color: red;
 }
 footer{
     font-size: 1vw;
@@ -63,6 +64,11 @@ body {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 300;
     font-size: 6vw;
+}
+@media only screen and (min-width: 810px) and (max-width: 1080px) { /* Your Styles... */
+    body {
+        font-size: 5vw;
+    }
 }
 .main {
     width: 100%;
