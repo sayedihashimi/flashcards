@@ -1,0 +1,116 @@
+﻿@* 
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*@
+@inject IJSRuntime JsRuntime
+@page "/counting"
+<div class="counting">
+    <header class="countingHeader">
+        How many @((MarkupString)charToUse)?
+    </header>
+
+    <section id="itemsToCount">
+        <ul>
+            @for(int i = 0; i < numItems; i++)
+            {
+                <li>@((MarkupString)charToUse)</li>
+            }
+        </ul>
+    </section>
+    <section id="answers">
+        <ul class="answerList">
+            @if(answerPrompts != null && answerPrompts.Count > 0){
+                foreach(var ap in answerPrompts)
+                {
+                    <li><button class="answerButton" @onclick="() => Clicked(ap)">@ap</button></li>
+                }
+            }
+        </ul>
+    </section>
+    <audio id="crow-cheering">
+        <source src="media/crowd-cheering.wav">
+    </audio>
+</div>
+@code{
+    private Random random = new Random();
+    private int numItems;
+    private List<string> specialChars = new List<string>
+    {
+        "&#x1F34D;","&#x1F347;","&#x1F348;","&#x1F349;","&#x1F34A;","&#x1F34B;","&#x1F96D;","&#x1F34E;","&#x1F34F;",
+        "&#x1F350;","&#x1F352;","&#x1F353;","&#x1FAD0;"
+    };
+    private string charToUse = @"🍍";
+    private List<int> answerPrompts = new List<int>();
+    private int numAnswerPrompts = 6;
+    private int minNum = 1;
+    private int maxNum = 15;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        numItems = random.Next(minNum, maxNum);
+
+        int charIndexToUse = random.Next(0, specialChars.Count);
+        charToUse = specialChars.ElementAt(charIndexToUse);
+
+        answerPrompts = GetAnswers(minNum, maxNum, numAnswerPrompts, numItems);
+    }
+    private void Clicked(int answer)
+    {
+        Console.WriteLine($"clicked, answer='{answer}',numItems='{numItems}'");
+        if(answer == numItems)
+        {
+            Console.WriteLine("answer found");
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"crow-cheering");
+        }
+        else{
+            Console.WriteLine("wrong answer");
+        }
+    }
+    private List<int> GetAnswers(int min,int max, int numResults, int answer)
+    {
+        var someAnswers = GetRandomInts(min, max, numResults-1, new List<int> { answer });
+        someAnswers.Add(answer);
+        someAnswers.Shuffle();
+        return someAnswers;
+    }
+    private List<int> GetRandomInts(int min, int max, int numResults = 1, List<int> excludes = null)
+    {
+        if(min >= max)
+        {
+            throw new ArgumentException("min must be less than max");
+        }
+        if(numResults <= 0){
+            throw new ArgumentException("numResults must be greater than 0");
+        }
+
+        if(excludes == null){
+            excludes = new List<int>();
+        }
+
+        List<int> results = new List<int>();
+        int iterationCount = 0;
+        while(results.Count != numResults && iterationCount++<1000)
+        {
+            int nextRandomNum = random.Next(min, max);
+            if(!results.Contains(nextRandomNum) &&
+                !excludes.Contains(nextRandomNum))
+            {
+                results.Add(nextRandomNum);
+            }
+        }
+
+        return results;
+    }
+}

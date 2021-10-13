@@ -14,7 +14,9 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 */
-
+* {
+    box-sizing: border-box;
+}
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -162,4 +164,58 @@ body {
     text-align: right;
     width: 100%;
     padding-right: 5vw;
+}
+
+
+/*************************
+*   count items
+**************************/
+/*
+    :root {
+--bgcolor: #eeeeee;
+--pgheadercolor: #393e46;
+--altcolor1: #aad8d3;
+--altcolor2: #00adb5;
+--codefont: "Cascadia Code", "Menlo Regular", "Lucida Console", monospace;
+}
+*/
+
+.counting{
+    font-size:6vw;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.countingHeader{
+    grid-column: span 2;
+    width:100%;
+    text-align:center;
+}
+
+#answers{
+    width:40vw;
+}
+.answerList {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+}
+.answerButton {
+    width: 10vw;
+    height: 10vw;
+    font-size: 8vw;
+    font-family: "Cascadia Code", "Courier New", sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #111;
+    color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#itemsToCount{
+    width: 40vw;
+}
+#itemsToCount ul{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
