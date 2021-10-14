@@ -15,10 +15,21 @@ You should have received a copy of the GNU Affero General Public License
 along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 *@
 @inject IJSRuntime JsRuntime
+@inject NavigationManager uriHelper
 @page "/counting"
+<span id="mainMenu">
+    <ul>
+        <li>
+            <span @onclick="GoHome">🏠</span>
+        </li>
+        <li>
+           <img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" />
+        </li>
+    </ul>
+</span>
 <div class="counting">
     <header class="countingHeader">
-        How many @((MarkupString)charToUse)?
+        How many @((MarkupString)charToUse)?<!-- char to use: '@charToUse' -->
     </header>
 
     <section id="itemsToCount">
@@ -38,9 +49,14 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
                 }
             }
         </ul>
+        <aside class="streak">Streak: @countCorrectInARow</aside>
     </section>
+   
     <audio id="crow-cheering">
         <source src="media/crowd-cheering.wav">
+    </audio>
+    <audio id="wrong-buzzer">
+        <source src="media/wrong-answer2.mp3">
     </audio>
 </div>
 @code{
@@ -49,21 +65,27 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     private List<string> specialChars = new List<string>
     {
         "&#x1F34D;","&#x1F347;","&#x1F348;","&#x1F349;","&#x1F34A;","&#x1F34B;","&#x1F96D;","&#x1F34E;","&#x1F34F;",
-        "&#x1F350;","&#x1F352;","&#x1F353;","&#x1FAD0;"
+        "&#x1F350;","&#x1F352;","&#x1F353","&#x1F345","&#x1F966","&#x1F344","&#x1F95E","&#x1F9C0","&#x1F354","&#x1F35F","&#x1F355","&#x1F37F","&#x1F366","&#x1F367","&#x1F368","&#x1F697","&#x1F3CE","&#x1F6FC","&#x1F6F9","&#x1231A","&#x1FA90","&#x1F383","&#x1F3C0","&#x1F3C8","&#x1F3B8","&#x1F4EA","&#x1F923","&#x1F601","&#x1F600","&#x1F912","&#x1F4A9"
+
     };
     private string charToUse = @"🍍";
     private List<int> answerPrompts = new List<int>();
     private int numAnswerPrompts = 6;
     private int minNum = 1;
     private int maxNum = 15;
+    private int countCorrectInARow = 0;
     protected override void OnInitialized()
     {
         base.OnInitialized();
+        Init();
+    }
+    private void Init()
+    {
         numItems = random.Next(minNum, maxNum);
 
         int charIndexToUse = random.Next(0, specialChars.Count);
         charToUse = specialChars.ElementAt(charIndexToUse);
-
+        Console.WriteLine($"set charToUse: '{charToUse}'");
         answerPrompts = GetAnswers(minNum, maxNum, numAnswerPrompts, numItems);
     }
     private void Clicked(int answer)
@@ -72,10 +94,14 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         if(answer == numItems)
         {
             Console.WriteLine("answer found");
-            JsRuntime.InvokeAsync<string>("PlayAudio", $"crow-cheering");
+            countCorrectInARow++;
+            Init();
+            JsRuntime.InvokeAsync<string>("PlayAudio", "crow-cheering");
         }
         else{
             Console.WriteLine("wrong answer");
+            countCorrectInARow = 0;
+            JsRuntime.InvokeAsync<string>("PlayAudio", "wrong-buzzer");
         }
     }
     private List<int> GetAnswers(int min,int max, int numResults, int answer)
@@ -112,5 +138,13 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         }
 
         return results;
+    }
+    private void RefershPage()
+    {
+        Init();
+    }
+    private void GoHome() {
+        
+        uriHelper.NavigateTo("/", forceLoad: true);
     }
 }

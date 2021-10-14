@@ -54,4 +54,3 @@ function AudioEndedPlayNextEvent(event) {
         event.target.nextAudio.play();
     }
 }
-
