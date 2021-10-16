@@ -170,3 +170,11 @@ body {
 .streak {
     font-size: 2vw;
 }
+@media only screen and (max-width : 1200px) {
+    #mainMenu a[role="button"] {
+        height: calc(90vh/8 - 0.5vh);
+        width: calc(90vh/8 - 0.5vh);
+        font-size: calc(90vh/8/2);
+        padding: 2px;
+    }
+}
