@@ -19,32 +19,38 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @inject HttpClient Http
 @inject FlashcardWeb FlashcardWeb
 @inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
 
 @if(currentFlashcard != null){
     <span id="mainMenu">
         <ul>
-            <li @onclick="ShowDefaultCards">🏠</li>            
-            <li @onclick="ShowLetters"><img src="media/letters.svg" alt="letters" /></li>
-            <li @onclick="ShowNumbers"><img src="media/numbers.svg" alt="numbers" /></li>
-            <li @onclick="ShowShapes"><img src="media/shapes-icon.svg" alt="shapes" /></li>
-            <li @onclick="ShowAddition">➕</li>
-            <li><NavLink class="nav-link" href="numbers" Match="NavLinkMatch.All">
+            <li @onclick="ShowDefaultCards"><a href="#" role="button">🏠</a></li>            
+            <li @onclick="ShowLetters"><a href="#" role="button"><img src="media/letters.svg" alt="letters" /></a></li>
+            <li @onclick="ShowNumbers"><a href="#" role="button"><img src="media/numbers.svg" alt="numbers" /></a></li>
+            <li @onclick="ShowShapes"><a href="#" role="button"><img src="media/shapes-icon.svg" alt="shapes" /></a></li>
+            <li @onclick="ShowAddition"><a href="#" role="button">➕</a></li>
+            <li @onclick="NavToNumbers">
+                <NavLink role="button" class="nav-link" href="numbers" Match="NavLinkMatch.All">
                     <img src="media/numbersgame.svg" alt="numbers game" />
                 </NavLink>
             </li>
-            <li><NavLink class="nav-link" href="counting" Match="NavLinkMatch.All">
-                    <img src="media/questionMark.svg" alt="counting game" />
+            <li @onclick="NavToCounting">
+                <NavLink role="button" class="nav-link" href="counting" Match="NavLinkMatch.All">
+                    <img src="media/counting.svg" alt="counting game" />
                 </NavLink>
             </li>
         </ul>
     </span>
-    <span class="previousCardButton">
-        <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MovePrevious" />
-    </span>
-    <FlashcardView Flashcard="@currentFlashcard" />
-    <span class="nextCardButton">
-        <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MoveNext" />
-    </span>
+    <section id="mainContent">
+        <span class="previousCardButton">
+            <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MovePrevious" />
+        </span>
+        <FlashcardView Flashcard="@currentFlashcard" />
+        <span class="nextCardButton">
+            <img src="left-arrow.svg" class="navButton" alt="right arrow" @onclick="MoveNext" />
+        </span>
+    </section>
+    
 @*    <div>
         <a @onclick="ShowAddition">addition</a>
     </div>*@
@@ -85,7 +91,7 @@ else{
 #endif
 
         if(FlashcardWeb != null) {
-             FlashcardList = new FlashcardList(await GetFlashcards());
+            FlashcardList = new FlashcardList(await GetFlashcards());
             //_flashcardList = new AdditionFlashcardList(1, 9, 10);
             //currentFlashcard = _flashcardList.GetCurrent();
         }
@@ -100,7 +106,7 @@ else{
         FlashcardList.MovePrevious();
         currentFlashcard = _flashcardList.GetCurrent();
     }
-    
+
     private void ShowAddition() {
         FlashcardList = new AdditionFlashcardList(1, 9, 25);
         //currentFlashcard = _flashcardList.GetCurrent();
@@ -124,5 +130,13 @@ else{
         // should implement some general way to caches these files
         FlashcardList = new FlashcardList(await GetFlashcards());
         //currentFlashcard = _flashcardList.GetCurrent();
+    }
+    private void NavToNumbers()
+    {
+        NavigationManager.NavigateTo("/numbers");
+    }
+    private void NavToCounting()
+    {
+        NavigationManager.NavigateTo("/counting");
     }
 }

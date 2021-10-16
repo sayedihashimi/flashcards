@@ -1,4 +1,4 @@
-/*
+﻿/*
 This file is part of SayedHa.Flashcards.
 
 SayedHa.Flashcards is free software: you can redistribute it and/or modify
@@ -14,9 +14,6 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 */
-* {
-    box-sizing: border-box;
-}
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -37,126 +34,68 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     }
 
 :root {
-    /*color palette*/
-    --bgcolor: #eeeeee;
-    --pgheadercolor: #393e46;
-    --altcolor1: #aad8d3;
-    --altcolor2: #00adb5;
-    --codefont: "Cascadia Code","Menlo Regular","Lucida Console",monospace;
+    --primary: #00acc1;
+    --background-color: #37B6F6;
+    color: #882FF6;
 }
-html, body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
+[data-theme="dark"] {
+    --primary: #fb8c00;
+    --background-color: red;
 }
-footer{
-    font-size: 1vw;
-    font-family: Georgia,Times,Times New Roman,serif;
-    letter-spacing: 1px;
-    word-spacing: 2px;
-    text-align: center;
-}
-#app, .page, .main {
-    height: 100%;
+html {
+    background-color: #37B6F6;
 }
 body {
-    /* background-color: var(--bgcolor); */
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 300;
     font-size: 6vw;
 }
-@media only screen and (min-width: 810px) and (max-width: 1080px) { /* Your Styles... */
-    body {
-        font-size: 5vw;
-    }
-}
-.main {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    align-items: center;
-}
-.loading::before{
-    content: "loading....."
-}
-.flashcard-answer[hidden]{
-    visibility: hidden;
-}
+#pageFooter{
 
-.navButton {
-    width: 5vw;
+}
+.main ul,#pageFooter p{
+    color: inherit;
+}
+#mainMenu{
+    padding-top:2vh;
+}
+#mainMenu ul li {
+    list-style-type: none;
+}
+#mainMenu a[role="button"] {
+    height: calc(90vh/7 - 0.5vh);
+    width: calc(90vh/7 - 0.5vh);
+    font-size: calc(90vh/7/2);
+}
+#mainMenu a[role="button"] img{
+    height:100%;
+    width:100%;
+    object-fit: contain;
+    vertical-align: baseline;
+}
+.main{
+    display:grid;
+    grid-template-columns: 1fr 10fr;
+}
+#mainContent{
+    display:grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+.flashcard {
+    margin-top: 20vh;
+    text-align: center;
+    font-size: 20vh;
+}
+.flashcard-speaker img, .flashcard img{
+    height: 20vh;
+}
+.previousCardButton img, .nextCardButton img{
     height: 5vw;
+    width: 5vw;
+    margin-top: 45vh;
 }
 .nextCardButton .navButton {
     transform: rotate(180deg);
 }
-.previousCardButton, .nextCardButton{
-    cursor: pointer;
-    /* add padding to make tap target larger for ease of use */
-    padding: 3vw;
-}
-.flashcard {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.flashcard-answer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 5vw;
-}
-.flashcard-image {
-    height: 50vh;
-    width: 40vw;
-    align-self: center;
-    padding-top: 5vh;
-    object-fit: contain;
-}
-.flashcard-questiontext{
-    width: 100%;
-    font-size: 15vw;
-    text-align: center;
-}
-.flashcard-speaker{
-    padding: 2vw;
-    cursor: pointer;
-    width: min-content;
-}
-.flashcard-speaker img{
-    width: 6vw;
-}
-#mainMenu{
-    width: min-content;
-    height: 100%;
-    font-size: 5vw;
-}
-#mainMenu a {
-    text-decoration: none;
-}
-#mainMenu ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-#mainMenu ul li{
-    cursor: pointer;
-    
-}
-    #mainMenu ul li img {
-        height: 100%;
-        width: 100%;
-        padding-left: 0.7vw;
-    }
 
-/*************************
-*   timer
-**************************/
 .timer {
     font-size: 3vw;
     list-style-type: none;
@@ -164,7 +103,9 @@ body {
     width: 100%;
     padding-right: 5vw;
 }
-
+.timer li{
+    list-style: none;
+}
 
 /*************************
 *   count items
@@ -179,30 +120,32 @@ body {
 }
 */
 
-.counting{
-    font-size:6vw;
-    display:grid;
+.counting {
+    font-size: 6vw;
+    display: grid;
     grid-template-columns: 1fr 1fr;
 }
-.countingHeader{
+
+.countingHeader {
     grid-column: span 2;
-    width:100%;
-    text-align:center;
+    width: 100%;
+    text-align: center;
 }
 
-#answers{
-    width:40vw;
+#answers {
+    width: 40vw;
 }
-.answerList {
-    list-style-type: none;
+
+.answerList {    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1vw;
 }
+    .answerList li {
+        list-style-type: none;
+    }
 .answerButton {
-    width: 15vw;
-    height: 15vw;
-    font-size: 10vw;
+    font-size: 5vw;
     font-family: "Cascadia Code", "Courier New", sans-serif;
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid #111;
@@ -210,15 +153,20 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-#itemsToCount{
-    width: 40vw;
-    font-size: 6vw;
+
+#itemsToCount {
+    width: 40vw;    
 }
-#itemsToCount ul{
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-.streak{
+
+    #itemsToCount ul {
+        list-style: none;        
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+        #itemsToCount ul li {
+            list-style: none;
+            font-size: 4vw;
+        }
+.streak {
     font-size: 2vw;
 }

@@ -30,15 +30,15 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 	}
 	<h2 class="flashcard-answer" hidden="@(!(Flashcard.ShowText || ShowText))">@Flashcard.Answer</h2>
 	@if (HasAudio()) {
-		<span class="flashcard-speaker" @onclick="PlayCardAudio">
+		<div class="flashcard-speaker" @onclick="PlayCardAudio">
 			<audio id="audio-@Flashcard.TempId" src="@Flashcard.Audio" />
 			<img src="media/speaker.svg" alt="speaker" />
-		</span>
+		</div>
 	} 
 	else if(HasQuestionTextAudioParts()) {
-		<span id="questionTextAudio" class="flashcard-speaker" @onclick="PlayQuestionTextAudio">
+		<div id="questionTextAudio" class="flashcard-speaker" @onclick="PlayQuestionTextAudio">
 			<img src="media/speaker.svg" alt="speaker" />
-		</span>
+		</div>
 	}
 
 }

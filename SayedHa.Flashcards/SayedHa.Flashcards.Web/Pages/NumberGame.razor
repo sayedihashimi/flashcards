@@ -24,17 +24,18 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 <span id="mainMenu">
     <ul>
         <li>
-            <span @onclick="GoHome">🏠</span>
+            <span @onclick="GoHome"><a role="button">🏠</a></span>
         </li>
         <li>
-           <img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" />
+           <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
         </li>
     </ul>
 </span>
+<div>
 <NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />
 
 <TimerView Stopwatch="stopwatch" />
-
+</div>
 @code {
     private Stopwatch stopwatch = new Stopwatch();
     private NumberTableGameView numberGameView;

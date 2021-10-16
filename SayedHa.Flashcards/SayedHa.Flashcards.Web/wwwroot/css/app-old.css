@@ -1,0 +1,224 @@
+/*
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*/
+* {
+    box-sizing: border-box;
+}
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+:root {
+    /*color palette*/
+    --bgcolor: #eeeeee;
+    --pgheadercolor: #393e46;
+    --altcolor1: #aad8d3;
+    --altcolor2: #00adb5;
+    --codefont: "Cascadia Code","Menlo Regular","Lucida Console",monospace;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+footer{
+    font-size: 1vw;
+    font-family: Georgia,Times,Times New Roman,serif;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    text-align: center;
+}
+#app, .page, .main {
+    height: 100%;
+}
+body {
+    /* background-color: var(--bgcolor); */
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 300;
+    font-size: 6vw;
+}
+@media only screen and (min-width: 810px) and (max-width: 1080px) { /* Your Styles... */
+    body {
+        font-size: 5vw;
+    }
+}
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+.loading::before{
+    content: "loading....."
+}
+.flashcard-answer[hidden]{
+    visibility: hidden;
+}
+
+.navButton {
+    width: 5vw;
+    height: 5vw;
+}
+.nextCardButton .navButton {
+    transform: rotate(180deg);
+}
+.previousCardButton, .nextCardButton{
+    cursor: pointer;
+    /* add padding to make tap target larger for ease of use */
+    padding: 3vw;
+}
+.flashcard {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flashcard-answer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 5vw;
+}
+.flashcard-image {
+    height: 50vh;
+    width: 40vw;
+    align-self: center;
+    padding-top: 5vh;
+    object-fit: contain;
+}
+.flashcard-questiontext{
+    width: 100%;
+    font-size: 15vw;
+    text-align: center;
+}
+.flashcard-speaker{
+    padding: 2vw;
+    cursor: pointer;
+    width: min-content;
+}
+.flashcard-speaker img{
+    width: 6vw;
+}
+#mainMenu{
+    width: min-content;
+    height: 100%;
+    font-size: 5vw;
+}
+#mainMenu a {
+    text-decoration: none;
+}
+#mainMenu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#mainMenu ul li{
+    cursor: pointer;
+    
+}
+    #mainMenu ul li img {
+        height: 100%;
+        width: 100%;
+        padding-left: 0.7vw;
+    }
+
+/*************************
+*   timer
+**************************/
+.timer {
+    font-size: 3vw;
+    list-style-type: none;
+    text-align: right;
+    width: 100%;
+    padding-right: 5vw;
+}
+
+
+/*************************
+*   count items
+**************************/
+/*
+    :root {
+--bgcolor: #eeeeee;
+--pgheadercolor: #393e46;
+--altcolor1: #aad8d3;
+--altcolor2: #00adb5;
+--codefont: "Cascadia Code", "Menlo Regular", "Lucida Console", monospace;
+}
+*/
+
+.counting{
+    font-size:6vw;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.countingHeader{
+    grid-column: span 2;
+    width:100%;
+    text-align:center;
+}
+
+#answers{
+    width:40vw;
+}
+.answerList {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+}
+.answerButton {
+    width: 15vw;
+    height: 15vw;
+    font-size: 10vw;
+    font-family: "Cascadia Code", "Courier New", sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #111;
+    color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#itemsToCount{
+    width: 40vw;
+    font-size: 6vw;
+}
+#itemsToCount ul{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.streak{
+    font-size: 2vw;
+}
