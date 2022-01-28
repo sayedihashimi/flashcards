@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Flashcards</title>
     <base href="/" />
-    <link href="css/pico.min.css" rel="stylesheet" />
+    <!--<link href="css/pico.min.css" rel="stylesheet" />-->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@microsoft/fast-components@2.16.0/dist/fast-components.min.js"></script>
     <link href="css/app.css" rel="stylesheet" />
     <link href="SayedHa.Flashcards.Web.styles.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
@@ -14,20 +15,22 @@
 </head>
 
 <body data-theme="dark">
-    <div id="app"><h1 aria-busy="true">Loading...</h1></div>
+    <fast-design-system-provider use-defaults  data-theme="dark" fill-color="#D6D6D6" design-unit="4">
+        <div id="app"><fast-progress-ring></fast-progress-ring></div>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
-    <script src="_framework/blazor.webassembly.js"></script>
-    <script src="site.js"></script>
-    <script>navigator.serviceWorker.register('service-worker.js');</script>
-    <link href="css/numbersgame.css" rel="stylesheet" />
-    <style>
-        @import url('https://fonts.cdnfonts.com/css/cascadia-code');
-    </style>
+        <div id="blazor-error-ui">
+            An unhandled error has occurred.
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">🗙</a>
+        </div>
+        <script src="_framework/blazor.webassembly.js"></script>
+        <script src="site.js"></script>
+        <script>navigator.serviceWorker.register('service-worker.js');</script>
+        <link href="css/numbersgame.css" rel="stylesheet" />
+        <style>
+            @import url('https://fonts.cdnfonts.com/css/cascadia-code');
+        </style>
+    </fast-design-system-provider>
 </body>
 
 </html>

@@ -14,6 +14,16 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+html,body {
+    --body-font: Segoe UI, sans-serif;
+    font-family: var(--body-font);
+    font-size: var(--type-ramp-plus-1-font-size);
+    line-height: var(--type-ramp-plus-1-line-heigh);
+    margin: 0;
+    white-space: normal;
+    word-break: break-word;
+}
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -35,17 +45,15 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 
 :root {
     --primary: #00acc1;
-    --background-color: #37B6F6;
     --color: #882FF6;
     --h1-color: red;
-    --typography-spacing-vertical: 0;
 }
 [data-theme="dark"] {
     --primary: #fb8c00;
 }
 h1 {
-    --typography-spacing-vertical: 0;
     --h1-color: black;
+    font-size: var(--type-ramp-plus-3-font-size);
 }
 @media only screen and (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -55,7 +63,7 @@ h1 {
 
 
     html {
-        background-color: #37B6F6;
+        /*background-color: #37B6F6;*/
     }
 
     body {
@@ -63,6 +71,7 @@ h1 {
     }
 
     #pageFooter {
+        font-size: var(--type-ramp-minus-3-font-size);
     }
 
         .main ul, #pageFooter p {
@@ -77,13 +86,13 @@ h1 {
             list-style-type: none;
         }
 
-        #mainMenu a[role="button"] {
+        #mainMenu fast-anchor[role="button"] {
             height: calc(90vh/7 - 0.5vh);
             width: calc(90vh/7 - 0.5vh);
             font-size: calc(90vh/7/2);
         }
 
-            #mainMenu a[role="button"] img {
+            #mainMenu fast-anchor[role="button"] img {
                 height: 100%;
                 width: 100%;
                 object-fit: contain;

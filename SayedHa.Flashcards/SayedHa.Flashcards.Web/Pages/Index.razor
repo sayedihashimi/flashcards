@@ -24,20 +24,20 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @if(currentFlashcard != null){
     <span id="mainMenu">
         <ul>
-            <li @onclick="ShowDefaultCards"><a href="#" role="button">🏠</a></li>            
-            <li @onclick="ShowLetters"><a href="#" role="button"><img src="media/letters.svg" alt="letters" /></a></li>
-            <li @onclick="ShowNumbers"><a href="#" role="button"><img src="media/numbers.svg" alt="numbers" /></a></li>
-            <li @onclick="ShowShapes"><a href="#" role="button"><img src="media/shapes-icon.svg" alt="shapes" /></a></li>
-            <li @onclick="ShowAddition"><a href="#" role="button">➕</a></li>
+            <li @onclick="ShowDefaultCards"><fast-anchor href="#" role="button">🏠</fast-anchor></li>            
+            <li @onclick="ShowLetters"><fast-anchor href="#" role="button"><img src="media/letters.svg" alt="letters" /></fast-anchor></li>
+            <li @onclick="ShowNumbers"><fast-anchor href="#" role="button"><img src="media/numbers.svg" alt="numbers" /></fast-anchor></li>
+            <li @onclick="ShowShapes"><fast-anchor href="#" role="button"><img src="media/shapes-icon.svg" alt="shapes" /></fast-anchor></li>
+            <li @onclick="ShowAddition"><fast-anchor href="#" role="button">➕</fast-anchor></li>
             <li @onclick="NavToNumbers">
-                <NavLink role="button" class="nav-link" href="numbers" Match="NavLinkMatch.All">
+                <fast-anchor role="button" class="nav-link" href="numbers" Match="NavLinkMatch.All">
                     <img src="media/numbersgame.svg" alt="numbers game" />
-                </NavLink>
+                </fast-anchor>
             </li>
             <li @onclick="NavToCounting">
-                <NavLink role="button" class="nav-link" href="counting" Match="NavLinkMatch.All">
+                <fast-anchor role="button" class="nav-link" href="counting" Match="NavLinkMatch.All">
                     <img src="media/counting.svg" alt="counting game" />
-                </NavLink>
+                </fast-anchor>
             </li>
         </ul>
     </span>
