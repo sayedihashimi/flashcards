@@ -3,6 +3,7 @@
   "short_name": "Flashcards",
   "start_url": "./",
   "display": "standalone",
+  "orientation": "landscape",
   "background_color": "#ffffff",
   "theme_color": "#03173d",
   "icons": [

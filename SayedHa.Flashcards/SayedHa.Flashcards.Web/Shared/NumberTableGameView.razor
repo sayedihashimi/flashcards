@@ -25,6 +25,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 </audio>
 @if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
     if (!IsFinished) {
+        <header class="numberGameHeader">
+            <h1>Click from 1 - @Ntg.NumberOfItems in order</h1>
+        </header>
         <section class="ntg" ntgfinished="@IsFinished">
         @for(int i = 0; i < Ntg.NumberOfItems; i++) {
             var currentItem = Ntg.Items[i];

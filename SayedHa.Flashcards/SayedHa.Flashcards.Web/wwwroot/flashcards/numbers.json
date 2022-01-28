@@ -1,42 +1,42 @@
 [
   {
-    "ImageUrl": "flashcards/media/number-1.svg",
+    "QuestionText": "1",
     "Audio": "flashcards/media/audio/number-1.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-2.svg",
+    "QuestionText": "2",
     "Audio": "flashcards/media/audio/number-2.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-3.svg",
+    "QuestionText": "3",
     "Audio": "flashcards/media/audio/number-3.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-4.svg",
+    "QuestionText": "4",
     "Audio": "flashcards/media/audio/number-4.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-5.svg",
+    "QuestionText": "5",
     "Audio": "flashcards/media/audio/number-5.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-6.svg",
+    "QuestionText": "6",
     "Audio": "flashcards/media/audio/number-6.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-7.svg",
+    "QuestionText": "7",
     "Audio": "flashcards/media/audio/number-7.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-8.svg",
+    "QuestionText": "8",
     "Audio": "flashcards/media/audio/number-8.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-9.svg",
+    "QuestionText": "9",
     "Audio": "flashcards/media/audio/number-9.wav"
   },
   {
-    "ImageUrl": "flashcards/media/number-10.svg",
+    "QuestionText": "10",
     "Audio": "flashcards/media/audio/number-10.wav"
   }
 ]

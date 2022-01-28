@@ -36,81 +36,106 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 :root {
     --primary: #00acc1;
     --background-color: #37B6F6;
-    color: #882FF6;
+    --color: #882FF6;
+    --h1-color: red;
+    --typography-spacing-vertical: 0;
 }
 [data-theme="dark"] {
     --primary: #fb8c00;
-    --background-color: red;
 }
-html {
-    background-color: #37B6F6;
+h1 {
+    --typography-spacing-vertical: 0;
+    --h1-color: black;
 }
-body {
-    font-size: 6vw;
-}
-#pageFooter{
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        
+        --color: #882FF6;
+    }
 
-}
-.main ul,#pageFooter p{
-    color: inherit;
-}
-#mainMenu{
-    padding-top:2vh;
-}
-#mainMenu ul li {
-    list-style-type: none;
-}
-#mainMenu a[role="button"] {
-    height: calc(90vh/7 - 0.5vh);
-    width: calc(90vh/7 - 0.5vh);
-    font-size: calc(90vh/7/2);
-}
-#mainMenu a[role="button"] img{
-    height:100%;
-    width:100%;
-    object-fit: contain;
-    vertical-align: baseline;
-}
-.main{
-    display:grid;
-    grid-template-columns: 1fr 10fr;
-}
-#mainContent{
-    display:grid;
-    grid-template-columns: 1fr 10fr 1fr;
-}
-.flashcard {
-    margin-top: 20vh;
-    text-align: center;
-    font-size: 20vh;
-}
-.flashcard-speaker img, .flashcard img{
-    height: 20vh;
-}
-.previousCardButton img, .nextCardButton img{
-    height: 5vw;
-    width: 5vw;
-    margin-top: 45vh;
-}
-.nextCardButton .navButton {
-    transform: rotate(180deg);
-}
 
-.timer {
-    font-size: 3vw;
-    list-style-type: none;
-    text-align: right;
-    width: 100%;
-    padding-right: 5vw;
-}
-.timer li{
-    list-style: none;
-}
+    html {
+        background-color: #37B6F6;
+    }
 
-/*************************
+    body {
+        font-size: 6vw;
+    }
+
+    #pageFooter {
+    }
+
+        .main ul, #pageFooter p {
+            color: inherit;
+        }
+
+    #mainMenu {
+        padding-top: 2vh;
+    }
+
+        #mainMenu ul li {
+            list-style-type: none;
+        }
+
+        #mainMenu a[role="button"] {
+            height: calc(90vh/7 - 0.5vh);
+            width: calc(90vh/7 - 0.5vh);
+            font-size: calc(90vh/7/2);
+        }
+
+            #mainMenu a[role="button"] img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
+                vertical-align: baseline;
+            }
+
+    .main {
+        display: grid;
+        grid-template-columns: 1fr 10fr;
+    }
+
+    #mainContent {
+        display: grid;
+        grid-template-columns: 1fr 10fr 1fr;
+    }
+
+    .flashcard {
+        margin-top: 20vh;
+        text-align: center;
+        font-size: 20vh;
+    }
+
+        .flashcard-speaker img, .flashcard img {
+            width: 25vh;
+        }
+
+    .previousCardButton img, .nextCardButton img {
+        height: 5vw;
+        width: 5vw;
+        margin-top: 45vh;
+    }
+
+    .nextCardButton .navButton {
+        transform: rotate(180deg);
+    }
+
+    .timer {
+        font-size: 3vw;
+        list-style-type: none;
+        text-align: right;
+        width: 100%;
+        padding-right: 5vw;
+    }
+
+        .timer li {
+            list-style: none;
+        }
+
+    /*************************
 *   count items
 **************************/
-/*
+    /*
     :root {
 --bgcolor: #eeeeee;
 --pgheadercolor: #393e46;
@@ -120,61 +145,65 @@ body {
 }
 */
 
-.counting {
-    font-size: 6vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.countingHeader {
-    grid-column: span 2;
-    width: 100%;
-    text-align: center;
-}
-
-#answers {
-    width: 40vw;
-}
-
-.answerList {    
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1vw;
-}
-    .answerList li {
-        list-style-type: none;
+    .counting {
+        font-size: 6vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
-.answerButton {
-    font-size: 5vw;
-    font-family: "Cascadia Code", "Courier New", sans-serif;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid #111;
-    color: #eee;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-#itemsToCount {
-    width: 40vw;    
-}
+    .countingHeader, .numberGameHeader {
+        grid-column: span 2;
+        width: 100%;
+    }
 
-    #itemsToCount ul {
-        list-style: none;        
+    #answers {
+        width: 40vw;
+    }
+
+    .answerList {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1vw;
     }
-        #itemsToCount ul li {
-            list-style: none;
-            font-size: 4vw;
+
+        .answerList li {
+            list-style-type: none;
         }
-.streak {
-    font-size: 2vw;
-}
-@media only screen and (max-width : 1200px) {
-    #mainMenu a[role="button"] {
-        height: calc(90vh/8 - 0.5vh);
-        width: calc(90vh/8 - 0.5vh);
-        font-size: calc(90vh/8/2);
-        padding: 2px;
+
+    .answerButton {
+        font-size: 5vw;
+        font-family: "Cascadia Code", "Courier New", sans-serif;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid #111;
+        color: #eee;
+        border-radius: 5px;
+        cursor: pointer;
     }
-}
+
+    #itemsToCount {
+        width: 40vw;
+    }
+
+        #itemsToCount ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+            #itemsToCount ul li {
+                list-style: none;
+                font-size: 4vw;
+            }
+
+    .streak {
+        font-size: 2vw;
+    }
+
+    @media only screen and (max-width : 1200px) {
+        #mainMenu a[role="button"] {
+            height: calc(90vh/8 - 0.5vh);
+            width: calc(90vh/8 - 0.5vh);
+            font-size: calc(90vh/8/2);
+            padding: 2px;
+        }
+    }
