@@ -13,18 +13,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 using SayedHa.Flashcards.Shared;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace SayedHa.Flashcards.Web {
     public class FlashcardWeb {
         private readonly HttpClient _httpClient;
-        private readonly FlashcardManager _flashcardManager;        
+        private readonly FlashcardManager _flashcardManager;
 
         public FlashcardWeb(HttpClient httpClient, FlashcardManager flashcardManager) {
             _httpClient = httpClient;
