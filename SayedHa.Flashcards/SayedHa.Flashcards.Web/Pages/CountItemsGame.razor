@@ -52,8 +52,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         <aside class="streak">Streak: @countCorrectInARow</aside>
     </section>
    
-    <audio id="crow-cheering">
-        <source src="media/crowd-cheering.wav">
+    <audio id="good">
+        <source src="media/good.wav">
     </audio>
     <audio id="wrong-buzzer">
         <source src="media/wrong-answer2.mp3">
@@ -96,7 +96,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             Console.WriteLine("answer found");
             countCorrectInARow++;
             Init();
-            JsRuntime.InvokeAsync<string>("PlayAudio", "crow-cheering");
+            JsRuntime.InvokeAsync<string>("PlayAudio", "good");
         }
         else{
             Console.WriteLine("wrong answer");
