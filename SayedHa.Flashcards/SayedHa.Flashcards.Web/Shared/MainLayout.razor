@@ -16,10 +16,18 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 *@
 @inherits LayoutComponentBase
 
-<div class="page">
-    @*@Body*@
+<div id="appContent">
+    <header></header>
+    @Body
     
-    <div class="main2">
+    @* Body object should have the following structure  *@
+    @*
+    <nav>navigation here</nav>
+    <main>
+        <h1>mainhere</h1>
         @Body
-    </div>
+    </main>
+    *@
+    
+    <footer>Copyright 2021 - 2022 Sayed Ibrahim Hashimi</footer>
 </div>
