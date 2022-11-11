@@ -22,16 +22,22 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     <source src="media/xp-restart.mp3">
 </audio>
 <nav>
+    <span class="empty"></span>
     <span id="mainMenu">
         <ul>
             <li>
-                <span @onclick="GoHome"><a role="button">🏠</a></span>
+                <fast-anchor role="button" @onclick="GoHome" class="nav-link" Match="NavLinkMatch.All">
+                    <a role="button">🏠</a>
+                </fast-anchor>
             </li>
             <li>
-                <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
+                <fast-anchor role="button" @onclick="RefershPage" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" />
+                </fast-anchor>
             </li>
         </ul>
     </span>
+    <span class="empty"></span>
 </nav>
 <main>
     <NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />

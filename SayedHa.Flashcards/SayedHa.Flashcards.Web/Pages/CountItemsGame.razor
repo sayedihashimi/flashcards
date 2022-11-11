@@ -22,10 +22,14 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         <span class="empty"></span>
         <ul>
             <li>
-                <span @onclick="GoHome"><a role="button">🏠</a></span>
+                <fast-anchor role="button" @onclick="GoHome" class="nav-link" Match="NavLinkMatch.All">
+                    <a role="button">🏠</a>
+                </fast-anchor>
             </li>
             <li>
-                <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
+                <fast-anchor role="button" @onclick="RefershPage" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" />
+                </fast-anchor>
             </li>
         </ul>
         <span class="empty"></span>
@@ -59,7 +63,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     <audio id="good" preload="auto">
         <source src="media/good.wav">
     </audio>
-    <audio id="wrong-buzzer" preload="auto">
+    <audio id="wrong-buzzer" preload="auto"`>
         <source src="media/wrong-answer2.mp3">
     </audio>
 </main>
