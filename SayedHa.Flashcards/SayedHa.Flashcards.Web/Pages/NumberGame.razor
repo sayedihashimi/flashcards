@@ -21,29 +21,33 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 <audio id="audio-restart-game">
     <source src="media/xp-restart.mp3">
 </audio>
-<span id="mainMenu">
-    <ul>
-        <li>
-            <span @onclick="GoHome"><a role="button">🏠</a></span>
-        </li>
-        <li>
-           <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
-        </li>
-    </ul>
-</span>
-<div>
-<NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />
+<nav>
+    <span id="mainMenu">
+        <ul>
+            <li>
+                <span @onclick="GoHome"><a role="button">🏠</a></span>
+            </li>
+            <li>
+                <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
+            </li>
+        </ul>
+    </span>
+</nav>
+<main>
+    <NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />
 
-<TimerView Stopwatch="stopwatch" />
-</div>
+    <TimerView Stopwatch="stopwatch" />
+</main>
+
+
 @code {
-    private Stopwatch stopwatch = new Stopwatch();
-    private NumberTableGameView numberGameView;
+    private Stopwatch? stopwatch = new Stopwatch();
+    private NumberTableGameView? numberGameView;
 
     private void RefershPage() {
         // uriHelper.NavigateTo("/numbers", forceLoad: true);
         JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
-        numberGameView.Reset();
+        numberGameView!.Reset();
 
     }
 

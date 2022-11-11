@@ -52,8 +52,8 @@ else {
     [Parameter]
     public int NumItems { get; set; } = 25;
     [Parameter]
-    public Stopwatch Stopwatch{ get; set; }
-    private NumberTableGame Ntg;
+    public Stopwatch? Stopwatch{ get; set; }
+    private NumberTableGame? Ntg;
     private int NextNumberToSelect = 1;
 
     protected override void OnInitialized() {
