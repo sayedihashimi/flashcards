@@ -186,7 +186,7 @@ a[role="button"] {
 */
 
 .counting {
-    font-size: 6vw;
+    /*font-size: 6vw;*/
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -232,6 +232,7 @@ a[role="button"] {
         list-style: none;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        margin: 0;
     }
 
         #itemsToCount ul li {
