@@ -25,8 +25,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 }
 
 html, body {
-    height:100%;
-    --body-font: Segoe UI, sans-serif;
+    height: 100%;
+    --body-font: Andika, Segoe UI, sans-serif;
     font-family: var(--body-font);
     font-size: var(--type-ramp-plus-1-font-size);
     line-height: var(--type-ramp-plus-1-line-heigh);
@@ -195,7 +195,10 @@ a[role="button"] {
     grid-column: span 2;
     width: 100%;
 }
-
+    .countingHeader > h1, .numberGameHeader > h1 {
+        font-size: var(--type-ramp-plus-3-font-size);
+    }
+    
 #answers {
     width: 40vw;
 }

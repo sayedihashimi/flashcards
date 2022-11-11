@@ -17,24 +17,27 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @inject IJSRuntime JsRuntime
 @inject NavigationManager uriHelper
 @page "/counting"
-<span id="mainMenu">
-    <ul>
-        <li>
-            <span @onclick="GoHome"><a role="button">🏠</a></span>
-        </li>
-        <li>
-           <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
-        </li>
-    </ul>
-</span>
-<div class="counting">
+<nav>
+    <span id="mainMenu">
+        <span class="empty"></span>
+        <ul>
+            <li>
+                <span @onclick="GoHome"><a role="button">🏠</a></span>
+            </li>
+            <li>
+                <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
+            </li>
+        </ul>
+        <span class="empty"></span>
+    </span>
+</nav>
+<main class="counting">
     <header class="countingHeader">
         <h1>How many @((MarkupString)charToUse)?</h1>
     </header>
-
     <section id="itemsToCount">
         <ul>
-            @for(int i = 0; i < numItems; i++)
+            @for (int i = 0; i < numItems; i++)
             {
                 <li>@((MarkupString)charToUse)</li>
             }
@@ -42,8 +45,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     </section>
     <section id="answers">
         <ul class="answerList">
-            @if(answerPrompts != null && answerPrompts.Count > 0){
-                foreach(var ap in answerPrompts)
+            @if (answerPrompts != null && answerPrompts.Count > 0)
+            {
+                foreach (var ap in answerPrompts)
                 {
                     <li><button class="answerButton" @onclick="() => Clicked(ap)">@ap</button></li>
                 }
@@ -52,13 +56,17 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     </section>
     <aside class="streak">Streak: @countCorrectInARow</aside>
 
-    <audio id="good">
+    <audio id="good" preload="auto">
         <source src="media/good.wav">
     </audio>
-    <audio id="wrong-buzzer">
+    <audio id="wrong-buzzer" preload="auto">
         <source src="media/wrong-answer2.mp3">
     </audio>
-</div>
+</main>
+
+@*<div class="counting">
+    
+</div>*@
 @code{
     private Random random = new Random();
     private int numItems;
