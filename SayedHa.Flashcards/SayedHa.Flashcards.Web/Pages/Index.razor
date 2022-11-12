@@ -22,9 +22,10 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @inject NavigationManager NavigationManager
 
 @if(currentFlashcard != null){
-    <span id="mainMenu">
+    <nav id="mainMenu">
+        <span class="empty"></span>
         <ul>
-            <li @onclick="ShowDefaultCards"><fast-anchor href="#" role="button">🏠</fast-anchor></li>            
+            <li @onclick="ShowDefaultCards"><fast-anchor href="#" role="button">🏠</fast-anchor></li>
             <li @onclick="ShowLetters"><fast-anchor href="#" role="button"><img src="media/letters.svg" alt="letters" /></fast-anchor></li>
             <li @onclick="ShowNumbers"><fast-anchor href="#" role="button"><img src="media/numbers.svg" alt="numbers" /></fast-anchor></li>
             <li @onclick="ShowShapes"><fast-anchor href="#" role="button"><img src="media/shapes-icon.svg" alt="shapes" /></fast-anchor></li>
@@ -40,8 +41,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
                 </fast-anchor>
             </li>
         </ul>
-    </span>
-    <section id="mainContent">
+        <span class="empty"></span>
+    </nav>
+    <main id="mainContent">
         <span class="previousCardButton">
             <img src="left-arrow.svg" class="navButton" alt="left arrow" @onclick="MovePrevious" />
         </span>
@@ -49,7 +51,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         <span class="nextCardButton">
             <img src="left-arrow.svg" class="navButton" alt="right arrow" @onclick="MoveNext" />
         </span>
-    </section>
+    </main>
     
 @*    <div>
         <a @onclick="ShowAddition">addition</a>

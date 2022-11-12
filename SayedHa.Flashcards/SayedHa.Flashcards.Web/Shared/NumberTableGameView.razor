@@ -17,10 +17,10 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @inject IJSRuntime JsRuntime
 @using System.Diagnostics
 <section class="ntg-container" ntgfinished="@IsFinished">
-<audio id="audio-beep">
+<audio id="audio-beep" preload="auto">
     <source src="media/tone-beep.wav">
 </audio>
-<audio id="crow-cheering">
+<audio id="crow-cheering" preload="auto">
     <source src="media/crowd-cheering.wav">
 </audio>
 @if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
@@ -52,8 +52,8 @@ else {
     [Parameter]
     public int NumItems { get; set; } = 25;
     [Parameter]
-    public Stopwatch Stopwatch{ get; set; }
-    private NumberTableGame Ntg;
+    public Stopwatch? Stopwatch{ get; set; }
+    private NumberTableGame? Ntg;
     private int NextNumberToSelect = 1;
 
     protected override void OnInitialized() {

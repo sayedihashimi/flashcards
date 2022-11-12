@@ -1,0 +1,258 @@
+﻿/*
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*/
+:root {
+    --primary: #00acc1;
+    --color: #882FF6;
+    --h1-color: red;
+}
+
+[data-theme="dark"] {
+    --primary: #fb8c00;
+}
+
+html, body {
+    height: 100%;
+    --body-font: Andika, Segoe UI, sans-serif;
+    font-family: var(--body-font);
+    font-size: var(--type-ramp-plus-1-font-size);
+    line-height: var(--type-ramp-plus-1-line-heigh);
+    margin: 0;
+    padding: 0;
+    white-space: normal;
+    word-break: break-word;
+    background-color: #d6d6d6;
+    /* not working as expected */
+    /*background-color: var(--fill-color);*/
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+/* appContent layout here */
+fast-design-system-provider{
+    height: 100%;
+}
+#app {
+    height: 100%;
+    /* hack to prevent scrolling, need to investigate. */
+    /*overflow:hidden;*/
+}
+#appContent {
+    display: grid;
+    width: 100%;
+    /*height: 100%;*/
+    grid-template-areas: "head head" "nav main" "foot foot";
+    grid-template-rows: 1em auto 1em;
+    grid-template-columns: 1fr 10fr;
+}
+    #appContent > header {
+        grid-area: head;
+    }
+
+    #appContent > nav {
+        grid-area: nav;
+    }
+
+    #appContent > main {
+        grid-area: main;
+    }
+
+    #appContent > footer {
+        grid-area: foot;
+        text-align: center;
+    }
+/* end appContent layout */
+
+/* mainMenu */
+#mainMenu {
+    /*    padding-top: 2px;
+    padding-bottom: 2px;*/
+    display:grid;
+    grid-template-columns: 1fr auto 1fr;
+}
+
+    #mainMenu ul {
+        margin-top: 0;
+        padding: 0;
+        padding-top: 5vh;
+    }
+
+        #mainMenu ul li {
+            list-style-type: none;
+            height: calc(92vh/7 - 10px);
+        }
+
+    #mainMenu fast-anchor[role="button"] {
+        height: calc(92vh/7 - 10px);
+        width: calc(92vh/7);
+        font-size: calc(92vh/7/2);
+    }
+
+        #mainMenu fast-anchor[role="button"] img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            vertical-align: baseline;
+        }
+
+a[role="button"] {
+    cursor: pointer;
+}
+/* end mainMenu */
+
+#mainContent {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+.flashcard {
+    /*margin-top: 20vh;*/
+    text-align: center;
+    font-size: 20vh;
+}
+
+.flashcard-answer {
+    margin: 0;
+    font-size: 10vw;
+}
+
+.flashcard-speaker img, .flashcard img {
+    /*max-width: 25vh;*/
+    max-height: 25vh;
+}
+
+.previousCardButton img, .nextCardButton img {
+    height: 5vw;
+    width: 5vw;
+    margin-top: 45vh;
+}
+
+.nextCardButton .navButton {
+    transform: rotate(180deg);
+}
+
+.timer {
+    font-size: 3vw;
+    list-style-type: none;
+    width: 100%;
+    padding-right: 5vw;
+    margin: 0;
+}
+
+    .timer li {
+        list-style: none;
+    }
+
+/*************************
+*   count items
+**************************/
+/*
+    :root {
+--bgcolor: #eeeeee;
+--pgheadercolor: #393e46;
+--altcolor1: #aad8d3;
+--altcolor2: #00adb5;
+--codefont: "Cascadia Code", "Menlo Regular", "Lucida Console", monospace;
+}
+*/
+
+.counting {
+    /*font-size: 6vw;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.countingHeader, .numberGameHeader {
+    grid-column: span 2;
+    width: 100%;
+}
+    .countingHeader > h1, .numberGameHeader > h1 {
+        font-size: var(--type-ramp-plus-3-font-size);
+    }
+    
+#answers {
+    width: 40vw;
+}
+
+.answerList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1vw;
+}
+
+    .answerList li {
+        list-style-type: none;
+    }
+
+.answerButton {
+    font-size: 5vw;
+    font-family: "Cascadia Code", "Courier New", sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #111;
+    color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10vw;
+}
+
+#itemsToCount {
+    width: 40vw;
+}
+
+    #itemsToCount ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0;
+    }
+
+        #itemsToCount ul li {
+            list-style: none;
+            font-size: 4vw;
+        }
+
+.streak {
+    font-size: 2vw;
+}
+
+@media only screen and (max-width : 1200px) {
+    #mainMenu a[role="button"] {
+        height: calc(100vh/8);
+        width: calc(100vh/8);
+        font-size: calc(100vh/8/2);
+        padding: 2px;
+    }
+
+    .answerButton {
+        font-size: 3vw;
+    }
+}

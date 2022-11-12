@@ -24,8 +24,8 @@
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "dotnetRunMessages": true,
-      "devTunnelEnabled": true,
-      "devTunnelAccess": "public"
+      //"devTunnelEnabled": true,
+      //"devTunnelAccess": "public"
     }
   }
 }

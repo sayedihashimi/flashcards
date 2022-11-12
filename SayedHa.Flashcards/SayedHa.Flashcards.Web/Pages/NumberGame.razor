@@ -18,32 +18,42 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @inject IJSRuntime JsRuntime
 @page "/numbers"
 @using System.Diagnostics
-<audio id="audio-restart-game">
+<audio id="audio-restart-game" preload="auto">
     <source src="media/xp-restart.mp3">
 </audio>
-<span id="mainMenu">
-    <ul>
-        <li>
-            <span @onclick="GoHome"><a role="button">🏠</a></span>
-        </li>
-        <li>
-           <a role="button"><img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" /></a>
-        </li>
-    </ul>
-</span>
-<div>
-<NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />
+<nav>
+    <span class="empty"></span>
+    <span id="mainMenu">
+        <ul>
+            <li>
+                <fast-anchor role="button" @onclick="GoHome" class="nav-link" Match="NavLinkMatch.All">
+                    <a role="button">🏠</a>
+                </fast-anchor>
+            </li>
+            <li>
+                <fast-anchor role="button" @onclick="RefershPage" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" />
+                </fast-anchor>
+            </li>
+        </ul>
+    </span>
+    <span class="empty"></span>
+</nav>
+<main>
+    <NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />
 
-<TimerView Stopwatch="stopwatch" />
-</div>
+    <TimerView Stopwatch="stopwatch" />
+</main>
+
+
 @code {
-    private Stopwatch stopwatch = new Stopwatch();
-    private NumberTableGameView numberGameView;
+    private Stopwatch? stopwatch = new Stopwatch();
+    private NumberTableGameView? numberGameView;
 
     private void RefershPage() {
         // uriHelper.NavigateTo("/numbers", forceLoad: true);
         JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
-        numberGameView.Reset();
+        numberGameView!.Reset();
 
     }
 
