@@ -104,7 +104,7 @@ fast-design-system-provider{
     #mainMenu ul {
         margin-top: 0;
         padding: 0;
-        padding-top: 5vh;
+        /*padding-top: 5vh;*/
     }
 
         #mainMenu ul li {
@@ -175,16 +175,6 @@ a[role="button"] {
 /*************************
 *   count items
 **************************/
-/*
-    :root {
---bgcolor: #eeeeee;
---pgheadercolor: #393e46;
---altcolor1: #aad8d3;
---altcolor2: #00adb5;
---codefont: "Cascadia Code", "Menlo Regular", "Lucida Console", monospace;
-}
-*/
-
 .counting {
     /*font-size: 6vw;*/
     display: grid;
@@ -256,3 +246,23 @@ a[role="button"] {
         font-size: 3vw;
     }
 }
+/*************************
+*   spell memory game
+**************************/
+#memoryGrid {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1vw;
+    justify-content: center;
+}
+    #memoryGrid > div {
+        background-color: purple;
+        text-align: center;
+        font-size: var(--type-ramp-plus-5-font-size);
+        line-height: 100%;
+        padding-bottom: 0.2em;
+    }
+
+

@@ -1,4 +1,4 @@
-﻿@* 
+﻿@*
 This file is part of SayedHa.Flashcards.
 
 SayedHa.Flashcards is free software: you can redistribute it and/or modify
@@ -16,11 +16,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 *@
 @inject NavigationManager uriHelper
 @inject IJSRuntime JsRuntime
-@page "/numbers"
-@using System.Diagnostics
-<audio id="audio-restart-game" preload="auto">
-    <source src="media/xp-restart.mp3">
-</audio>
+@page "/spellmemory"
+
 <nav>
     <span class="empty"></span>
     <span id="mainMenu">
@@ -39,24 +36,49 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     </span>
     <span class="empty"></span>
 </nav>
-<main>
-    <NumberTableGameView @ref="numberGameView" NumItems="25" Stopwatch="stopwatch" />
-
-    <TimerView Stopwatch="stopwatch" />
+<main id="memoryGrid">
+    @foreach (var item in GetSpellItemsToDisplay()) {
+        <div hidden="@(!item.IsVisible)"> @item.Text </div>
+    }
 </main>
 
-
 @code {
-    private Stopwatch? stopwatch = new Stopwatch();
-    private NumberTableGameView? numberGameView;
+    private List<SpellMemoryItem> GetSpellItems() {
+        // todo: replace this method
+        var items = new List<string> {
+            "tell",
+            "fell",
+            "yell",
+            "sell",
+            "shell",
+            "bell",
+            "spell",
+            "well"
+        };
+        var spellItems = new List<SpellMemoryItem>();
+        foreach(var item in items) {
+            spellItems.Add(new SpellMemoryItem { Text = item, IsVisible = true, WasFound = false });
+        }
 
+        return spellItems;
+    }
+    private List<SpellMemoryItem> GetSpellItemsToDisplay() {
+        var items = GetSpellItems();
+        // make a list that has each item twice and then randomize it
+        var spellItems = new List<SpellMemoryItem>();
+        foreach(var item in items) {
+            spellItems.Add(item);
+            spellItems.Add(item);
+        }
+        spellItems.Shuffle();
+        return spellItems;
+    }
     private void RefershPage() {
         // uriHelper.NavigateTo("/numbers", KnownValues.ForceLoad);
         JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
-        numberGameView!.Reset();
+        // TODO: Call reset on the grid to restart
     }
-
     private void GoHome() {
-        uriHelper.NavigateTo("/", forceLoad: KnownValues.ForceLoad);
+        uriHelper.NavigateTo("/", KnownValues.ForceLoad);
     }
 }
