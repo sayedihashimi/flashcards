@@ -37,12 +37,28 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     <span class="empty"></span>
 </nav>
 <main id="memoryGrid">
-    @foreach (var item in GetSpellItemsToDisplay()) {
-        <div hidden="@(!item.IsVisible)"> @item.Text </div>
+    @if (ItemsToDisplay != null) {
+        @foreach (var item in ItemsToDisplay) {
+            <div class="memoryGridItem" @onclick="e=>HandleItemClick(item.Index)">
+                <div class="memoryGridItemContents"
+                     isVisible="@(item.IsVisible)"
+                     data-index="@item.Index">
+                    @item.Text
+                </div>
+            </div>
+        }
     }
+    
 </main>
 
 @code {
+    private List<SpellMemoryItem>? ItemsToDisplay{ get; set; }
+
+    protected override void OnInitialized() {
+        base.OnInitialized();
+        ItemsToDisplay = GetSpellItemsToDisplay();
+    }
+
     private List<SpellMemoryItem> GetSpellItems() {
         // todo: replace this method
         var items = new List<string> {
@@ -56,8 +72,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             "well"
         };
         var spellItems = new List<SpellMemoryItem>();
+        var index = 0;
         foreach(var item in items) {
-            spellItems.Add(new SpellMemoryItem { Text = item, IsVisible = true, WasFound = false });
+            spellItems.Add(new SpellMemoryItem { Text = item, IsVisible = false, WasFound = false, Index=index });
         }
 
         return spellItems;
@@ -66,13 +83,29 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         var items = GetSpellItems();
         // make a list that has each item twice and then randomize it
         var spellItems = new List<SpellMemoryItem>();
-        foreach(var item in items) {
-            spellItems.Add(item);
-            spellItems.Add(item);
+
+        foreach (var item in items) {
+            spellItems.Add(new SpellMemoryItem { Index = item.Index,Text=item.Text, IsVisible = item.IsVisible, WasFound = item.WasFound });
+            spellItems.Add(new SpellMemoryItem { Index = item.Index, Text = item.Text, IsVisible = item.IsVisible, WasFound = item.WasFound });
         }
+
         spellItems.Shuffle();
+        // now set the index
+        var index = 0;
+        foreach(var item in spellItems) {
+            item.Index = index++;
+        }
+
         return spellItems;
     }
+
+    // events below
+
+    private void HandleItemClick(int index) {
+        Console.WriteLine($"item clicked: {index}");
+        ItemsToDisplay![index].IsVisible = true;
+    }
+
     private void RefershPage() {
         // uriHelper.NavigateTo("/numbers", KnownValues.ForceLoad);
         JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
@@ -81,4 +114,6 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     private void GoHome() {
         uriHelper.NavigateTo("/", KnownValues.ForceLoad);
     }
+
+    
 }

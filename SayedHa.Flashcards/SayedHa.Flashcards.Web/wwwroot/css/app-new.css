@@ -263,6 +263,13 @@ a[role="button"] {
         font-size: var(--type-ramp-plus-5-font-size);
         line-height: 100%;
         padding-bottom: 0.2em;
+        height: 12vmin;
+    }
+.memoryGridItemContents {
+    display: none;
+}
+    .memoryGridItemContents[isVisible]{
+        display: initial;
     }
 
 
