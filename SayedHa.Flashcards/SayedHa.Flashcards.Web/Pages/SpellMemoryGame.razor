@@ -28,8 +28,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
                 </fast-anchor>
             </li>
             <li>
-                <fast-anchor role="button" @onclick="RefershPage" class="nav-link" Match="NavLinkMatch.All">
-                    <img src="media/refersh.svg" alt="refresh" @onclick="RefershPage" />
+                <fast-anchor role="button" @onclick="ResetPage" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" @onclick="ResetPage" />
                 </fast-anchor>
             </li>
         </ul>
@@ -37,6 +37,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     <span class="empty"></span>
 </nav>
 <main id="memoryGrid">
+    <aside id="hasWonOverlay" IsVisible="@(ShowHasWonOverlay)" @onclick=HandleHasWonOverlayClick>
+        <img src="media/unicorn.gif" alt="unicorn gif" />
+    </aside>
     @if (ItemsToDisplay != null) {
         @foreach (var item in ItemsToDisplay) {
             <div class="memoryGridItem" @onclick="e=>HandleItemClick(item.Index)">
@@ -48,11 +51,12 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             </div>
         }
     }
-    
 </main>
-
+<audio id="crow-cheering" preload="auto">
+    <source src="media/crowd-cheering.wav">
+</audio>
 @code {
-    private List<SpellMemoryItem>? ItemsToDisplay{ get; set; }
+    private List<SpellMemoryItem>? ItemsToDisplay { get; set; }
 
     protected override void OnInitialized() {
         base.OnInitialized();
@@ -73,8 +77,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         };
         var spellItems = new List<SpellMemoryItem>();
         var index = 0;
-        foreach(var item in items) {
-            spellItems.Add(new SpellMemoryItem { Text = item, IsVisible = false, WasFound = false, Index=index });
+        foreach (var item in items) {
+            spellItems.Add(new SpellMemoryItem { Text = item, IsVisible = false, WasFound = false, Index = index });
         }
 
         return spellItems;
@@ -85,35 +89,80 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         var spellItems = new List<SpellMemoryItem>();
 
         foreach (var item in items) {
-            spellItems.Add(new SpellMemoryItem { Index = item.Index,Text=item.Text, IsVisible = item.IsVisible, WasFound = item.WasFound });
+            spellItems.Add(new SpellMemoryItem { Index = item.Index, Text = item.Text, IsVisible = item.IsVisible, WasFound = item.WasFound });
             spellItems.Add(new SpellMemoryItem { Index = item.Index, Text = item.Text, IsVisible = item.IsVisible, WasFound = item.WasFound });
         }
 
         spellItems.Shuffle();
         // now set the index
         var index = 0;
-        foreach(var item in spellItems) {
+        foreach (var item in spellItems) {
             item.Index = index++;
         }
 
         return spellItems;
     }
 
-    // events below
+    private bool ShowHasWonOverlay { get; set; } = true;
 
+
+    private int LastIndexClicked = int.MinValue;
+
+    private bool HasUserWon() => !ItemsToDisplay!.Any(item => !item.WasFound);
+
+    // events below
+    private void HandleHasWonOverlayClick() {
+        ResetPage();
+    }
     private void HandleItemClick(int index) {
-        Console.WriteLine($"item clicked: {index}");
+        Console.WriteLine($"item clicked: {index}, lastIndex: {LastIndexClicked}");
+
+        if (LastIndexClicked == int.MinValue) {
+            Console.WriteLine($"Resetting IsVisible");
+            foreach (var item in ItemsToDisplay!) {
+                item.IsVisible = item.WasFound;
+            }
+        }
+
         ItemsToDisplay![index].IsVisible = true;
+
+        if (LastIndexClicked != int.MinValue) {
+            // one card is already revealed, check to see if it's a match
+            if (string.Equals(ItemsToDisplay![LastIndexClicked].Text, ItemsToDisplay[index].Text)) {
+                ItemsToDisplay[LastIndexClicked].WasFound = true;
+                ItemsToDisplay[index].WasFound = true;
+            }
+            // set LastIndexCliced to int.MinValue to reset it
+            LastIndexClicked = int.MinValue;
+        }
+        else {
+            LastIndexClicked = index;
+        }
+
+        if ( HasUserWon()) {
+            Console.WriteLine("User has won");
+            ShowHasWonOverlay = true;
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"crow-cheering");
+        }
     }
 
-    private void RefershPage() {
-        // uriHelper.NavigateTo("/numbers", KnownValues.ForceLoad);
+    private void ResetVisiblity() {
+        foreach (var item in ItemsToDisplay!) {
+            item.IsVisible = item.WasFound;
+        }
+    }
+
+    private void ResetPage() {
         JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
+        ShowHasWonOverlay = false;
+        foreach(var item in ItemsToDisplay!) {
+            item.IsVisible = item.WasFound = false;
+        }
         // TODO: Call reset on the grid to restart
     }
     private void GoHome() {
         uriHelper.NavigateTo("/", KnownValues.ForceLoad);
     }
 
-    
+
 }
