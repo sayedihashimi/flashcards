@@ -55,6 +55,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 <audio id="crow-cheering" preload="auto">
     <source src="media/crowd-cheering.wav">
 </audio>
+<audio id="unicorn" preload="auto" loop>
+    <source src="media/unicorn.wav">
+</audio>
 @code {
     private List<SpellMemoryItem>? ItemsToDisplay { get; set; }
 
@@ -142,7 +145,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         if ( HasUserWon()) {
             Console.WriteLine("User has won");
             ShowHasWonOverlay = true;
-            JsRuntime.InvokeAsync<string>("PlayAudio", $"crow-cheering");
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"unicorn");
         }
     }
 
@@ -153,12 +156,12 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     }
 
     private void ResetPage() {
+        JsRuntime.InvokeAsync<string>("StopAudio", $"unicorn");
         JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
         ShowHasWonOverlay = false;
         foreach(var item in ItemsToDisplay!) {
             item.IsVisible = item.WasFound = false;
         }
-        // TODO: Call reset on the grid to restart
     }
     private void GoHome() {
         uriHelper.NavigateTo("/", KnownValues.ForceLoad);
