@@ -1,0 +1,77 @@
+﻿@*
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*@
+@inject IJSRuntime JsRuntime
+
+@if (gameData?.LettersToDisplay?.Count > 0 && gameData?.LettersToAnnounce?.Count > 0) {
+    <section id="findLetterGame">
+        <header id="gameDataHeader">
+            Find the letter that you hear. Click speaker to replay the letter <span @onclick="PlayLetterToAnnounce">🔊</span>
+        </header>
+        <section id="gameDataContent">
+            @foreach (var item in gameData.LettersToDisplay) {
+                <span class="letterBox" hasBeenSelected="@item.HasBeenSelected" @onclick="() => Clicked(item)">
+                    <span class="letter" @onclick="() => Clicked(item)">@item.Letter</span>
+                </span>
+            }
+            <audio id="letterToAnnounce" preload="auto">
+                <source src="@gameData.LetterToAnnounce.AudioFilePath">
+            </audio>
+        </section>
+    </section>
+}
+else {
+    <fast-progress-ring>loading...</fast-progress-ring>
+}
+
+@code {
+    private FindLetterGameData? gameData;
+
+    protected override void OnInitialized() {
+        Reset();
+    }
+
+    protected override void OnAfterRender(bool firstRender) {
+        base.OnAfterRender(firstRender);
+        if (firstRender) {
+            PlayLetterToAnnounce();
+        }
+    }
+
+    public void PlayLetterToAnnounce() {
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"letterToAnnounce");
+    }
+
+    public void Reset() {
+        var randomizeLettersToDisplay = false;
+        var randomizeLettersToAnnounce = true;
+        gameData = new FindLetterGameData(randomizeLettersToDisplay, randomizeLettersToAnnounce);
+    }
+
+    
+    // events below
+    protected void Clicked(FindLetterGameDataItem letterClicked) {
+        Console.Write($"letter clicked: {letterClicked.Letter}");
+        var lta = gameData!.LetterToAnnounce?.Letter;
+        Console.Write($" Letter to announce: {lta}");
+
+        if (string.Equals(gameData!.LetterToAnnounce?.Letter, letterClicked.Letter)) {
+            Console.Write(" *** Match found ***");
+            letterClicked.HasBeenSelected = true;
+            StateHasChanged();
+        }
+    }
+}
