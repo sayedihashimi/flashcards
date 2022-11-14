@@ -16,6 +16,22 @@
     }
 }
 
+function StopAudio(elementName) {
+    console.log('trying to stop audio on elementName: "' + elementName + '"');
+
+    var element = document.getElementById(elementName);
+    // if it's an audio element try to play it,
+    // otherwise try to play first child node
+    if ("AUDIO" === element.nodeName.toUpperCase()) {
+        element.pause();
+        element.currentTime = 0;
+    }
+    else {
+        element.firstChild.pause();
+        element.firstChild.currentTime = 0;
+    }
+}
+
 var previousAudioList;
 function PlayAudioSeries(urlsToPlay) {
     console.log('inside site.js:PlayAudioSeries')

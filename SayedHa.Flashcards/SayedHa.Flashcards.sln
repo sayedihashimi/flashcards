@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Shared",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Tests", "SayedHa.Flashcards.Tests\SayedHa.Flashcards.Tests.csproj", "{D3271C3B-7D35-46FD-B494-A53F3388F0B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayedHa.Flashcards.Web", "SayedHa.Flashcards.Web\SayedHa.Flashcards.Web.csproj", "{A66B87E1-1FAE-4AA5-8BBA-2EA0688578AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SayedHa.Flashcards.Web", "SayedHa.Flashcards.Web\SayedHa.Flashcards.Web.csproj", "{A66B87E1-1FAE-4AA5-8BBA-2EA0688578AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,176 @@
+﻿@*
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*@
+@inject NavigationManager uriHelper
+@inject IJSRuntime JsRuntime
+@page "/spellmemory"
+
+<nav>
+    <span class="empty"></span>
+    <span id="mainMenu">
+        <ul>
+            <li>
+                <fast-anchor role="button" @onclick="GoHome" class="nav-link" Match="NavLinkMatch.All">
+                    <a role="button">🏠</a>
+                </fast-anchor>
+            </li>
+            <li>
+                <fast-anchor role="button" @onclick="ResetPage" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" @onclick="ResetPage" />
+                </fast-anchor>
+            </li>
+        </ul>
+    </span>
+    <span class="empty"></span>
+</nav>
+<main id="memoryGrid">
+    <aside id="hasWonOverlay" IsVisible="@(ShowHasWonOverlay)" @onclick=HandleHasWonOverlayClick>
+        <img src="media/unicorn.gif" alt="unicorn gif" />
+    </aside>
+    @if (ItemsToDisplay != null) {
+        @foreach (var item in ItemsToDisplay) {
+            <div class="memoryGridItem" @onclick="e=>HandleItemClick(item.Index)">
+                <div class="memoryGridItemContents"
+                     isVisible="@(item.IsVisible)"
+                     data-index="@item.Index">
+                    @item.Text
+                </div>
+            </div>
+        }
+    }
+</main>
+<audio id="crow-cheering" preload="auto">
+    <source src="media/crowd-cheering.wav">
+</audio>
+<audio id="unicorn" preload="auto" loop>
+    <source src="media/unicorn.wav">
+</audio>
+<audio id="excitingDrumLoop" preload="auto" loop>
+    <source src="media/exciting-drum-loop-01.mp3">
+</audio>
+@code {
+    private List<SpellMemoryItem>? ItemsToDisplay { get; set; }
+
+    protected override void OnInitialized() {
+        base.OnInitialized();
+        ItemsToDisplay = GetSpellItemsToDisplay();
+    }
+
+    private List<SpellMemoryItem> GetSpellItems() {
+        // todo: replace this method
+        var items = new List<string> {
+            "tell",
+            "fell",
+            "yell",
+            "sell",
+            "shell",
+            "bell",
+            "spell",
+            "well"
+        };
+        var spellItems = new List<SpellMemoryItem>();
+        var index = 0;
+        foreach (var item in items) {
+            spellItems.Add(new SpellMemoryItem { Text = item, IsVisible = false, WasFound = false, Index = index });
+        }
+
+        return spellItems;
+    }
+    private List<SpellMemoryItem> GetSpellItemsToDisplay() {
+        var items = GetSpellItems();
+        // make a list that has each item twice and then randomize it
+        var spellItems = new List<SpellMemoryItem>();
+
+        foreach (var item in items) {
+            spellItems.Add(new SpellMemoryItem { Index = item.Index, Text = item.Text, IsVisible = item.IsVisible, WasFound = item.WasFound });
+            spellItems.Add(new SpellMemoryItem { Index = item.Index, Text = item.Text, IsVisible = item.IsVisible, WasFound = item.WasFound });
+        }
+
+        spellItems.Shuffle();
+        // now set the index
+        var index = 0;
+        foreach (var item in spellItems) {
+            item.Index = index++;
+        }
+
+        return spellItems;
+    }
+
+    private bool ShowHasWonOverlay { get; set; }
+
+
+    private int LastIndexClicked = int.MinValue;
+
+    private bool HasUserWon() => !ItemsToDisplay!.Any(item => !item.WasFound);
+
+    // events below
+    private void HandleHasWonOverlayClick() {
+        ResetPage();
+    }
+    private void HandleItemClick(int index) {
+        Console.WriteLine($"item clicked: {index}, lastIndex: {LastIndexClicked}");
+
+        if (LastIndexClicked == int.MinValue) {
+            Console.WriteLine($"Resetting IsVisible");
+            foreach (var item in ItemsToDisplay!) {
+                item.IsVisible = item.WasFound;
+            }
+        }
+
+        ItemsToDisplay![index].IsVisible = true;
+
+        if (LastIndexClicked != int.MinValue) {
+            // one card is already revealed, check to see if it's a match
+            if (string.Equals(ItemsToDisplay![LastIndexClicked].Text, ItemsToDisplay[index].Text)) {
+                ItemsToDisplay[LastIndexClicked].WasFound = true;
+                ItemsToDisplay[index].WasFound = true;
+            }
+            // set LastIndexCliced to int.MinValue to reset it
+            LastIndexClicked = int.MinValue;
+        }
+        else {
+            LastIndexClicked = index;
+        }
+
+        if ( HasUserWon()) {
+            Console.WriteLine("User has won");
+            ShowHasWonOverlay = true;
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"unicorn");
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"excitingDrumLoop");
+        }
+    }
+
+    private void ResetVisiblity() {
+        foreach (var item in ItemsToDisplay!) {
+            item.IsVisible = item.WasFound;
+        }
+    }
+
+    private void ResetPage() {
+        JsRuntime.InvokeAsync<string>("StopAudio", $"unicorn");
+        JsRuntime.InvokeAsync<string>("StopAudio", $"excitingDrumLoop");
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
+        ShowHasWonOverlay = false;
+        foreach(var item in ItemsToDisplay!) {
+            item.IsVisible = item.WasFound = false;
+        }
+    }
+    private void GoHome() {
+        uriHelper.NavigateTo("/", KnownValues.ForceLoad);
+    }
+
+
+}

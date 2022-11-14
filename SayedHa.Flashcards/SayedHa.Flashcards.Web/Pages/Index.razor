@@ -30,15 +30,18 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             <li @onclick="ShowNumbers"><fast-anchor href="#" role="button"><img src="media/numbers.svg" alt="numbers" /></fast-anchor></li>
             <li @onclick="ShowShapes"><fast-anchor href="#" role="button"><img src="media/shapes-icon.svg" alt="shapes" /></fast-anchor></li>
             <li @onclick="ShowAddition"><fast-anchor href="#" role="button">➕</fast-anchor></li>
-            <li @onclick="NavToNumbers">
+            <li>
                 <fast-anchor role="button" class="nav-link" href="numbers" Match="NavLinkMatch.All">
                     <img src="media/numbersgame.svg" alt="numbers game" />
                 </fast-anchor>
             </li>
-            <li @onclick="NavToCounting">
+            <li>
                 <fast-anchor role="button" class="nav-link" href="counting" Match="NavLinkMatch.All">
                     <img src="media/counting.svg" alt="counting game" />
                 </fast-anchor>
+            </li>
+            <li>
+                <fast-anchor href="spellmemory" role="button">🧠</fast-anchor>
             </li>
         </ul>
         <span class="empty"></span>
@@ -132,13 +135,5 @@ else{
         // should implement some general way to caches these files
         FlashcardList = new FlashcardList(await GetFlashcards());
         //currentFlashcard = _flashcardList.GetCurrent();
-    }
-    private void NavToNumbers()
-    {
-        NavigationManager.NavigateTo("/numbers");
-    }
-    private void NavToCounting()
-    {
-        NavigationManager.NavigateTo("/counting");
     }
 }
