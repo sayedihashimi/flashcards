@@ -260,9 +260,12 @@ a[role="button"] {
     #memoryGrid > div {
         background-color: purple;
         text-align: center;
-        font-size: var(--type-ramp-plus-5-font-size);
+        /*font-size: var(--type-ramp-plus-5-font-size);
+        line-height: var(--type-ramp-plus-5-line-height);*/
+        font-size: 10vmin;
         line-height: 100%;
-        padding-bottom: 0.2em;
+        /*padding-top: 0.2em;
+        padding-bottom: 0.2em;*/
         height: 12vmin;
     }
 .memoryGridItemContents {
@@ -271,30 +274,37 @@ a[role="button"] {
     .memoryGridItemContents[isVisible]{
         display: initial;
     }
-
-/*************************
+@media only screen and (max-width : 1200px) {
+    #memoryGrid > div {
+/*        font-size: var(--type-ramp-plus-6-font-size);
+        line-height: var(--type-ramp-plus-6-line-height);*/
+    }
+}
+    /*************************
 *   has won overlay
 **************************/
-#hasWonOverlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
-    cursor: pointer;
-}
-    #hasWonOverlay[IsVisible] {
-        display: initial;
+    #hasWonOverlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
     }
-    #hasWonOverlay > img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 8vh;
-        width: 50%;
-    }
+
+        #hasWonOverlay[IsVisible] {
+            display: initial;
+        }
+
+        #hasWonOverlay > img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 8vh;
+            width: 50%;
+        }
