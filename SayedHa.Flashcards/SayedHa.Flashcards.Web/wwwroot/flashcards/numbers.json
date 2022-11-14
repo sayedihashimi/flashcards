@@ -1,42 +1,42 @@
 [
   {
     "QuestionText": "1",
-    "Audio": "flashcards/media/audio/number-1.wav"
+    "Audio": "flashcards/media/audio/number-1.mp3"
   },
   {
     "QuestionText": "2",
-    "Audio": "flashcards/media/audio/number-2.wav"
+    "Audio": "flashcards/media/audio/number-2.mp3"
   },
   {
     "QuestionText": "3",
-    "Audio": "flashcards/media/audio/number-3.wav"
+    "Audio": "flashcards/media/audio/number-3.mp3"
   },
   {
     "QuestionText": "4",
-    "Audio": "flashcards/media/audio/number-4.wav"
+    "Audio": "flashcards/media/audio/number-4.mp3"
   },
   {
     "QuestionText": "5",
-    "Audio": "flashcards/media/audio/number-5.wav"
+    "Audio": "flashcards/media/audio/number-5.mp3"
   },
   {
     "QuestionText": "6",
-    "Audio": "flashcards/media/audio/number-6.wav"
+    "Audio": "flashcards/media/audio/number-6.mp3"
   },
   {
     "QuestionText": "7",
-    "Audio": "flashcards/media/audio/number-7.wav"
+    "Audio": "flashcards/media/audio/number-7.mp3"
   },
   {
     "QuestionText": "8",
-    "Audio": "flashcards/media/audio/number-8.wav"
+    "Audio": "flashcards/media/audio/number-8.mp3"
   },
   {
     "QuestionText": "9",
-    "Audio": "flashcards/media/audio/number-9.wav"
+    "Audio": "flashcards/media/audio/number-9.mp3"
   },
   {
     "QuestionText": "10",
-    "Audio": "flashcards/media/audio/number-10.wav"
+    "Audio": "flashcards/media/audio/number-10.mp3"
   }
 ]

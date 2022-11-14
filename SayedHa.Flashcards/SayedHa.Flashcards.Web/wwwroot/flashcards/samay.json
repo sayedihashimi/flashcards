@@ -1,47 +1,47 @@
 [
   {
     "QuestionText": "jump",
-    "Audio": "flashcards/media/audio/jump.wav"
+    "Audio": "flashcards/media/audio/jump.mp3"
   },
   {
     "QuestionText": "make",
-    "Audio": "flashcards/media/audio/make.wav"
+    "Audio": "flashcards/media/audio/make.mp3"
   },
   {
     "QuestionText": "bot",
-    "Audio": "flashcards/media/audio/bot.wav"
+    "Audio": "flashcards/media/audio/bot.mp3"
   },
   {
     "QuestionText": "on",
-    "Audio": "flashcards/media/audio/on.wav"
+    "Audio": "flashcards/media/audio/on.mp3"
   },
   {
     "QuestionText": "blue",
-    "Audio": "flashcards/media/audio/blue.wav"
+    "Audio": "flashcards/media/audio/blue.mp3"
   },
   {
     "QuestionText": "here",
-    "Audio": "flashcards/media/audio/here.wav"
+    "Audio": "flashcards/media/audio/here.mp3"
   },
   {
     "QuestionText": "come",
-    "Audio": "flashcards/media/audio/come.wav"
+    "Audio": "flashcards/media/audio/come.mp3"
   },
   {
     "QuestionText": "for",
-    "Audio": "flashcards/media/audio/for.wav"
+    "Audio": "flashcards/media/audio/for.mp3"
   },
   {
     "QuestionText": "not",
-    "Audio": "flashcards/media/audio/not.wav"
+    "Audio": "flashcards/media/audio/not.mp3"
   },
   {
     "QuestionText": "help",
-    "Audio": "flashcards/media/audio/help.wav"
+    "Audio": "flashcards/media/audio/help.mp3"
   },
   {
     "QuestionText": "where",
-    "Audio": "flashcards/media/audio/where.wav"
+    "Audio": "flashcards/media/audio/where.mp3"
   },
   {
     "QuestionText": "hat"
@@ -55,62 +55,62 @@
   {
     "Answer": "circle",
     "ImageUrl": "flashcards/media/circle.svg",
-    "Audio": "flashcards/media/audio/circle.wav"
+    "Audio": "flashcards/media/audio/circle.mp3"
   },
   {
     "Answer": "crescent",
     "ImageUrl": "flashcards/media/crescent.svg",
-    "Audio": "flashcards/media/audio/crescent.wav"
+    "Audio": "flashcards/media/audio/crescent.mp3"
   },
   {
     "Answer": "equals",
     "ImageUrl": "flashcards/media/equals.svg",
-    "Audio": "flashcards/media/audio/equals.wav"
+    "Audio": "flashcards/media/audio/equals.mp3"
   },
   {
     "Answer": "heart",
     "ImageUrl": "flashcards/media/heart.svg",
-    "Audio": "flashcards/media/audio/heart.wav"
+    "Audio": "flashcards/media/audio/heart.mp3"
   },
   {
     "Answer": "hexagon",
     "ImageUrl": "flashcards/media/hexagon.svg",
-    "Audio": "flashcards/media/audio/hexagon.wav"
+    "Audio": "flashcards/media/audio/hexagon.mp3"
   },
   {
     "Answer": "octagon",
     "ImageUrl": "flashcards/media/octagon.svg",
-    "Audio": "flashcards/media/audio/octagon.wav"
+    "Audio": "flashcards/media/audio/octagon.mp3"
   },
   {
     "Answer": "pentagon",
     "ImageUrl": "flashcards/media/pentagon.svg",
-    "Audio": "flashcards/media/audio/pentagon.wav"
+    "Audio": "flashcards/media/audio/pentagon.mp3"
   },
   {
     "Answer": "plus",
     "ImageUrl": "flashcards/media/plus.svg",
-    "Audio": "flashcards/media/audio/plus.wav"
+    "Audio": "flashcards/media/audio/plus.mp3"
   },
   {
     "Answer": "rectangle",
     "ImageUrl": "flashcards/media/rectangle.svg",
-    "Audio": "flashcards/media/audio/rectangle.wav"
+    "Audio": "flashcards/media/audio/rectangle.mp3"
   },
   {
     "Answer": "square",
     "ImageUrl": "flashcards/media/square.svg",
-    "Audio": "flashcards/media/audio/square.wav"
+    "Audio": "flashcards/media/audio/square.mp3"
   },
   {
     "Answer": "triangle",
     "ImageUrl": "flashcards/media/triangle.svg",
-    "Audio": "flashcards/media/audio/triangle.wav"
+    "Audio": "flashcards/media/audio/triangle.mp3"
   },
   {
     "Answer": "triangle",
     "ImageUrl": "flashcards/media/triangle2.svg",
-    "Audio": "flashcards/media/audio/triangle.wav"
+    "Audio": "flashcards/media/audio/triangle.mp3"
   },
   {
     "Answer": "umbrella",
@@ -126,146 +126,146 @@
   },
   {
     "QuestionText": "A",
-    "Audio": "flashcards/media/audio/letter-a.wav"
+    "Audio": "flashcards/media/audio/letter-a.mp3"
   },
   {
     "QuestionText": "B",
-    "Audio": "flashcards/media/audio/letter-b.wav"
+    "Audio": "flashcards/media/audio/letter-b.mp3"
   },
   {
     "QuestionText": "C",
-    "Audio": "flashcards/media/audio/letter-c.wav"
+    "Audio": "flashcards/media/audio/letter-c.mp3"
   },
   {
     "QuestionText": "D",
-    "Audio": "flashcards/media/audio/letter-d.wav"
+    "Audio": "flashcards/media/audio/letter-d.mp3"
   },
   {
     "QuestionText": "E",
-    "Audio": "flashcards/media/audio/letter-e.wav"
+    "Audio": "flashcards/media/audio/letter-e.mp3"
   },
   {
     "QuestionText": "F",
-    "Audio": "flashcards/media/audio/letter-f.wav"
+    "Audio": "flashcards/media/audio/letter-f.mp3"
   },
   {
     "QuestionText": "G",
-    "Audio": "flashcards/media/audio/letter-g.wav"
+    "Audio": "flashcards/media/audio/letter-g.mp3"
   },
   {
     "QuestionText": "H",
-    "Audio": "flashcards/media/audio/letter-h.wav"
+    "Audio": "flashcards/media/audio/letter-h.mp3"
   },
   {
     "QuestionText": "I",
-    "Audio": "flashcards/media/audio/letter-i.wav"
+    "Audio": "flashcards/media/audio/letter-i.mp3"
   },
   {
     "QuestionText": "J",
-    "Audio": "flashcards/media/audio/letter-j.wav"
+    "Audio": "flashcards/media/audio/letter-j.mp3"
   },
   {
     "QuestionText": "K",
-    "Audio": "flashcards/media/audio/letter-k.wav"
+    "Audio": "flashcards/media/audio/letter-k.mp3"
   },
   {
     "QuestionText": "L",
-    "Audio": "flashcards/media/audio/letter-l.wav"
+    "Audio": "flashcards/media/audio/letter-l.mp3"
   },
   {
     "QuestionText": "M",
-    "Audio": "flashcards/media/audio/letter-m.wav"
+    "Audio": "flashcards/media/audio/letter-m.mp3"
   },
   {
     "QuestionText": "N",
-    "Audio": "flashcards/media/audio/letter-n.wav"
+    "Audio": "flashcards/media/audio/letter-n.mp3"
   },
   {
     "QuestionText": "O",
-    "Audio": "flashcards/media/audio/letter-o.wav"
+    "Audio": "flashcards/media/audio/letter-o.mp3"
   },
   {
     "QuestionText": "P",
-    "Audio": "flashcards/media/audio/letter-p.wav"
+    "Audio": "flashcards/media/audio/letter-p.mp3"
   },
   {
     "QuestionText": "Q",
-    "Audio": "flashcards/media/audio/letter-q.wav"
+    "Audio": "flashcards/media/audio/letter-q.mp3"
   },
   {
     "QuestionText": "R",
-    "Audio": "flashcards/media/audio/letter-r.wav"
+    "Audio": "flashcards/media/audio/letter-r.mp3"
   },
   {
     "QuestionText": "S",
-    "Audio": "flashcards/media/audio/letter-s.wav"
+    "Audio": "flashcards/media/audio/letter-s.mp3"
   },
   {
     "QuestionText": "T",
-    "Audio": "flashcards/media/audio/letter-t.wav"
+    "Audio": "flashcards/media/audio/letter-t.mp3"
   },
   {
     "QuestionText": "U",
-    "Audio": "flashcards/media/audio/letter-u.wav"
+    "Audio": "flashcards/media/audio/letter-u.mp3"
   },
   {
     "QuestionText": "V",
-    "Audio": "flashcards/media/audio/letter-v.wav"
+    "Audio": "flashcards/media/audio/letter-v.mp3"
   },
   {
     "QuestionText": "W",
-    "Audio": "flashcards/media/audio/letter-w.wav"
+    "Audio": "flashcards/media/audio/letter-w.mp3"
   },
   {
     "QuestionText": "X",
-    "Audio": "flashcards/media/audio/letter-x.wav"
+    "Audio": "flashcards/media/audio/letter-x.mp3"
   },
   {
     "QuestionText": "Y",
-    "Audio": "flashcards/media/audio/letter-y.wav"
+    "Audio": "flashcards/media/audio/letter-y.mp3"
   },
   {
     "QuestionText": "Z",
-    "Audio": "flashcards/media/audio/letter-z.wav"
+    "Audio": "flashcards/media/audio/letter-z.mp3"
   },
   {
     "QuestionText": "1",
-    "Audio": "flashcards/media/audio/number-1.wav"
+    "Audio": "flashcards/media/audio/number-1.mp3"
   },
   {
     "QuestionText": "2",
-    "Audio": "flashcards/media/audio/number-2.wav"
+    "Audio": "flashcards/media/audio/number-2.mp3"
   },
   {
     "QuestionText": "3",
-    "Audio": "flashcards/media/audio/number-3.wav"
+    "Audio": "flashcards/media/audio/number-3.mp3"
   },
   {
     "QuestionText": "4",
-    "Audio": "flashcards/media/audio/number-4.wav"
+    "Audio": "flashcards/media/audio/number-4.mp3"
   },
   {
     "QuestionText": "5",
-    "Audio": "flashcards/media/audio/number-5.wav"
+    "Audio": "flashcards/media/audio/number-5.mp3"
   },
   {
     "QuestionText": "6",
-    "Audio": "flashcards/media/audio/number-6.wav"
+    "Audio": "flashcards/media/audio/number-6.mp3"
   },
   {
     "QuestionText": "7",
-    "Audio": "flashcards/media/audio/number-7.wav"
+    "Audio": "flashcards/media/audio/number-7.mp3"
   },
   {
     "QuestionText": "8",
-    "Audio": "flashcards/media/audio/number-8.wav"
+    "Audio": "flashcards/media/audio/number-8.mp3"
   },
   {
     "QuestionText": "9",
-    "Audio": "flashcards/media/audio/number-9.wav"
+    "Audio": "flashcards/media/audio/number-9.mp3"
   },
   {
     "QuestionText": "10",
-    "Audio": "flashcards/media/audio/number-10.wav"
+    "Audio": "flashcards/media/audio/number-10.mp3"
   }
 ]
