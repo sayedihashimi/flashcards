@@ -24,11 +24,17 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         <section id="gameDataContent">
             @foreach (var item in gameData.LettersToDisplay) {
                 <span class="letterBox" @onclick="() => NewClick(item)">
-                    &nbsp;<span class="letter" hasBeenSelected="@item.HasBeenSelected" @onclick="() => NewClick(item)">@item.Letter</span>
+                    &nbsp;<span class="letter" hasBeenSelected="@item.HasBeenSelected">@item.Letter</span>
                 </span>
             }
-            <audio id="letterToAnnounce">
-                <source src="@gameData.LetterToAnnounce.AudioFilePath">
+            <audio id="hasWonAudio" preload="auto" loop>
+                <source src="media/samay-smile-airpod-football.mp3">
+            </audio>
+            <audio id="correctChoiceAudio" preload="auto">
+                <source src="media/correct-choice.mp3">
+            </audio>
+            <audio id="wrongAnswerAudio" preload="auto">
+                <source src="media/wronganswer.mp3">
             </audio>
         </section>
     </section>
@@ -73,7 +79,18 @@ else {
 
     protected void UserHasWon() {
         Console.WriteLine("UserHasWon");
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"hasWonAudio");
+    }
 
+    protected void PlayCorrectChoiceAudio() {
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"correctChoiceAudio");
+        // wait a half second to allow audio to complete before going on
+        Thread.Sleep(300);
+    }
+    protected void PlayWrongAnswerAudio() {
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"wrongAnswerAudio");
+        // wait a half second to allow audio to complete before going on
+        Thread.Sleep(300);
     }
 
     public void Reset() {
@@ -95,6 +112,7 @@ else {
 
         if (string.Equals(gameData!.LetterToAnnounce?.Letter, letterClicked.Letter)) {
             Console.Write(" *** Match found ***\n");
+            PlayCorrectChoiceAudio();
             letterClicked.HasBeenSelected = true;
             if (!gameData.HasWon()) {
                 gameData.MoveNextLetterToAnnounce();
@@ -103,7 +121,12 @@ else {
             else {
                 UserHasWon();
             }
-            StateHasChanged();
+            
         }
+        else if (!letterClicked.HasBeenSelected) {
+            PlayWrongAnswerAudio();
+        }
+
+        StateHasChanged();
     }
 }
