@@ -56,7 +56,7 @@ namespace SayedHa.Flashcards.Shared {
                 });
                 LettersToAnnounce.Add(new LetterAudioInfo {
                     Letter = ch.ToString(),
-                    AudioFilePath = $"/flashcards/media/audio/letter-{ch.ToString().ToLowerInvariant()}.wav"
+                    AudioFilePath = $"/flashcards/media/audio/letter-{ch.ToString().ToLowerInvariant()}.mp3"
                 });
             }
             if (RandomizeLettersToDisplay) {
