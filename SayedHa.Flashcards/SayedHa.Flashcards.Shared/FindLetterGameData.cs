@@ -8,7 +8,7 @@ namespace SayedHa.Flashcards.Shared {
     public class FindLetterGameData {
         public List<FindLetterGameDataItem> LettersToDisplay { get; set; }
         public bool RandomizeLettersToDisplay { get; set; }
-        public List<LetterAudioInfo> LettersToAnnounce { get; set; }
+        public List<FindLetterGameDataItem> LettersToAnnounce { get; set; }
         public bool RandomizeLettersToAnnounce { get; set; }
 
         public FindLetterGameData() :this(false, true) {
@@ -21,7 +21,7 @@ namespace SayedHa.Flashcards.Shared {
 
         private int _letterToAnnounceIndex = 0;
 
-        public LetterAudioInfo LetterToAnnounce {
+        public FindLetterGameDataItem LetterToAnnounce {
             get {
                 if (LettersToAnnounce?.Count >= _letterToAnnounceIndex) {
                     return LettersToAnnounce[_letterToAnnounceIndex];
@@ -33,6 +33,9 @@ namespace SayedHa.Flashcards.Shared {
 
         public void MoveNextLetterToAnnounce(){
             _letterToAnnounceIndex++;
+            if (_letterToAnnounceIndex >= LettersToAnnounce.Count) {
+                _letterToAnnounceIndex = LettersToAnnounce.Count - 1;
+            }
         }
         public bool HasWon() {
             foreach(var letter in LettersToDisplay) {
@@ -47,18 +50,18 @@ namespace SayedHa.Flashcards.Shared {
         public void Reset() {
             _letterToAnnounceIndex = 0;
             LettersToDisplay = new List<FindLetterGameDataItem>();
-            LettersToAnnounce = new List<LetterAudioInfo>();
+            LettersToAnnounce = new List<FindLetterGameDataItem>();
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
             foreach (var ch in chars) {
                 LettersToDisplay.Add(new FindLetterGameDataItem {
                     Letter = ch.ToString(),
-                    HasBeenSelected = false
-                });
-                LettersToAnnounce.Add(new LetterAudioInfo {
-                    Letter = ch.ToString(),
+                    HasBeenSelected = false,
                     AudioFilePath = $"/flashcards/media/audio/letter-{ch.ToString().ToLowerInvariant()}.mp3"
                 });
             }
+
+            LettersToAnnounce.AddRange(LettersToDisplay);
+
             if (RandomizeLettersToDisplay) {
                 LettersToDisplay.Shuffle();
             }
@@ -70,9 +73,10 @@ namespace SayedHa.Flashcards.Shared {
     public class FindLetterGameDataItem {
         public string Letter { get; set; }
         public bool HasBeenSelected { get; set; }
-    }
-    public class LetterAudioInfo {
-        public string Letter { get; set; }
         public string AudioFilePath { get; set; }
     }
+    //public class LetterAudioInfo {
+    //    public string Letter { get; set; }
+    //    public string AudioFilePath { get; set; }
+    //}
 }

@@ -24,7 +24,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         <section id="gameDataContent">
             @foreach (var item in gameData.LettersToDisplay) {
                 <span class="letterBox" @onclick="() => NewClick(item)">
-                    <span class="letter" hasBeenSelected="@item.HasBeenSelected" @onclick="() => NewClick(item)">@item.Letter</span>
+                    &nbsp;<span class="letter" hasBeenSelected="@item.HasBeenSelected" @onclick="() => NewClick(item)">@item.Letter</span>
                 </span>
             }
             <audio id="letterToAnnounce">
@@ -70,14 +70,25 @@ else {
 
         return null;
     }
+
+    protected void UserHasWon() {
+        Console.WriteLine("UserHasWon");
+
+    }
+
     public void Reset() {
         var randomizeLettersToDisplay = false;
         var randomizeLettersToAnnounce = true;
         gameData = new FindLetterGameData(randomizeLettersToDisplay, randomizeLettersToAnnounce);
     }
 
+    // events below
     protected void NewClick(FindLetterGameDataItem letterClicked) {
-        Console.WriteLine("nc");
+        Console.WriteLine("In NewClick");
+
+        if (gameData!.HasWon()) {
+            return;
+        }
 
         var lta = gameData!.LetterToAnnounce?.Letter;
         Console.WriteLine($"letter clicked: {letterClicked.Letter}. Lta: {lta}");
@@ -85,31 +96,14 @@ else {
         if (string.Equals(gameData!.LetterToAnnounce?.Letter, letterClicked.Letter)) {
             Console.Write(" *** Match found ***\n");
             letterClicked.HasBeenSelected = true;
-            var lc = GetLetterToDisplay(letterClicked.Letter);
-            if(lc != null) {
-                Console.WriteLine("found letter to display");
-                lc.HasBeenSelected = true;
-                if (gameData.HasWon()) {
-                    Console.WriteLine("User has won");
-                }
+            if (!gameData.HasWon()) {
                 gameData.MoveNextLetterToAnnounce();
-                StateHasChanged();
                 PlayLetterToAnnounce();
-                
+            }
+            else {
+                UserHasWon();
             }
             StateHasChanged();
         }
-    }
-    // events below
-    protected void Clicked(FindLetterGameDataItem letterClicked) {
-        Console.Write($"letter clicked: {letterClicked.Letter}");/*
-        var lta = gameData!.LetterToAnnounce?.Letter;
-        Console.Write($" Letter to announce: {lta}");
-
-        if (string.Equals(gameData!.LetterToAnnounce?.Letter, letterClicked.Letter)) {
-            Console.Write(" *** Match found ***");
-            letterClicked.HasBeenSelected = true;
-            StateHasChanged();
-        }*/
     }
 }
