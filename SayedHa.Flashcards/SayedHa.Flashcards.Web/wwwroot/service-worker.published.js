@@ -8,7 +8,7 @@ self.addEventListener('fetch', event => event.respondWith(onFetch(event)));
 
 // changing this version number will force the service worker to be updated
 // see: https://stackoverflow.com/a/66783449/105999
-const swVersion = "0.0.3";
+const swVersion = "0.0.4";
 
 const cacheNamePrefix = 'offline-cache-';
 const cacheName = `${cacheNamePrefix}${self.assetsManifest.version}`;

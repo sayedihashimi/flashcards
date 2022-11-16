@@ -19,7 +19,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @if (gameData?.LettersToDisplay?.Count > 0 && gameData?.LettersToAnnounce?.Count > 0) {
     <section id="findLetterGame">
         <header id="gameDataHeader">
-            Find the letter that you hear. Click speaker to replay the letter <span @onclick="PlayLetterToAnnounce">🔊</span>
+            Find the letter that you hear. Click the speaker to replay the letter.
         </header>
         <section id="gameDataContent">
             @foreach (var item in gameData.LettersToDisplay) {
@@ -35,6 +35,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             </audio>
             <audio id="wrongAnswerAudio" preload="auto">
                 <source src="media/wronganswer.mp3">
+            </audio>
+            <audio id="excitingDrumLoop" preload="auto" loop>
+                <source src="media/exciting-drum-loop-01.mp3">
             </audio>
         </section>
     </section>
@@ -80,6 +83,12 @@ else {
     protected void UserHasWon() {
         Console.WriteLine("UserHasWon");
         JsRuntime.InvokeAsync<string>("PlayAudio", $"hasWonAudio");
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"excitingDrumLoop");
+    }
+
+    protected void StopAllAudio() {
+        JsRuntime.InvokeAsync<string>("StopAudio", $"hasWonAudio");
+        JsRuntime.InvokeAsync<string>("StopAudio", $"excitingDrumLoop");
     }
 
     protected void PlayCorrectChoiceAudio() {
@@ -102,7 +111,8 @@ else {
     // events below
     protected void NewClick(FindLetterGameDataItem letterClicked) {
         Console.WriteLine("In NewClick");
-
+        StopAllAudio();
+        
         if (gameData!.HasWon()) {
             return;
         }
@@ -125,6 +135,7 @@ else {
         }
         else if (!letterClicked.HasBeenSelected) {
             PlayWrongAnswerAudio();
+            PlayLetterToAnnounce();
         }
 
         StateHasChanged();

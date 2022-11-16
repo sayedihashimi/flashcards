@@ -32,19 +32,29 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
                     <img src="media/refersh.svg" alt="refresh" @onclick="Reset" />
                 </fast-anchor>
             </li>
+            <li>
+                <fast-anchor role="button" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/speaker.svg" alt="refresh" @onclick="PlayLetter" />
+                </fast-anchor>
+            </li>
         </ul>
     </span>
     <span class="empty"></span>
 </nav>
 <main>
-    <FindLetter />
+    <FindLetter @ref="letterView" />
 </main>
 
 
 
 
 @code {
-    private void Reset() {
-        
-    }
+        FindLetter? letterView;
+        private void Reset() {
+        }
+        private void PlayLetter() {
+            if(letterView != null) {
+                letterView.PlayLetterToAnnounce();
+            }
+        }
 }
