@@ -41,6 +41,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             </audio>
         </section>
     </section>
+    <aside id="hasWonOverlay" IsVisible="@(ShowHasWonOverlay)" @onclick=HandleHasWonOverlayClick>
+        <img src="/media/hamburger.gif" alt="hamburger.gif" />
+    </aside>
 }
 else {
     <fast-progress-ring>loading...</fast-progress-ring>
@@ -48,6 +51,7 @@ else {
 
 @code {
     private FindLetterGameData? gameData;
+    private bool ShowHasWonOverlay { get; set; }
 
     protected override void OnInitialized() {
         Reset();
@@ -68,20 +72,10 @@ else {
         }
         JsRuntime.InvokeAsync<string>("PlayAudioFromFile", gameData.LetterToAnnounce.AudioFilePath);
     }
-    protected FindLetterGameDataItem GetLetterToDisplay(string letter) {
-        if(gameData?.LettersToDisplay?.Count > 0) {
-            foreach (var item in gameData!.LettersToDisplay) {
-                if (item.Letter == letter) {
-                    return item;
-                }
-            }
-        }
-
-        return null;
-    }
 
     protected void UserHasWon() {
         Console.WriteLine("UserHasWon");
+        ShowHasWonOverlay = true;
         JsRuntime.InvokeAsync<string>("PlayAudio", $"hasWonAudio");
         JsRuntime.InvokeAsync<string>("PlayAudio", $"excitingDrumLoop");
     }
@@ -103,12 +97,14 @@ else {
     }
 
     public void Reset() {
+        StopAllAudio();
+        ShowHasWonOverlay = false;
         var randomizeLettersToDisplay = false;
         var randomizeLettersToAnnounce = true;
         gameData = new FindLetterGameData(randomizeLettersToDisplay, randomizeLettersToAnnounce);
     }
 
-    // events below
+    // user events below
     protected void NewClick(FindLetterGameDataItem letterClicked) {
         Console.WriteLine("In NewClick");
         StopAllAudio();
@@ -139,5 +135,9 @@ else {
         }
 
         StateHasChanged();
+    }
+
+    private void HandleHasWonOverlayClick() {
+        Reset();
     }
 }
