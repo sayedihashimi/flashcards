@@ -22,8 +22,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         <span class="empty"></span>
         <ul>
             <li>
-                <fast-anchor role="button" @onclick="GoHome" class="nav-link" Match="NavLinkMatch.All">
-                    <a role="button">🏠</a>
+                <fast-anchor href="/" role="button" class="nav-link" Match="NavLinkMatch.All">
+                    🏠
                 </fast-anchor>
             </li>
             <li>
@@ -154,9 +154,5 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     private void RefershPage()
     {
         Init();
-    }
-    private void GoHome() {
-        
-        uriHelper.NavigateTo("/", KnownValues.ForceLoad);
     }
 }

@@ -277,8 +277,6 @@ a[role="button"] {
     }
 @media only screen and (max-width : 1200px) {
     #memoryGrid > div {
-/*        font-size: var(--type-ramp-plus-6-font-size);
-        line-height: var(--type-ramp-plus-6-line-height);*/
     }
 }
 /*************************
