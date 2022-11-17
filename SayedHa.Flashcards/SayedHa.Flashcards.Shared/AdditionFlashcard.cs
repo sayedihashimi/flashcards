@@ -29,13 +29,13 @@ namespace SayedHa.Flashcards.Shared
             QuestionText = $"{Num1} + {Num2}";
             Answer = $"{Num1 + Num2}";
             AnswerAudioParts = new List<string>() {
-                $"flashcards/media/audio/number-{Answer}.wav"
+                $"flashcards/media/audio/number-{Answer}.mp3"
             };
 
             QuestionAudioParts = new List<string>();
-            QuestionAudioParts.Add($"flashcards/media/audio/number-{Num1}.wav");
-            QuestionAudioParts.Add($"flashcards/media/audio/math-plus.wav");
-            QuestionAudioParts.Add($"flashcards/media/audio/number-{Num2}.wav");
+            QuestionAudioParts.Add($"flashcards/media/audio/number-{Num1}.mp3");
+            QuestionAudioParts.Add($"flashcards/media/audio/math-plus.mp3");
+            QuestionAudioParts.Add($"flashcards/media/audio/number-{Num2}.mp3");
         }
 
         public int Num1 { get; private set; }

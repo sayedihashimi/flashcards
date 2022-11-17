@@ -18,10 +18,10 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 @using System.Diagnostics
 <section class="ntg-container" ntgfinished="@IsFinished">
 <audio id="audio-beep" preload="auto">
-    <source src="media/tone-beep.wav">
+        <source src="media/tone-beep.mp3">
 </audio>
 <audio id="crow-cheering" preload="auto">
-    <source src="media/crowd-cheering.wav">
+        <source src="media/crowd-cheering.mp3">
 </audio>
 @if(Ntg != null && Ntg.Items != null && Ntg.Items.Count > 0) {
     if (!IsFinished) {
@@ -45,7 +45,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     
 }
 else {
-    <p class="loading" />
+        <fast-progress-ring>loading...</fast-progress-ring>
 }
 </section>
 @code {

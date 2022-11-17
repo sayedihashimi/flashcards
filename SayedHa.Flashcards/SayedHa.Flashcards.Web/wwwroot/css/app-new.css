@@ -97,8 +97,9 @@ fast-design-system-provider{
 #mainMenu {
     /*    padding-top: 2px;
     padding-bottom: 2px;*/
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr auto 1fr;
+    --menu-item-base-size: 83vh;
 }
 
     #mainMenu ul {
@@ -109,13 +110,13 @@ fast-design-system-provider{
 
         #mainMenu ul li {
             list-style-type: none;
-            height: calc(92vh/7 - 10px);
+            height: calc(var(--menu-item-base-size)/7 - 10px);
         }
 
     #mainMenu fast-anchor[role="button"] {
-        height: calc(92vh/7 - 10px);
-        width: calc(92vh/7);
-        font-size: calc(92vh/7/2);
+        height: calc(var(--menu-item-base-size)/7 - 10px);
+        width: calc(var(--menu-item-base-size)/7);
+        font-size: calc(var(--menu-item-base-size)/7/2);
     }
 
         #mainMenu fast-anchor[role="button"] img {
@@ -276,11 +277,9 @@ a[role="button"] {
     }
 @media only screen and (max-width : 1200px) {
     #memoryGrid > div {
-/*        font-size: var(--type-ramp-plus-6-font-size);
-        line-height: var(--type-ramp-plus-6-line-height);*/
     }
 }
-    /*************************
+/*************************
 *   has won overlay
 **************************/
     #hasWonOverlay {
@@ -308,3 +307,31 @@ a[role="button"] {
             margin-top: 8vh;
             width: 50%;
         }
+
+/*************************
+*   find letter
+**************************/
+#findLetterGame{
+    margin-left: 1vw;
+    height: 100%;
+}
+#gameDataContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+    justify-content: center;
+}
+#gameDataHeader, #gameDataHeader h1, #gameDataHeader h2 {
+    font-size: var(--type-ramp-plus-1-font-size);
+    margin: 0;
+    padding: 0;
+}
+.letterBox {
+    background-color: dimgray;
+    text-align: center;
+    font-size: 10vmin;
+    line-height: 100%;
+}
+    .letter[hasBeenSelected]{
+        display: none;
+    }

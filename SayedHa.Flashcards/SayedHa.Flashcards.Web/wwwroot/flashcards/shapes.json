@@ -2,61 +2,61 @@
   {
     "Answer": "rectangle",
     "ImageUrl": "flashcards/media/rectangle.svg",
-    "Audio": "flashcards/media/audio/rectangle.wav"
+    "Audio": "flashcards/media/audio/rectangle.mp3"
   },
   {
     "Answer": "square",
     "ImageUrl": "flashcards/media/square.svg",
-    "Audio": "flashcards/media/audio/square.wav"
+    "Audio": "flashcards/media/audio/square.mp3"
   },
   {
     "Answer": "triangle",
     "ImageUrl": "flashcards/media/triangle.svg",
-    "Audio": "flashcards/media/audio/triangle.wav"
+    "Audio": "flashcards/media/audio/triangle.mp3"
   },
   {
     "Answer": "circle",
     "ImageUrl": "flashcards/media/circle.svg",
-    "Audio": "flashcards/media/audio/circle.wav"
+    "Audio": "flashcards/media/audio/circle.mp3"
   },
   {
     "Answer": "crescent",
     "ImageUrl": "flashcards/media/crescent.svg",
-    "Audio": "flashcards/media/audio/crescent.wav"
+    "Audio": "flashcards/media/audio/crescent.mp3"
   },
   {
     "Answer": "triangle",
     "ImageUrl": "flashcards/media/triangle2.svg",
-    "Audio": "flashcards/media/audio/triangle.wav"
+    "Audio": "flashcards/media/audio/triangle.mp3"
   },
   {
     "Answer": "oval",
     "ImageUrl": "flashcards/media/oval.svg",
-    "Audio": "flashcards/media/audio/oval.wav"
+    "Audio": "flashcards/media/audio/oval.mp3"
   },
   {
     "Answer": "heart",
     "ImageUrl": "flashcards/media/heart.svg",
-    "Audio": "flashcards/media/audio/heart.wav"
+    "Audio": "flashcards/media/audio/heart.mp3"
   },
   {
     "Answer": "hexagon",
     "ImageUrl": "flashcards/media/hexagon.svg",
-    "Audio": "flashcards/media/audio/hexagon.wav"
+    "Audio": "flashcards/media/audio/hexagon.mp3"
   },
   {
     "Answer": "octagon",
     "ImageUrl": "flashcards/media/octagon.svg",
-    "Audio": "flashcards/media/audio/octagon.wav"
+    "Audio": "flashcards/media/audio/octagon.mp3"
   },
   {
     "Answer": "pentagon",
     "ImageUrl": "flashcards/media/pentagon.svg",
-    "Audio": "flashcards/media/audio/pentagon.wav"
+    "Audio": "flashcards/media/audio/pentagon.mp3"
   },
   {
     "Answer": "plus",
     "ImageUrl": "flashcards/media/plus.svg",
-    "Audio": "flashcards/media/audio/plus.wav"
+    "Audio": "flashcards/media/audio/plus.mp3"
   }
 ]

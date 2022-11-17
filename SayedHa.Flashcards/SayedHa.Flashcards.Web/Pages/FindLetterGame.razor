@@ -1,0 +1,60 @@
+﻿@*
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*@
+@inject NavigationManager uriHelper
+@inject IJSRuntime JsRuntime
+@page "/findletter"
+
+<nav>
+    <span class="empty"></span>
+    <span id="mainMenu">
+        <ul>
+            <li>
+                <fast-anchor href="/" role="button" class="nav-link" Match="NavLinkMatch.All">
+                    🏠
+                </fast-anchor>
+            </li>
+            <li>
+                <fast-anchor role="button" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" @onclick="Reset" />
+                </fast-anchor>
+            </li>
+            <li>
+                <fast-anchor role="button" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/speaker.svg" alt="refresh" @onclick="PlayLetter" />
+                </fast-anchor>
+            </li>
+        </ul>
+    </span>
+    <span class="empty"></span>
+</nav>
+<main>
+    <FindLetter @ref="letterView" />
+</main>
+
+
+
+
+@code {
+        FindLetter? letterView;
+        private void Reset() {
+        }
+        private void PlayLetter() {
+            if(letterView != null) {
+                letterView.PlayLetterToAnnounce();
+            }
+        }
+}

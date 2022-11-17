@@ -1,106 +1,106 @@
 [
   {
     "QuestionText": "A",
-    "Audio": "flashcards/media/audio/letter-a.wav"
+    "Audio": "flashcards/media/audio/letter-a.mp3"
   },
   {
     "QuestionText": "B",
-    "Audio": "flashcards/media/audio/letter-b.wav"
+    "Audio": "flashcards/media/audio/letter-b.mp3"
   },
   {
     "QuestionText": "C",
-    "Audio": "flashcards/media/audio/letter-c.wav"
+    "Audio": "flashcards/media/audio/letter-c.mp3"
   },
   {
     "QuestionText": "D",
-    "Audio": "flashcards/media/audio/letter-d.wav"
+    "Audio": "flashcards/media/audio/letter-d.mp3"
   },
   {
     "QuestionText": "E",
-    "Audio": "flashcards/media/audio/letter-e.wav"
+    "Audio": "flashcards/media/audio/letter-e.mp3"
   },
   {
     "QuestionText": "F",
-    "Audio": "flashcards/media/audio/letter-f.wav"
+    "Audio": "flashcards/media/audio/letter-f.mp3"
   },
   {
     "QuestionText": "G",
-    "Audio": "flashcards/media/audio/letter-g.wav"
+    "Audio": "flashcards/media/audio/letter-g.mp3"
   },
   {
     "QuestionText": "H",
-    "Audio": "flashcards/media/audio/letter-h.wav"
+    "Audio": "flashcards/media/audio/letter-h.mp3"
   },
   {
     "QuestionText": "I",
-    "Audio": "flashcards/media/audio/letter-i.wav"
+    "Audio": "flashcards/media/audio/letter-i.mp3"
   },
   {
     "QuestionText": "J",
-    "Audio": "flashcards/media/audio/letter-j.wav"
+    "Audio": "flashcards/media/audio/letter-j.mp3"
   },
   {
     "QuestionText": "K",
-    "Audio": "flashcards/media/audio/letter-k.wav"
+    "Audio": "flashcards/media/audio/letter-k.mp3"
   },
   {
     "QuestionText": "L",
-    "Audio": "flashcards/media/audio/letter-l.wav"
+    "Audio": "flashcards/media/audio/letter-l.mp3"
   },
   {
     "QuestionText": "M",
-    "Audio": "flashcards/media/audio/letter-m.wav"
+    "Audio": "flashcards/media/audio/letter-m.mp3"
   },
   {
     "QuestionText": "N",
-    "Audio": "flashcards/media/audio/letter-n.wav"
+    "Audio": "flashcards/media/audio/letter-n.mp3"
   },
   {
     "QuestionText": "O",
-    "Audio": "flashcards/media/audio/letter-o.wav"
+    "Audio": "flashcards/media/audio/letter-o.mp3"
   },
   {
     "QuestionText": "P",
-    "Audio": "flashcards/media/audio/letter-p.wav"
+    "Audio": "flashcards/media/audio/letter-p.mp3"
   },
   {
     "QuestionText": "Q",
-    "Audio": "flashcards/media/audio/letter-q.wav"
+    "Audio": "flashcards/media/audio/letter-q.mp3"
   },
   {
     "QuestionText": "R",
-    "Audio": "flashcards/media/audio/letter-r.wav"
+    "Audio": "flashcards/media/audio/letter-r.mp3"
   },
   {
     "QuestionText": "S",
-    "Audio": "flashcards/media/audio/letter-s.wav"
+    "Audio": "flashcards/media/audio/letter-s.mp3"
   },
   {
     "QuestionText": "T",
-    "Audio": "flashcards/media/audio/letter-t.wav"
+    "Audio": "flashcards/media/audio/letter-t.mp3"
   },
   {
     "QuestionText": "U",
-    "Audio": "flashcards/media/audio/letter-u.wav"
+    "Audio": "flashcards/media/audio/letter-u.mp3"
   },
   {
     "QuestionText": "V",
-    "Audio": "flashcards/media/audio/letter-v.wav"
+    "Audio": "flashcards/media/audio/letter-v.mp3"
   },
   {
     "QuestionText": "W",
-    "Audio": "flashcards/media/audio/letter-w.wav"
+    "Audio": "flashcards/media/audio/letter-w.mp3"
   },
   {
     "QuestionText": "X",
-    "Audio": "flashcards/media/audio/letter-x.wav"
+    "Audio": "flashcards/media/audio/letter-x.mp3"
   },
   {
     "QuestionText": "Y",
-    "Audio": "flashcards/media/audio/letter-y.wav"
+    "Audio": "flashcards/media/audio/letter-y.mp3"
   },
   {
     "QuestionText": "Z",
-    "Audio": "flashcards/media/audio/letter-z.wav"
+    "Audio": "flashcards/media/audio/letter-z.mp3"
   }
 ]

@@ -16,6 +16,13 @@
     }
 }
 
+function PlayAudioFromFile(audioFilePath) {
+    console.log("PlayAudioFromFile, path: ["+audioFilePath+"]");
+    var audioObj = new Audio(audioFilePath);
+    audioObj.currentTime = 0;
+    audioObj.play();
+}
+
 function StopAudio(elementName) {
     console.log('trying to stop audio on elementName: "' + elementName + '"');
 
