@@ -335,3 +335,51 @@ a[role="button"] {
     .letter[hasBeenSelected]{
         display: none;
     }
+/*************************
+*   clicknumber
+**************************/
+:root {
+    --number-item-width: 12vw;
+    --number-item-height: 12vh;
+    --number-item-minside: min(var(--number-item-width), var(--number-item-height));
+}
+#clickNumberGame {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: calc(var(--number-item-minside) + 2vh) auto 0;
+}
+#clickNumberGame>header{
+    grid-column: 1 / 3;
+}
+#clickNumberGame>header>p{
+    margin: 0;
+}
+#clickNumberGame>section{
+    grid-column: 1 / 3;
+    height: 100%;
+}
+#clickNumberGame>footer{
+    grid-column: 1 / 3;
+}
+#numberList {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    height: 100%;
+    padding-top: 0.8vh;
+    padding-left: 20vw;
+}
+    #numberList li {
+        width: var(--number-item-minside);
+        height: var(--number-item-minside);
+        line-height: var(--number-item-minside);
+        font-size: calc(var(--number-item-width)/3);
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 50%;
+        font-weight: 900;
+        margin-right: 2vw;
+    }
+    

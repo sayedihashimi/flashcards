@@ -1,0 +1,100 @@
+﻿@*
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*@
+@inject NavigationManager uriHelper
+@inject IJSRuntime JsRuntime
+@page "/clicknumber"
+@using System.Diagnostics;
+<nav>
+    <span class="empty"></span>
+    <span id="mainMenu">
+        <ul>
+            <li>
+                <fast-anchor href="/" role="button" class="nav-link" Match="NavLinkMatch.All">
+                    <a href="/" role="button">🏠</a>
+                </fast-anchor>
+            </li>
+            <li>
+                <fast-anchor role="button" @onclick="HandleRefreshClick" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" />
+                </fast-anchor>
+            </li>
+        </ul>
+    </span>
+    <span class="empty"></span>
+</nav>
+<main id="clickNumberGame">
+    <header>
+        @if (numbersToDisplay?.Count > 0) {
+            <span class="empty"></span>
+            <ul id="numberList">
+                @foreach (var num in numbersToDisplay) {
+                    <li>@num</li>
+                }
+            </ul>
+            <span class="empty"></span>
+        }
+        else {
+            <fast-progress-ring>loading...</fast-progress-ring>
+        }
+    </header>
+    <section>
+        
+    </section>
+    <footer></footer>
+</main>
+
+@code {
+    private int minimumNumber = 1;
+    private int maximumNumber = 10;
+    private int numOfNumbersToDisplay = 5;
+    private Random random = new Random();
+    private List<int> numbersToDisplay = new List<int>();
+    protected override void OnInitialized() {
+        base.OnInitialized();
+        Init();
+    }
+    private void Init() {
+        numbersToDisplay = GetRandomNumbers(numOfNumbersToDisplay, minimumNumber, maximumNumber);
+
+        Console.WriteLine("hello");
+    }
+    private List<int>GetRandomNumbers(int numItems, int min,int max) {
+        Debug.Assert(numItems > 0);
+        Debug.Assert(min > 0);
+        Debug.Assert(max > 0 && max > min);
+
+        if( (max-min) < numItems) {
+            throw new ArgumentException($"Invalid, not enough numbers between min max. numItems:'{numItems}', min:'{min}',max:'{max}'");
+        }
+
+        List<int> result = new List<int>();
+        int iterationCount = 0;
+        while (result.Count < numItems && iterationCount < 1000000) {
+            int num = random.Next(min, max);
+            if (!result.Contains(num)) {
+                result.Add(num);
+            }
+        }
+
+        return result;
+    }
+
+    // events below
+    private void HandleRefreshClick() {
+        Init();
+    }
+}
