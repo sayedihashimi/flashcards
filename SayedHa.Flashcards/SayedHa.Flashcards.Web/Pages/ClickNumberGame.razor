@@ -37,6 +37,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     <span class="empty"></span>
 </nav>
 <main id="clickNumberGame">
+    <aside id="hasWonOverlay" IsVisible="@(ShowHasWonOverlay)" @onclick=HandleHasWonOverlayClick>
+        <img src="media/unicorn.gif" alt="unicorn gif" />
+    </aside>
     <header>
         @if (numbersToDisplay?.Count > 0) {
             <span class="empty"></span>
@@ -71,9 +74,20 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     </section>
     <footer></footer>
 </main>
-
+<audio id="crow-cheering" preload="auto">
+    <source src="media/crowd-cheering.mp3">
+</audio>
+<audio id="unicorn" preload="auto" loop>
+    <source src="media/sonya-unicorn.mp3">
+</audio>
+<audio id="excitingDrumLoop" preload="auto" loop>
+    <source src="media/exciting-drum-loop-01.mp3">
+</audio>
+<audio id="audio-restart-game" preload="auto">
+    <source src="media/xp-restart.mp3">
+</audio>
 @code {
-
+    private bool ShowHasWonOverlay { get; set; } = false;
     private int minimumNumber = 1;
     private int maximumNumber = 10;
     private int numOfNumbersToDisplay = 5;
@@ -97,6 +111,10 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     private List<SpecialCharItem>? SpecialCharsToDisplay;
 
     private void Init() {
+        ShowHasWonOverlay = false;
+        JsRuntime.InvokeAsync<string>("StopAudio", $"unicorn");
+        JsRuntime.InvokeAsync<string>("StopAudio", $"excitingDrumLoop");
+
         var numbers = GetRandomNumbers(numOfNumbersToDisplay, minimumNumber, maximumNumber);
         numbersToDisplay = new List<ClickNumberItem>();
         foreach (var num in numbers) {
@@ -152,10 +170,17 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 
         if (allComplete) {
             Console.WriteLine("*** game won");
+            ShowHasWonOverlay = true;
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"unicorn");
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"excitingDrumLoop");
         }
     }
     // events below
+    private void HandleHasWonOverlayClick() {
+        Init();
+    }
     private void HandleRefreshClick() {
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
         Init();
     }
     private void HandleItemClicked(ClickNumberItem item) {
