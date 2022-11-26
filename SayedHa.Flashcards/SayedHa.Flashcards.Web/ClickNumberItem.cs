@@ -16,5 +16,4 @@ namespace SayedHa.Flashcards.Web {
         public string SpecialChar { get; set; }
         public bool Enabled { get; set; } = true;
     }
-
 }

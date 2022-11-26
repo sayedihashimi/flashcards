@@ -390,6 +390,10 @@ a[role="button"] {
     #numberList li[disabled]{
         background:gray;
     }
+        #numberList li[completed] {
+            /*background: lightgreen;*/
+            display:none;
+        }
 #specialCharArea{
     background:aliceblue;
     text-align:center;

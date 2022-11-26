@@ -131,6 +131,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 
     private void SetCurrentItemComplete() {
         currentItem!.IsCompleted = true;
+        currentItem.CurrentlySelected = false;
         Console.WriteLine($"item '{currentItem!.Number}' complete");
 
         foreach(var num in numbersToDisplay) {
@@ -139,7 +140,19 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             }
         }
 
+        CheckAllNumbersComplete();
+
         StateHasChanged();
+    }
+    private void CheckAllNumbersComplete() {
+        bool allComplete = true;
+        foreach (var n in numbersToDisplay!) {
+            allComplete = allComplete && n.IsCompleted;
+        }
+
+        if (allComplete) {
+            Console.WriteLine("*** game won");
+        }
     }
     // events below
     private void HandleRefreshClick() {
@@ -176,7 +189,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         var allDone = true;
         if(SpecialCharsToDisplay != null) {
             foreach (var spc in SpecialCharsToDisplay) {
-                allDone = allDone && spc.Enabled;
+                allDone = allDone && !spc.Enabled;
             }
         }
         if (allDone) {
