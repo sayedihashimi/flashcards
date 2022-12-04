@@ -406,7 +406,7 @@ a[role="button"] {
     width: var(--specialChar-item-minside);
     /* height: var(--specialChar-item-minside); */
     line-height: var(--number-item-minside);
-    font-size: calc(var(--number-item-width)/3);
+    font-size: calc(var(--number-item-width));
     text-align: center;
 }
 .specialChar[disabled]{
