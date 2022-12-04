@@ -1,0 +1,229 @@
+﻿@*
+This file is part of SayedHa.Flashcards.
+
+SayedHa.Flashcards is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+SayedHa.Flashcards is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
+*@
+@inject NavigationManager uriHelper
+@inject IJSRuntime JsRuntime
+
+@using System.Diagnostics;
+<nav>
+    <span class="empty"></span>
+    <span id="mainMenu">
+        <ul>
+            <li>
+                <fast-anchor href="/" role="button" class="nav-link" Match="NavLinkMatch.All">
+                    <a href="/" role="button">🏠</a>
+                </fast-anchor>
+            </li>
+            <li>
+                <fast-anchor role="button" @onclick="HandleRefreshClick" class="nav-link" Match="NavLinkMatch.All">
+                    <img src="media/refersh.svg" alt="refresh" />
+                </fast-anchor>
+            </li>
+        </ul>
+    </span>
+    <span class="empty"></span>
+</nav>
+<main id="clickNumberGame">
+    <aside id="hasWonOverlay" IsVisible="@(ShowHasWonOverlay)" @onclick=HandleHasWonOverlayClick>
+        @*<img src="media/unicorn.gif" alt="unicorn gif" />*@
+        <video id="championVideo" loop>
+            <source src="/media/champion.mp4" type="video/mp4">
+        </video>
+    </aside>
+    <header>
+        @if (numbersToDisplay?.Count > 0) {
+            <span class="empty"></span>
+            <ul id="numberList">
+                @foreach (var num in numbersToDisplay) {
+                    <li @onclick="()=>HandleItemClicked(num)"
+                        disabled="@(!num.Enabled)"
+                        completed="@(num.IsCompleted)"
+                        selected="@(num.CurrentlySelected)">@num.Number</li>
+                }
+            </ul>
+            <span class="empty"></span>
+        }
+        else {
+            <fast-progress-ring>loading...</fast-progress-ring>
+        }
+    </header>
+    <section id="specialCharArea">
+        @if (SpecialCharsToDisplay?.Count > 0) {
+            @foreach (var spc in SpecialCharsToDisplay) {
+                <span class="specialChar" @onclick=@(()=>HandleSpecialCharClicked(spc)) disabled="@(!spc.Enabled)">@((MarkupString)spc.SpecialChar)</span>
+            }
+        }
+        else{
+            <p>click a number above to start</p>
+        }
+    </section>
+    <footer></footer>
+</main>
+<audio id="crow-cheering" preload="auto">
+    <source src="media/crowd-cheering.mp3">
+</audio>
+<audio id="unicorn" preload="auto" loop>
+    <source src="media/sonya-unicorn.mp3">
+</audio>
+<audio id="excitingDrumLoop" preload="auto" loop>
+    <source src="media/exciting-drum-loop-01.mp3">
+</audio>
+<audio id="audio-restart-game" preload="auto">
+    <source src="media/xp-restart.mp3">
+</audio>
+@code {
+    private bool ShowHasWonOverlay { get; set; } = false;
+    private int minimumNumber = 1;
+    private int maximumNumber = 10;
+    private int numOfNumbersToDisplay = 5;
+    private Random random = new Random();
+    private List<ClickNumberItem> numbersToDisplay = new List<ClickNumberItem>();
+    private ClickNumberItem? currentItem;
+    private List<string> specialChars = new List<string>
+        {
+        "&#x1F34D;","&#x1F347;","&#x1F348;","&#x1F349;","&#x1F34A;","&#x1F34B;","&#x1F96D;","&#x1F34E;","&#x1F34F;",
+        "&#x1F350;","&#x1F352;","&#x1F353","&#x1F345","&#x1F966","&#x1F344","&#x1F95E","&#x1F9C0","&#x1F354","&#x1F35F",
+        "&#x1F355","&#x1F37F","&#x1F366","&#x1F367","&#x1F368","&#x1F697","&#x1F3CE","&#x1F6F9","&#x1231A","&#x1FA90",
+        "&#x1F383","&#x1F3C0","&#x1F3C8","&#x1F3B8","&#x1F4EA","&#x1F923","&#x1F601","&#x1F600","&#x1F912","&#x1F4A9"
+    };
+    private int numSpecialCharsToDisplay = 0;
+    private string specialChar = "🍍";
+    private Random specialCharRandom = new Random();
+
+    private SpecialCharacters specialCharacters = new SpecialCharacters();
+
+    protected override void OnInitialized() {
+        base.OnInitialized();
+        Init();
+    }
+
+    private List<SpecialCharItem>? SpecialCharsToDisplay;
+
+    private void Init() {
+        ShowHasWonOverlay = false;
+        JsRuntime.InvokeAsync<string>("StopVideo", "championVideo");
+        JsRuntime.InvokeAsync<string>("StopAudio", $"unicorn");
+        JsRuntime.InvokeAsync<string>("StopAudio", $"excitingDrumLoop");
+
+        var numbers = GetRandomNumbers(numOfNumbersToDisplay, minimumNumber, maximumNumber);
+        numbersToDisplay = new List<ClickNumberItem>();
+        foreach (var num in numbers) {
+            numbersToDisplay.Add(new ClickNumberItem { Number = num });
+        }
+
+        int charIndex = specialCharRandom.Next(0, specialChars.Count);
+        specialChar = specialChars[charIndex];
+
+        Console.WriteLine("hello");
+    }
+    private List<int> GetRandomNumbers(int numItems, int min, int max) {
+        Debug.Assert(numItems > 0);
+        Debug.Assert(min > 0);
+        Debug.Assert(max > 0 && max > min);
+
+        if ((max - min) < numItems) {
+            throw new ArgumentException($"Invalid, not enough numbers between min max. numItems:'{numItems}', min:'{min}',max:'{max}'");
+        }
+
+        List<int> result = new List<int>();
+        int iterationCount = 0;
+        while (result.Count < numItems && iterationCount < 1000000) {
+            int num = random.Next(min, max);
+            if (!result.Contains(num)) {
+                result.Add(num);
+            }
+        }
+
+        return result;
+    }
+
+    private void SetCurrentItemComplete() {
+        currentItem!.IsCompleted = true;
+        currentItem.CurrentlySelected = false;
+        Console.WriteLine($"item '{currentItem!.Number}' complete");
+
+        foreach (var num in numbersToDisplay) {
+            if (!num.IsCompleted) {
+                num.Enabled = true;
+            }
+        }
+
+        CheckAllNumbersComplete();
+
+        StateHasChanged();
+    }
+    private void CheckAllNumbersComplete() {
+        bool allComplete = true;
+        foreach (var n in numbersToDisplay!) {
+            allComplete = allComplete && n.IsCompleted;
+        }
+
+        if (allComplete) {
+            Console.WriteLine("*** game won");
+            ShowHasWonOverlay = true;
+            JsRuntime.InvokeAsync<string>("PlayVideo", "championVideo");
+            // JsRuntime.InvokeAsync<string>("PlayAudio", $"unicorn");
+            JsRuntime.InvokeAsync<string>("PlayAudio", $"excitingDrumLoop");
+        }
+    }
+    // events below
+    private void HandleHasWonOverlayClick() {
+        Init();
+    }
+    private void HandleRefreshClick() {
+        JsRuntime.InvokeAsync<string>("PlayAudio", $"audio-restart-game");
+        Init();
+    }
+    private void HandleItemClicked(ClickNumberItem item) {
+        // ignore any click from disabled or completed items
+        if (!item.Enabled || item.IsCompleted) {
+            return;
+        }
+
+        currentItem = item;
+        currentItem.CurrentlySelected = true;
+        foreach (var number in numbersToDisplay) {
+            if (!currentItem.Equals(number)) {
+                number.Enabled = false;
+                number.CurrentlySelected = false;
+            }
+        }
+        numSpecialCharsToDisplay = currentItem.Number;
+
+        SpecialCharsToDisplay = new List<SpecialCharItem>();
+        for (var i = 0; i < currentItem.Number; i++) {
+            SpecialCharsToDisplay.Add(new SpecialCharItem(specialCharacters.CurrentSpecialChar));
+        }
+        specialCharacters.MoveNext();
+
+        StateHasChanged();
+    }
+    private void HandleSpecialCharClicked(SpecialCharItem specialCharClicked) {
+        specialCharClicked.Enabled = false;
+        // hit-someting.mp3
+        JsRuntime.InvokeAsync<string>("PlayAudioFromFile", "/media/hit-someting-v2.mp3");
+        // if there all special chars have Enabled=false, this number is now complete
+        var allDone = true;
+        if (SpecialCharsToDisplay != null) {
+            foreach (var spc in SpecialCharsToDisplay) {
+                allDone = allDone && !spc.Enabled;
+            }
+        }
+        if (allDone) {
+            SetCurrentItemComplete();
+        }
+    }
+}

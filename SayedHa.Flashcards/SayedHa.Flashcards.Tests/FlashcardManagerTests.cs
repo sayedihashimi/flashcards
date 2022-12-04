@@ -61,7 +61,7 @@ namespace SayedHa.Flashcards.Tests {
             var result = await fm.GetFlashcardsFromJsonFileAsync(filepath);
             Assert.NotNull(result);
             Assert.True(result.Count == 10);
-            Assert.True(string.Equals("some text1", result[0].Answer));
+            Assert.True(string.Equals("some text1", result[0].QuestionText));
         }
     }
 }

@@ -110,13 +110,13 @@ fast-design-system-provider{
 
         #mainMenu ul li {
             list-style-type: none;
-            height: calc(var(--menu-item-base-size)/7 - 10px);
+            height: calc(var(--menu-item-base-size)/8 - 10px);
         }
 
     #mainMenu fast-anchor[role="button"] {
-        height: calc(var(--menu-item-base-size)/7 - 10px);
-        width: calc(var(--menu-item-base-size)/7);
-        font-size: calc(var(--menu-item-base-size)/7/2);
+        height: calc(var(--menu-item-base-size)/8 - 10px);
+        width: calc(var(--menu-item-base-size)/8);
+        font-size: calc(var(--menu-item-base-size)/8/2);
     }
 
         #mainMenu fast-anchor[role="button"] img {
@@ -308,13 +308,17 @@ a[role="button"] {
             width: 50%;
         }
 
-/*************************
+        #hasWonOverlay:has(video){
+            position: relative;
+            width: 100%;
+        }
+            /*************************
 *   find letter
 **************************/
-#findLetterGame{
-    margin-left: 1vw;
-    height: 100%;
-}
+            #findLetterGame {
+                margin-left: 1vw;
+                height: 100%;
+            }
 #gameDataContent {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -335,3 +339,77 @@ a[role="button"] {
     .letter[hasBeenSelected]{
         display: none;
     }
+/*************************
+*   clicknumber
+**************************/
+:root {
+    --number-item-width: 12vw;
+    --number-item-height: 12vh;
+    --number-item-minside: min(var(--number-item-width), var(--number-item-height));
+
+
+    --specialChar-item-width: 40vw;
+    --specialChar-item-height: 40vh;
+    --specialChar-item-minside: min(var(--specialChar-item-width), var(--specialChar-item-height));
+}
+#clickNumberGame {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: calc(var(--number-item-minside) + 2vh) auto 0;
+}
+#clickNumberGame>header{
+    grid-column: 1 / 3;
+}
+#clickNumberGame>header>p{
+    margin: 0;
+}
+#clickNumberGame>section{
+    grid-column: 1 / 3;
+    height: 100%;
+}
+#clickNumberGame>footer{
+    grid-column: 1 / 3;
+}
+#numberList {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    height: 100%;
+    padding-top: 0.8vh;
+    padding-left: 20vw;
+}
+    #numberList li {
+        width: var(--number-item-minside);
+        height: var(--number-item-minside);
+        line-height: var(--number-item-minside);
+        font-size: calc(var(--number-item-width)/3);
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 50%;
+        font-weight: 900;
+        margin-right: 2vw;
+    }
+    #numberList li[disabled]{
+        background:gray;
+    }
+        #numberList li[completed] {
+            /*background: lightgreen;*/
+            display:none;
+        }
+#specialCharArea{
+    text-align:center;
+}
+
+.specialChar {
+    width: var(--specialChar-item-minside);
+    /* height: var(--specialChar-item-minside); */
+    line-height: var(--number-item-minside);
+    font-size: calc(var(--number-item-width)/3);
+    text-align: center;
+}
+.specialChar[disabled]{
+    /*display:none;*/
+    visibility:hidden;
+}

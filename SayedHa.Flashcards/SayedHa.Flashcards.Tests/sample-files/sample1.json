@@ -1,42 +1,42 @@
 [
   {
-    "Text": "some text1",
+    "QuestionText": "some text1",
     "ImageUrl": "https://demo.com/someimage1.png"
   },
   {
-    "Text": "some text2",
+    "QuestionText": "some text2",
     "ImageUrl": "https://demo.com/someimage2.png"
   },
   {
-    "Text": "some text3",
+    "QuestionText": "some text3",
     "ImageUrl": "https://demo.com/someimage3.png"
   },
   {
-    "Text": "some text4",
+    "QuestionText": "some text4",
     "ImageUrl": "https://demo.com/someimage4.png"
   },
   {
-    "Text": "some text5",
+    "QuestionText": "some text5",
     "ImageUrl": "https://demo.com/someimage5.png"
   },
   {
-    "Text": "some text6",
+    "QuestionText": "some text6",
     "ImageUrl": "https://demo.com/someimage6.png"
   },
   {
-    "Text": "some text7",
+    "QuestionText": "some text7",
     "ImageUrl": "https://demo.com/someimage7.png"
   },
   {
-    "Text": "some text8",
+    "QuestionText": "some text8",
     "ImageUrl": "https://demo.com/someimage8.png"
   },
   {
-    "Text": "some text9",
+    "QuestionText": "some text9",
     "ImageUrl": "https://demo.com/someimage9.png"
   },
   {
-    "Text": "some text10",
+    "QuestionText": "some text10",
     "ImageUrl": "https://demo.com/someimage10.png"
   }
 ]
