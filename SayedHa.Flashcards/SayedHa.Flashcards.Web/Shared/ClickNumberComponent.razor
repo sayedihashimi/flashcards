@@ -38,7 +38,10 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 </nav>
 <main id="clickNumberGame">
     <aside id="hasWonOverlay" IsVisible="@(ShowHasWonOverlay)" @onclick=HandleHasWonOverlayClick>
-        <img src="media/unicorn.gif" alt="unicorn gif" />
+        @*<img src="media/unicorn.gif" alt="unicorn gif" />*@
+        <video id="championVideo" loop>
+            <source src="/media/champion.mp4" type="video/mp4">
+        </video>
     </aside>
     <header>
         @if (numbersToDisplay?.Count > 0) {
@@ -58,19 +61,14 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         }
     </header>
     <section id="specialCharArea">
-        @*@if(numSpecialCharsToDisplay > 0) {
-        var specialCharMarkup = ((MarkupString)specialChar);
-        @for(var i=0; i < numSpecialCharsToDisplay; i++) {
-        <span class="specialChar">@specialCharMarkup</span>
-        }
-        }*@
-
         @if (SpecialCharsToDisplay?.Count > 0) {
             @foreach (var spc in SpecialCharsToDisplay) {
                 <span class="specialChar" @onclick=@(()=>HandleSpecialCharClicked(spc)) disabled="@(!spc.Enabled)">@((MarkupString)spc.SpecialChar)</span>
             }
         }
-
+        else{
+            <p>click a number above to start</p>
+        }
     </section>
     <footer></footer>
 </main>
@@ -97,12 +95,16 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     private List<string> specialChars = new List<string>
         {
         "&#x1F34D;","&#x1F347;","&#x1F348;","&#x1F349;","&#x1F34A;","&#x1F34B;","&#x1F96D;","&#x1F34E;","&#x1F34F;",
-        "&#x1F350;","&#x1F352;","&#x1F353","&#x1F345","&#x1F966","&#x1F344","&#x1F95E","&#x1F9C0","&#x1F354","&#x1F35F","&#x1F355","&#x1F37F","&#x1F366","&#x1F367","&#x1F368","&#x1F697","&#x1F3CE","&#x1F6F9","&#x1231A","&#x1FA90","&#x1F383","&#x1F3C0","&#x1F3C8","&#x1F3B8","&#x1F4EA","&#x1F923","&#x1F601","&#x1F600","&#x1F912","&#x1F4A9"
-
+        "&#x1F350;","&#x1F352;","&#x1F353","&#x1F345","&#x1F966","&#x1F344","&#x1F95E","&#x1F9C0","&#x1F354","&#x1F35F",
+        "&#x1F355","&#x1F37F","&#x1F366","&#x1F367","&#x1F368","&#x1F697","&#x1F3CE","&#x1F6F9","&#x1231A","&#x1FA90",
+        "&#x1F383","&#x1F3C0","&#x1F3C8","&#x1F3B8","&#x1F4EA","&#x1F923","&#x1F601","&#x1F600","&#x1F912","&#x1F4A9"
     };
     private int numSpecialCharsToDisplay = 0;
     private string specialChar = "🍍";
     private Random specialCharRandom = new Random();
+
+    private SpecialCharacters specialCharacters = new SpecialCharacters();
+
     protected override void OnInitialized() {
         base.OnInitialized();
         Init();
@@ -112,6 +114,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 
     private void Init() {
         ShowHasWonOverlay = false;
+        JsRuntime.InvokeAsync<string>("StopVideo", "championVideo");
         JsRuntime.InvokeAsync<string>("StopAudio", $"unicorn");
         JsRuntime.InvokeAsync<string>("StopAudio", $"excitingDrumLoop");
 
@@ -171,7 +174,8 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
         if (allComplete) {
             Console.WriteLine("*** game won");
             ShowHasWonOverlay = true;
-            JsRuntime.InvokeAsync<string>("PlayAudio", $"unicorn");
+            JsRuntime.InvokeAsync<string>("PlayVideo", "championVideo");
+            // JsRuntime.InvokeAsync<string>("PlayAudio", $"unicorn");
             JsRuntime.InvokeAsync<string>("PlayAudio", $"excitingDrumLoop");
         }
     }
@@ -201,8 +205,9 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
 
         SpecialCharsToDisplay = new List<SpecialCharItem>();
         for (var i = 0; i < currentItem.Number; i++) {
-            SpecialCharsToDisplay.Add(new SpecialCharItem(specialChar));
+            SpecialCharsToDisplay.Add(new SpecialCharItem(specialCharacters.CurrentSpecialChar));
         }
+        specialCharacters.MoveNext();
 
         StateHasChanged();
     }

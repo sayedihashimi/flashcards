@@ -1,4 +1,14 @@
-﻿function PlayAudio(elementName) {
+﻿function PlayVideo(elementId) {
+    var element = document.getElementById(elementId);
+    // reset video back to the start for the next run
+    element.load();
+    element.play();
+}
+function StopVideo(elementId) {
+    var element = document.getElementById(elementId);
+    element.pause();
+}
+function PlayAudio(elementName) {
     console.log('trying to play audio on elementName: "' + elementName + '"');
 
     var element = document.getElementById(elementName);
