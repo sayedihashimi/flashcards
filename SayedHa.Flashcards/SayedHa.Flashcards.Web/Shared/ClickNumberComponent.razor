@@ -48,7 +48,7 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
             <span class="empty"></span>
             <ul id="numberList">
                 @foreach (var num in numbersToDisplay) {
-                    <li @onclick="()=>HandleItemClicked(num)"
+                    <li @onclick="()=>HandleItemClicked(num)" @ontouchend="()=>HandleItemClicked(num)"
                         disabled="@(!num.Enabled)"
                         completed="@(num.IsCompleted)"
                         selected="@(num.CurrentlySelected)">@num.Number</li>
@@ -63,7 +63,10 @@ along with SayedHa.Flashcards.  If not, see <https://www.gnu.org/licenses/>.
     <section id="specialCharArea">
         @if (SpecialCharsToDisplay?.Count > 0) {
             @foreach (var spc in SpecialCharsToDisplay) {
-                <span class="specialChar" @onclick=@(()=>HandleSpecialCharClicked(spc)) disabled="@(!spc.Enabled)">@((MarkupString)spc.SpecialChar)</span>
+                <span class="specialChar" 
+                    @onclick=@(()=>HandleSpecialCharClicked(spc)) 
+                    @ontouchend="()=>HandleSpecialCharClicked(spc)" 
+                    disabled="@(!spc.Enabled)">@((MarkupString)spc.SpecialChar)</span>
             }
         }
         else{

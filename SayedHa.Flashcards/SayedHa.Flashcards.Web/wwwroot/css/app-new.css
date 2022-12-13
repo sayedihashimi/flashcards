@@ -398,8 +398,10 @@ a[role="button"] {
             /*background: lightgreen;*/
             display:none;
         }
-#specialCharArea{
-    text-align:center;
+#specialCharArea {
+    text-align: center;
+    /* text selection can interfere with click/tap events. */
+    user-select: none;
 }
 
 .specialChar {

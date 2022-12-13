@@ -8,11 +8,11 @@ self.addEventListener('fetch', event => event.respondWith(onFetch(event)));
 
 // changing this version number will force the service worker to be updated
 // see: https://stackoverflow.com/a/66783449/105999
-const swVersion = "0.0.5";
+const swVersion = "0.0.8";
 
 const cacheNamePrefix = 'offline-cache-';
 const cacheName = `${cacheNamePrefix}${self.assetsManifest.version}`;
-const offlineAssetsInclude = [/\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/, /\.wav$/, /\.svg$/, /\.mp3$/ ];
+const offlineAssetsInclude = [/\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/, /\.wav$/, /\.svg$/, /\.mp3$/, /\.mp4$/ ];
 const offlineAssetsExclude = [ /^service-worker\.js$/ ];
 
 async function onInstall(event) {
